@@ -1,15 +1,8 @@
-import React from "react";
+import React from 'react'
+import { StyledLayout } from './style'
 
-interface LayoutProps {
+const Layout = () => {
+    return <StyledLayout></StyledLayout>
+}
 
-};
-
-const Layout = ({}: LayoutProps) => {
-  return (
-    <div>
-
-    </div>
-  );
-};
-
-export { Layout };
+export { Layout }
