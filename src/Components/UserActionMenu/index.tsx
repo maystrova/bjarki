@@ -1,24 +1,34 @@
 import React from 'react'
 import { MenuType } from '../../services/type'
+import { StyledMenu, StyledMenuItem } from '../HeaderMenu/style'
+import arrow from '../HeaderMenu/pics/arrow.svg'
+import { Icon, ICON_SIZE } from '../Icon'
 
 const USER_ACTION_MENU: MenuType[] = [
-    { title: 'Eng', icon: '' },
+    { title: 'Eng', icon: arrow },
     { title: 'Sign Up' },
     { title: 'Log In' },
 ]
 
 const UserActionMenu = () => {
     return (
-        <div>
+        <StyledMenu>
             {USER_ACTION_MENU.map(item => {
                 return (
-                    <a href=''>
-                        {item.title}
-                        {item.icon}
-                    </a>
+                    <StyledMenuItem>
+                        <a href=''>
+                            {item.title}
+                            {item.icon && (
+                                <Icon
+                                    size={ICON_SIZE.X_SMALL}
+                                    src={item.icon}
+                                />
+                            )}
+                        </a>
+                    </StyledMenuItem>
                 )
             })}
-        </div>
+        </StyledMenu>
     )
 }
 

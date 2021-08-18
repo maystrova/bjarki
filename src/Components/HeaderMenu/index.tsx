@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledMenu } from './style'
+import { StyledMenu, StyledMenuItem } from './style'
 import { MenuType } from '../../services/type'
 
 const HEADER_MENU: MenuType[] = [
@@ -13,7 +13,11 @@ const HeaderMenu = () => {
     return (
         <StyledMenu>
             {HEADER_MENU.map(item => {
-                return <a href=''>{item.title}</a>
+                return (
+                    <StyledMenuItem>
+                        <a href=''>{item.title}</a>
+                    </StyledMenuItem>
+                )
             })}
         </StyledMenu>
     )

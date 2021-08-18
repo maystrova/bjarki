@@ -5,10 +5,16 @@ const StyledHomePage = styled.div`
     background: black;
 `
 
-const StyledHomePageHeader = styled.header`
-    height: 88px;
-    display: flex;
-    justify-content: space-between;
+const StyledHomePageHeaderLogo = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 `
 
-export { StyledHomePage, StyledHomePageHeader }
+const StyledHomePageHeader = styled.header`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 85px;
+`
+
+export { StyledHomePage, StyledHomePageHeader, StyledHomePageHeaderLogo }

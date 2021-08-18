@@ -16,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
 
 const StyledLayout = styled.div`
     margin: 0 auto;
-    padding: 20px;
 `
 
 export { StyledLayout, GlobalStyle }

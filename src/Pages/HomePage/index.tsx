@@ -1,6 +1,10 @@
 import React from 'react'
 import { Logo } from '../../Components/Logo'
-import { StyledHomePage, StyledHomePageHeader } from './style'
+import {
+    StyledHomePage,
+    StyledHomePageHeader,
+    StyledHomePageHeaderLogo,
+} from './style'
 import { HeaderMenu } from '../../Components/HeaderMenu'
 import { UserActionMenu } from '../../Components/UserActionMenu'
 
@@ -10,8 +14,10 @@ const HomePage = ({}: HomePageProps) => {
     return (
         <StyledHomePage>
             <StyledHomePageHeader>
-                <Logo />
-                <HeaderMenu />
+                <StyledHomePageHeaderLogo>
+                    <Logo />
+                    <HeaderMenu />
+                </StyledHomePageHeaderLogo>
                 <UserActionMenu />
             </StyledHomePageHeader>
         </StyledHomePage>
