@@ -19,6 +19,11 @@ export enum CITIES {
     TOKYO = 'Tokyo',
 }
 
+export type MenuType = {
+    title: string
+    icon?: string
+}
+
 export type DestinationType = {
     city: CITIES
     country: COUNTRIES

@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    letter-spacing: 0.1px;
   }
 
   *,
@@ -15,6 +14,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const StyledLayout = styled.div``
+const StyledLayout = styled.div`
+    margin: 0 auto;
+    padding: 20px;
+`
 
 export { StyledLayout, GlobalStyle }

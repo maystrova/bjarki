@@ -1,6 +1,6 @@
-import { CITIES, COUNTRIES, DestinationType } from './type'
-import monteRosa from 'destinations/pics/monta-rosa-bg.png'
-import chonquing from 'destinations/pics/chonquing.png'
+import { CITIES, COUNTRIES, DestinationType } from '../services/type'
+import monteRosa from '../destinations/pics/monta-rosa-bg.png'
+import chonquing from '../destinations/pics/chonquing-bg.png'
 
 const DESTINATIONS: DestinationType[] = [
     {

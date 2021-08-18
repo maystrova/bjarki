@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, ReactChild, Dispatch } from 'react'
-import { DestinationType } from '../destinations/type'
+import { DestinationType } from '../services/type'
 import { DESTINATIONS } from '../destinations/destinations'
 import { ACTION } from './actions'
 import { reducer } from './reducer'
