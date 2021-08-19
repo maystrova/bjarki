@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
 const StyledHomePage = styled.div`
-    background: no-repeat url('../../destinations/pics/monta-rosa-bg.png');
-    background: black;
+    //background-image: url(./pics/monte-rosa-bg.jpg);
+    background-color: black;
     color: #fff;
     padding: 30px 85px;
     height: 100vh;
+    display: grid;
+    grid-row-gap: 180px;
 `
 
 const StyledHomePageHeaderLogo = styled.div`
@@ -20,9 +22,17 @@ const StyledHomePageHeader = styled.header`
     height: 88px;
 `
 
-const StyledHomePageContainer = styled.div``
+const StyledHomePageContainer = styled.div`
+    display: grid;
+    grid-template-columns: 60% 40%;
+`
 
-const StyledDestinationInfo = styled.div``
+const StyledDestinationInfo = styled.div`
+    display: grid;
+    grid-template-columns: 15% 85%;
+    align-items: center;
+    line-height: 1.5;
+`
 const StyledDiscover = styled.div`
     width: 96px;
 
@@ -45,16 +55,44 @@ const StyledWeather = styled.div`
     align-items: center;
 `
 
+const StyledDestinationTitle = styled.div`
+    display: flex;
+`
+
 const StyledCity = styled.h1`
     font-size: 80px;
 `
 
 const StyledCountry = styled.div`
+    display: flex;
+    justify-content: flex-end;
     font-size: 14px;
 `
 
-const StyledDate = styled.div``
+const StyledDate = styled.div`
+    display: flex;
+`
 
+const StyledDay = styled.span`
+    font-size: 24px;
+    margin-right: 3px;
+`
+
+const StyledMonth = styled.span`
+    font-size: 10px;
+    opacity: 0.8;
+`
+
+const StyledExplore = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+`
+
+const StyledExploreButton = styled.button`
+    background: transparent;
+    border: none;
+`
 export {
     StyledHomePage,
     StyledHomePageHeader,
@@ -66,4 +104,9 @@ export {
     StyledCity,
     StyledCountry,
     StyledDate,
+    StyledDay,
+    StyledMonth,
+    StyledExplore,
+    StyledDestinationTitle,
+    StyledExploreButton,
 }

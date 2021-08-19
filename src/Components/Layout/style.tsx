@@ -16,6 +16,11 @@ const GlobalStyle = createGlobalStyle`
 
 const StyledLayout = styled.div`
     margin: 0 auto;
+
+    & button {
+        cursor: pointer;
+        outline: none;
+    }
 `
 
 export { StyledLayout, GlobalStyle }
