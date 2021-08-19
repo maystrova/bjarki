@@ -17,4 +17,11 @@ const StyledHomePageHeader = styled.header`
     padding: 30px 85px;
 `
 
-export { StyledHomePage, StyledHomePageHeader, StyledHomePageHeaderLogo }
+const StyledHomePageContainer = styled.div``
+
+export {
+    StyledHomePage,
+    StyledHomePageHeader,
+    StyledHomePageHeaderLogo,
+    StyledHomePageContainer,
+}

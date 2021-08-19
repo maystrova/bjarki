@@ -17,6 +17,12 @@ const StyledIcon = styled.img`
     ${(props: StyledIconProps) =>
         props.size === ICON_SIZE.SMALL &&
         css`
+            width: 20px;
+        `}
+
+    ${(props: StyledIconProps) =>
+        props.size === ICON_SIZE.MEDIUM &&
+        css`
             width: 22px;
         `}
 `

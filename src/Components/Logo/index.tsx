@@ -6,7 +6,7 @@ import logo from '../../Components/Logo/wolf.svg'
 const Logo = () => {
     return (
         <StyledLogo>
-            <Icon size={ICON_SIZE.SMALL} src={logo} />
+            <Icon size={ICON_SIZE.MEDIUM} src={logo} />
             <h2>Bjarki</h2>
         </StyledLogo>
     )
