@@ -2,6 +2,7 @@ import React from 'react'
 import { StyledIcon } from './style'
 
 export enum ICON_SIZE {
+    XX_SMALL = 'xx_small',
     X_SMALL = 'x_small',
     SMALL = 'small',
     MEDIUM = 'medium',

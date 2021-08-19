@@ -20,7 +20,7 @@ const UserActionMenu = () => {
                             {item.title}
                             {item.icon && (
                                 <Icon
-                                    size={ICON_SIZE.X_SMALL}
+                                    size={ICON_SIZE.XX_SMALL}
                                     src={item.icon}
                                 />
                             )}
