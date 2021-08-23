@@ -9,9 +9,15 @@ const StyledIcon = styled.img`
     display: block;
 
     ${(props: StyledIconProps) =>
-        props.size === ICON_SIZE.XX_SMALL &&
+        props.size === ICON_SIZE.XXX_SMALL &&
         css`
             width: 6px;
+        `}
+
+    ${(props: StyledIconProps) =>
+        props.size === ICON_SIZE.XX_SMALL &&
+        css`
+            width: 8px;
         `}
 
     ${(props: StyledIconProps) =>

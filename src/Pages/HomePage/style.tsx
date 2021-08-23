@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 const StyledHomePage = styled.div`
     //background-image: url(./pics/monte-rosa-bg.jpg);
-    background-color: black;
+    background-color: gray;
     color: #fff;
     padding: 30px 85px;
-    height: 100vh;
+    height: 150vh;
     display: grid;
     grid-row-gap: 180px;
 `
@@ -93,6 +93,24 @@ const StyledExploreButton = styled.button`
     background: transparent;
     border: none;
 `
+const StyledHomePageFooter = styled.div``
+
+const StyledScroll = styled.div`
+    font-size: 12px;
+    margin-bottom: 8px;
+`
+
+const StyledScrollButton = styled.button`
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 export {
     StyledHomePage,
     StyledHomePageHeader,
@@ -109,4 +127,7 @@ export {
     StyledExplore,
     StyledDestinationTitle,
     StyledExploreButton,
+    StyledHomePageFooter,
+    StyledScroll,
+    StyledScrollButton,
 }

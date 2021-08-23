@@ -12,9 +12,12 @@ import {
     StyledExploreButton,
     StyledHomePage,
     StyledHomePageContainer,
+    StyledHomePageFooter,
     StyledHomePageHeader,
     StyledHomePageHeaderLogo,
     StyledMonth,
+    StyledScroll,
+    StyledScrollButton,
     StyledWeather,
 } from './style'
 import { HeaderMenu } from '../../Components/HeaderMenu'
@@ -24,6 +27,8 @@ import { Icon, ICON_SIZE } from '../../Components/Icon'
 import further from './pics/arrow-right.svg'
 import cloud from './pics/cloud.svg'
 import explore from './pics/explore.png'
+import down from './pics/arrow-down.svg'
+import { Search } from '../../Components/Search'
 
 interface HomePageProps {}
 
@@ -75,7 +80,15 @@ const HomePage = ({}: HomePageProps) => {
                     </StyledExploreButton>
                 </StyledExplore>
             </StyledHomePageContainer>
-            <footer></footer>
+            <StyledHomePageFooter>
+                <div>
+                    <StyledScroll>Scroll</StyledScroll>
+                    <StyledScrollButton>
+                        <Icon size={ICON_SIZE.XX_SMALL} src={down} />
+                    </StyledScrollButton>
+                </div>
+                <Search />
+            </StyledHomePageFooter>
         </StyledHomePage>
     )
 }
