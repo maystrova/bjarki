@@ -121,7 +121,6 @@ const StyledScrollButton = styled.button`
     align-items: center;
 `
 
-
 export {
     StyledHomePage,
     StyledHomePageHeader,
