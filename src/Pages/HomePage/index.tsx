@@ -6,6 +6,7 @@ import {
     StyledHomePageHeader,
     StyledHomePageHeaderLogo,
     StyledScroll,
+    StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
 } from './style'
@@ -33,13 +34,16 @@ const HomePage = ({}: HomePageProps) => {
             <Destination />
             <StyledHomePageFooter>
                 <StyledSearchActions>
-                    <div>
+                    <StyledScrollArea>
                         {' '}
-                        <StyledScroll>Scroll</StyledScroll>
-                        <StyledScrollButton>
-                            <Icon size={ICON_SIZE.XX_SMALL} src={down} />
-                        </StyledScrollButton>
-                    </div>
+                        <div>
+                            {' '}
+                            <StyledScroll>Scroll</StyledScroll>
+                            <StyledScrollButton>
+                                <Icon size={ICON_SIZE.XX_SMALL} src={down} />
+                            </StyledScrollButton>
+                        </div>
+                    </StyledScrollArea>
                     <Search />
                 </StyledSearchActions>
             </StyledHomePageFooter>

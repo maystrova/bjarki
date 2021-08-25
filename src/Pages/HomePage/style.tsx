@@ -27,10 +27,6 @@ const StyledHomePageFooter = styled.div`
     display: grid;
     grid-template-columns: 1fr 11fr;
     height: 72px;
-    //position: absolute;
-    //bottom: 0;
-    //right: 0;
-    box-shadow: 1px 1px rgba(63, 63, 63, 0.1);
 `
 
 const StyledScroll = styled.div`
@@ -58,6 +54,12 @@ const StyledSearchActions = styled.div`
     grid-template-columns: 1fr 11fr;
 `
 
+const StyledScrollArea = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+`
+
 export {
     StyledHomePage,
     StyledHomePageHeader,
@@ -66,4 +68,5 @@ export {
     StyledScroll,
     StyledScrollButton,
     StyledSearchActions,
+    StyledScrollArea,
 }
