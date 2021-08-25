@@ -1,5 +1,11 @@
 import React from 'react'
-import { StyledSearch } from './style'
+import {
+    StyledSearch,
+    StyledSearchItem,
+    StyledSearchAction,
+    StyledSearchItemTitle,
+    StyledSearchInput,
+} from './style'
 
 import calendarIcon from './pics/calendar-icon.svg'
 import locationIcon from './pics/location-icon.svg'
@@ -45,19 +51,23 @@ const Search = ({}: SearchProps) => {
         <StyledSearch>
             {SEARCH.map(searchItem => {
                 return (
-                    <div>
-                        <div>{searchItem.title}</div>
-                        <div>
-                            <Icon
-                                size={ICON_SIZE.X_SMALL}
-                                src={searchItem.icon}
-                            />
-                            <input
-                                type={searchItem.inputType}
-                                placeholder={searchItem.placeholder}
-                            />
-                        </div>
-                    </div>
+                    <StyledSearchAction>
+                        <StyledSearchItem>
+                            <StyledSearchItemTitle>
+                                {searchItem.title}
+                            </StyledSearchItemTitle>
+                            <StyledSearchInput>
+                                <Icon
+                                    size={ICON_SIZE.X_SMALL}
+                                    src={searchItem.icon}
+                                />
+                                <input
+                                    type={searchItem.inputType}
+                                    placeholder={searchItem.placeholder}
+                                />
+                            </StyledSearchInput>
+                        </StyledSearchItem>
+                    </StyledSearchAction>
                 )
             })}
         </StyledSearch>

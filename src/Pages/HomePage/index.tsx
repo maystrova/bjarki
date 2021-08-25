@@ -19,6 +19,7 @@ import {
     StyledScroll,
     StyledScrollButton,
     StyledWeather,
+    StyledScrollTitle,
 } from './style'
 import { HeaderMenu } from '../../Components/HeaderMenu'
 import { UserActionMenu } from '../../Components/UserActionMenu'
@@ -81,12 +82,15 @@ const HomePage = ({}: HomePageProps) => {
                 </StyledExplore>
             </StyledHomePageContainer>
             <StyledHomePageFooter>
-                <div>
-                    <StyledScroll>Scroll</StyledScroll>
-                    <StyledScrollButton>
-                        <Icon size={ICON_SIZE.XX_SMALL} src={down} />
-                    </StyledScrollButton>
-                </div>
+                <StyledScroll>
+                    <div>
+                        {' '}
+                        <StyledScrollTitle>Scroll</StyledScrollTitle>
+                        <StyledScrollButton>
+                            <Icon size={ICON_SIZE.XX_SMALL} src={down} />
+                        </StyledScrollButton>
+                    </div>
+                </StyledScroll>
                 <Search />
             </StyledHomePageFooter>
         </StyledHomePage>

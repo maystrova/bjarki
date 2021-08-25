@@ -93,9 +93,19 @@ const StyledExploreButton = styled.button`
     background: transparent;
     border: none;
 `
-const StyledHomePageFooter = styled.div``
+const StyledHomePageFooter = styled.div`
+    display: grid;
+    grid-template-columns: 100px 100%;
+    height: 72px;
+`
 
 const StyledScroll = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const StyledScrollTitle = styled.div`
     font-size: 12px;
     margin-bottom: 8px;
 `
@@ -110,6 +120,7 @@ const StyledScrollButton = styled.button`
     justify-content: center;
     align-items: center;
 `
+
 
 export {
     StyledHomePage,
@@ -130,4 +141,5 @@ export {
     StyledHomePageFooter,
     StyledScroll,
     StyledScrollButton,
+    StyledScrollTitle,
 }
