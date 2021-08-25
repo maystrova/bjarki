@@ -11,6 +11,7 @@ import calendarIcon from './pics/calendar-icon.svg'
 import locationIcon from './pics/location-icon.svg'
 import chooseNumberIcon from './pics/search-choose-number.svg'
 import { Icon, ICON_SIZE } from '../Icon'
+import { Button, BUTTON_TYPE } from '../Button'
 
 interface SearchProps {}
 
@@ -70,6 +71,11 @@ const Search = ({}: SearchProps) => {
                     </StyledSearchAction>
                 )
             })}
+            <Button
+                title={'Search'}
+                onClick={() => {}}
+                type={BUTTON_TYPE.PRIMARY}
+            />
         </StyledSearch>
     )
 }

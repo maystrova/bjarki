@@ -4,7 +4,7 @@ const StyledSearch = styled.div`
     height: 72px;
     background: #fff;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 `
 
 const StyledSearchAction = styled.div`

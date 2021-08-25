@@ -17,6 +17,8 @@ const StyledButton = styled.button`
             border: none;
             background-color: rgba(252, 69, 0, 1);
             text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 700;
         `}
 `
 
