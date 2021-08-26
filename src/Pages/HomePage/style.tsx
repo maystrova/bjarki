@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
+import monteRosa from './pics/monte-rosa-bg.jpg'
+
 const StyledHomePage = styled.div`
-    //background-image: url(./pics/monte-rosa-bg.jpg);
+    background-image: url(${monteRosa});
     background-color: gray;
     color: #fff;
     padding: 30px 85px;
