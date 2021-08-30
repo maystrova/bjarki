@@ -1,10 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-import monteRosa from './pics/monte-rosa.jpg'
+import { CITIES } from 'services/type'
+
+import monteRosa from 'destinations/pics/monte-rosa.jpg'
+import chongqing from 'destinations/pics/chongqing.jpg'
+import venice from 'destinations/pics/venice.jpg'
+
+interface StyledHomePageProps {
+    city: CITIES
+}
 
 const StyledHomePage = styled.div`
-    background: no-repeat url(${monteRosa});
-  background-size: cover;
     background-color: gray;
     color: #fff;
     padding: 30px 85px;
@@ -12,6 +18,27 @@ const StyledHomePage = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     position: relative;
+
+    ${(props: StyledHomePageProps) =>
+        props.city === CITIES.MONTE_ROSA &&
+        css`
+            background: no-repeat url(${monteRosa});
+            background-size: cover;
+        `}
+
+    ${(props: StyledHomePageProps) =>
+        props.city === CITIES.CHONGQING &&
+        css`
+            background: no-repeat url(${chongqing});
+            background-size: cover;
+        `}
+
+    ${(props: StyledHomePageProps) =>
+        props.city === CITIES.VENICE &&
+        css`
+            background: no-repeat url(${venice});
+            background-size: cover;
+        `}
 `
 
 const StyledHomePageHeaderLogo = styled.div`

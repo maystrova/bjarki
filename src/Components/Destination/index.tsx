@@ -12,25 +12,32 @@ import {
     StyledDestinationTitle,
     StyledDiscover,
     StyledMonth,
-    StyledWeather,
     StyledExplore,
     StyledExploreButton,
 } from './style'
-import cloud from 'Pages/HomePage/pics/cloud.svg'
 import further from 'Pages/HomePage/pics/arrow-right.svg'
 import explore from 'Pages/HomePage/pics/explore.png'
+import { Weather, WeatherProps } from '../Weather'
 
 interface DestinationProps {
     city: string
     country: string
-    weather: string
+    weatherIcon: string
+    temperature: string
+    weatherDescription: string
 }
 
 const today = new Date()
 const date = today.getDate()
-const month = today.getMonth()
+const month = today.getMonth() + 1
 
-const Destination = ({ country, city }: DestinationProps) => {
+const Destination = ({
+    country,
+    city,
+    temperature,
+    weatherDescription,
+    weatherIcon,
+}: DestinationProps) => {
     return (
         <StyledDestination>
             <StyledDestinationInfo>
@@ -39,11 +46,11 @@ const Destination = ({ country, city }: DestinationProps) => {
                     <StyledMonth>{` / ${month}`}</StyledMonth>
                 </StyledDate>
                 <div>
-                    <StyledWeather>
-                        <Icon size={ICON_SIZE.SMALL} src={cloud} />
-                        <span>-16C</span>
-                        <span>Very Cold</span>
-                    </StyledWeather>
+                    <Weather
+                        icon={weatherIcon}
+                        temperature={temperature}
+                        description={weatherDescription}
+                    />
                     <StyledDestinationTitle>
                         <StyledCity>{city}</StyledCity>
 

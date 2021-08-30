@@ -15,7 +15,7 @@ const UserActionMenu = () => {
         <StyledMenu>
             {USER_ACTION_MENU.map(item => {
                 return (
-                    <StyledMenuItem>
+                    <StyledMenuItem key={item.title}>
                         <a href=''>
                             {item.title}
                             {item.icon && (

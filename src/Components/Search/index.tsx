@@ -52,7 +52,7 @@ const Search = ({}: SearchProps) => {
         <StyledSearch>
             {SEARCH.map(searchItem => {
                 return (
-                    <StyledSearchAction>
+                    <StyledSearchAction key={searchItem.title}>
                         <StyledSearchItem>
                             <StyledSearchItemTitle>
                                 {searchItem.title}

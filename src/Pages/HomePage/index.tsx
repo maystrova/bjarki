@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BjarkiContext } from 'context/storeContext'
 import { useParams } from 'react-router-dom'
 
-import { DestinationType } from 'services/type'
+import { CITIES, DestinationType } from 'services/type'
 
 import { Logo } from 'Components/Logo'
 import { HeaderMenu } from 'Components/HeaderMenu'
@@ -24,8 +24,11 @@ import {
 
 import down from 'Pages/HomePage/pics/arrow-down.svg'
 
+const API_KEY = '6cd56896dcdbfe08ac17e00b92366617'
+
 const HomePage = () => {
     const { store } = useContext(BjarkiContext)
+    const [weather, setWeather] = useState<any>([])
 
     let params = useParams<{ alias: string }>()
 
@@ -33,11 +36,26 @@ const HomePage = () => {
         destination => destination.alias === params.alias,
     )
 
+    const getWeather = async (): Promise<any> => {
+        const api_url = await fetch(
+            `api.openweathermap.org/data/2.5/weather?q=${destination?.city}&callback=test&appid=${API_KEY}`,
+        )
+        const weatherData = api_url.json()
+        console.log(weatherData)
+    }
+
+    // useEffect(() => {
+    //     getWeather()
+    // }, [])
+
     return (
-        <StyledHomePage>
+        <StyledHomePage
+            city={destination ? destination.city : CITIES.MONTE_ROSA}
+        >
             <StyledHomePageHeader>
                 <StyledHomePageHeaderLogo>
                     <Logo />
+                    <button onClick={() => getWeather()}>click</button>
                     <HeaderMenu />
                 </StyledHomePageHeaderLogo>
                 <UserActionMenu />
@@ -46,7 +64,9 @@ const HomePage = () => {
                 <Destination
                     city={destination.city}
                     country={destination.country}
-                    weather={destination.weather}
+                    weatherDescription={weather}
+                    weatherIcon={''}
+                    temperature={''}
                 />
             )}
             <StyledHomePageFooter>

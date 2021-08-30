@@ -3,8 +3,7 @@ import styled from 'styled-components'
 const StyledDestination = styled.div`
     display: grid;
     grid-template-columns: 60% 40%;
-  text-shadow: 0.5px 0.5px 0.5px black
-
+    text-shadow: 0.5px 0.5px 0.5px black;
 `
 const StyledDestinationInfo = styled.div`
     display: grid;
@@ -24,14 +23,6 @@ const StyledDiscover = styled.div`
         color: #fff;
         border-bottom: 1.5px solid #fff;
     }
-`
-
-const StyledWeather = styled.div`
-    width: 114px;
-    font-size: 13px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 `
 
 const StyledDestinationTitle = styled.div`
@@ -77,7 +68,6 @@ export {
     StyledDestination,
     StyledDestinationInfo,
     StyledDiscover,
-    StyledWeather,
     StyledCity,
     StyledCountry,
     StyledDate,

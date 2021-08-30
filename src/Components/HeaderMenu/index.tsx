@@ -14,7 +14,7 @@ const HeaderMenu = () => {
         <StyledMenu>
             {HEADER_MENU.map(item => {
                 return (
-                    <StyledMenuItem>
+                    <StyledMenuItem key={item.title}>
                         <a href=''>{item.title}</a>
                     </StyledMenuItem>
                 )
