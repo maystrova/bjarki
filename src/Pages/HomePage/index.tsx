@@ -1,5 +1,16 @@
-import React from 'react'
-import { Logo } from '../../Components/Logo'
+import React, { useContext } from 'react'
+import { BjarkiContext } from 'context/storeContext'
+import { useParams } from 'react-router-dom'
+
+import { DestinationType } from 'services/type'
+
+import { Logo } from 'Components/Logo'
+import { HeaderMenu } from 'Components/HeaderMenu'
+import { UserActionMenu } from 'Components/UserActionMenu'
+import { Icon, ICON_SIZE } from 'Components/Icon'
+import { Search } from 'Components/Search'
+import { Destination } from 'Components/Destination'
+
 import {
     StyledHomePage,
     StyledHomePageFooter,
@@ -10,18 +21,18 @@ import {
     StyledScrollButton,
     StyledSearchActions,
 } from './style'
-import { HeaderMenu } from '../../Components/HeaderMenu'
-import { UserActionMenu } from '../../Components/UserActionMenu'
 
-import { Icon, ICON_SIZE } from '../../Components/Icon'
+import down from 'Pages/HomePage/pics/arrow-down.svg'
 
-import down from './pics/arrow-down.svg'
-import { Search } from '../../Components/Search'
-import { Destination } from '../../Components/Destination'
+const HomePage = () => {
+    const { store } = useContext(BjarkiContext)
 
-interface HomePageProps {}
+    let params = useParams<{ alias: string }>()
 
-const HomePage = ({}: HomePageProps) => {
+    const destination: DestinationType | undefined = store.destinations.find(
+        destination => destination.alias === params.alias,
+    )
+
     return (
         <StyledHomePage>
             <StyledHomePageHeader>
@@ -31,11 +42,16 @@ const HomePage = ({}: HomePageProps) => {
                 </StyledHomePageHeaderLogo>
                 <UserActionMenu />
             </StyledHomePageHeader>
-            <Destination />
+            {destination && (
+                <Destination
+                    city={destination.city}
+                    country={destination.country}
+                    weather={destination.weather}
+                />
+            )}
             <StyledHomePageFooter>
                 <StyledSearchActions>
                     <StyledScrollArea>
-                        {' '}
                         <div>
                             {' '}
                             <StyledScroll>Scroll</StyledScroll>

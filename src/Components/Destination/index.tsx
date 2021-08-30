@@ -1,4 +1,7 @@
 import React from 'react'
+
+import { Icon, ICON_SIZE } from 'Components/Icon'
+
 import { StyledDestination } from './style'
 import {
     StyledCity,
@@ -13,18 +16,21 @@ import {
     StyledExplore,
     StyledExploreButton,
 } from './style'
-import { Icon, ICON_SIZE } from '../Icon'
-import cloud from '../../Pages/HomePage/pics/cloud.svg'
-import further from '../../Pages/HomePage/pics/arrow-right.svg'
-import explore from '../../Pages/HomePage/pics/explore.png'
+import cloud from 'Pages/HomePage/pics/cloud.svg'
+import further from 'Pages/HomePage/pics/arrow-right.svg'
+import explore from 'Pages/HomePage/pics/explore.png'
 
-interface DestinationProps {}
+interface DestinationProps {
+    city: string
+    country: string
+    weather: string
+}
 
 const today = new Date()
 const date = today.getDate()
 const month = today.getMonth()
 
-const Destination = ({}: DestinationProps) => {
+const Destination = ({ country, city }: DestinationProps) => {
     return (
         <StyledDestination>
             <StyledDestinationInfo>
@@ -39,15 +45,15 @@ const Destination = ({}: DestinationProps) => {
                         <span>Very Cold</span>
                     </StyledWeather>
                     <StyledDestinationTitle>
-                        <StyledCity>Monte Rosa</StyledCity>
+                        <StyledCity>{city}</StyledCity>
 
                         <StyledCountry>
-                            <span>Switzerland</span>
+                            <span>{country}</span>
                         </StyledCountry>
                     </StyledDestinationTitle>
 
                     <StyledDiscover>
-                        <a href=''>
+                        <a href='#'>
                             <span>Discover</span>
                             <Icon size={ICON_SIZE.X_SMALL} src={further} />
                         </a>
