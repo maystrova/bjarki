@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { BjarkiContext } from 'context/storeContext'
 import { useParams } from 'react-router-dom'
 
 import { CITIES, DestinationType } from 'services/type'
+import { ClientWeather, getWeather } from 'services/weather'
 
 import { Logo } from 'Components/Logo'
 import { HeaderMenu } from 'Components/HeaderMenu'
@@ -23,12 +24,16 @@ import {
 } from './style'
 
 import down from 'Pages/HomePage/pics/arrow-down.svg'
-
-const API_KEY = '6cd56896dcdbfe08ac17e00b92366617'
+import clouds from 'Pages/HomePage/pics/cloudy-icon.svg'
+import rain from 'Pages/HomePage/pics/light-rain.svg'
+import defaultWeather from 'Pages/HomePage/pics/cloudy-and-sun.svg'
 
 const HomePage = () => {
     const { store } = useContext(BjarkiContext)
-    const [weather, setWeather] = useState<any>([])
+    const [weather, setWeather] = useState<ClientWeather>({
+        temp: 0,
+        feels_like: '',
+    })
 
     let params = useParams<{ alias: string }>()
 
@@ -36,17 +41,27 @@ const HomePage = () => {
         destination => destination.alias === params.alias,
     )
 
-    const getWeather = async (): Promise<any> => {
-        const api_url = await fetch(
-            `api.openweathermap.org/data/2.5/weather?q=${destination?.city}&callback=test&appid=${API_KEY}`,
-        )
-        const weatherData = api_url.json()
-        console.log(weatherData)
+    const handleGetWeather = async (city: string) => {
+        try {
+            const cityWeather = await getWeather(city)
+
+            // const weatherDescription = cityWeather?.weather.
+            if (cityWeather) {
+                setWeather({
+                    temp: cityWeather.main.temp - 273.15,
+                    feels_like: cityWeather.weather[0].main.toString(),
+                })
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
 
-    // useEffect(() => {
-    //     getWeather()
-    // }, [])
+    useEffect(() => {
+        if (destination) {
+            handleGetWeather(destination.city)
+        }
+    }, [destination])
 
     return (
         <StyledHomePage
@@ -55,7 +70,6 @@ const HomePage = () => {
             <StyledHomePageHeader>
                 <StyledHomePageHeaderLogo>
                     <Logo />
-                    <button onClick={() => getWeather()}>click</button>
                     <HeaderMenu />
                 </StyledHomePageHeaderLogo>
                 <UserActionMenu />
@@ -64,9 +78,15 @@ const HomePage = () => {
                 <Destination
                     city={destination.city}
                     country={destination.country}
-                    weatherDescription={weather}
-                    weatherIcon={''}
-                    temperature={''}
+                    weatherDescription={weather.feels_like}
+                    weatherIcon={
+                        weather.feels_like === 'Clouds'
+                            ? clouds
+                            : weather.feels_like === 'Rain'
+                            ? rain
+                            : defaultWeather
+                    }
+                    temperature={`${Math.round(weather.temp).toString()}ºC`}
                 />
             )}
             <StyledHomePageFooter>
