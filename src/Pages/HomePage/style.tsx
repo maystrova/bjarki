@@ -90,6 +90,19 @@ const StyledScrollArea = styled.div`
     align-items: center;
 `
 
+const StyledChooseOption = styled.div`
+    display: flex;
+    margin-bottom: 14px;
+`
+
+const StyledChosenOption = styled.div`
+    margin-right: 30px;
+
+    & input {
+        margin-right: 5px;
+    }
+`
+
 export {
     StyledHomePage,
     StyledHomePageHeader,
@@ -99,4 +112,6 @@ export {
     StyledScrollButton,
     StyledSearchActions,
     StyledScrollArea,
+    StyledChooseOption,
+    StyledChosenOption,
 }

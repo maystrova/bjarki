@@ -21,6 +21,8 @@ import {
     StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
+    StyledChooseOption,
+    StyledChosenOption,
 } from './style'
 
 import down from 'Pages/HomePage/pics/arrow-down.svg'
@@ -100,7 +102,19 @@ const HomePage = () => {
                             </StyledScrollButton>
                         </div>
                     </StyledScrollArea>
-                    <Search />
+                    <div>
+                        <StyledChooseOption>
+                            <StyledChosenOption>
+                                <input type='radio' />
+                                <span>Places to stay</span>
+                            </StyledChosenOption>
+                            <StyledChosenOption>
+                                <input type='radio' />
+                                <span>Adventures</span>
+                            </StyledChosenOption>
+                        </StyledChooseOption>
+                        <Search />
+                    </div>
                 </StyledSearchActions>
             </StyledHomePageFooter>
         </StyledHomePage>
