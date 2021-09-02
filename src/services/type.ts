@@ -17,6 +17,8 @@ export enum CITIES {
     VENICE = 'Venice',
     REYNISFJARA = 'Reynisfjara',
     TOKYO = 'Tokyo',
+    NEW_YORK = 'New York',
+    SAN_FRANCISCO = 'San Francisco',
 }
 
 export type MenuType = {

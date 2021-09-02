@@ -2,6 +2,7 @@ import React from 'react'
 import {
     StyledSearch,
     StyledSearchAction,
+    StyledSearchDate,
     StyledSearchInput,
     StyledSearchItem,
     StyledSearchItemTitle,
@@ -41,9 +42,8 @@ const Search = ({ onDestinationSearchTape, value }: SearchProps) => {
                         Check in - Check out
                     </StyledSearchItemTitle>
                     <StyledSearchInput>
-                        {/*<Icon size={ICON_SIZE.X_SMALL} src={calendarIcon} />*/}
-                        <input type='date' />
-                        <input type='date' />
+                        <StyledSearchDate type='date' />
+                        <StyledSearchDate type='date' />
                     </StyledSearchInput>
                 </StyledSearchItem>
             </StyledSearchAction>
@@ -51,8 +51,11 @@ const Search = ({ onDestinationSearchTape, value }: SearchProps) => {
                 <StyledSearchItem>
                     <StyledSearchItemTitle>Travellers</StyledSearchItemTitle>
                     <StyledSearchInput>
-                        <input type='text' placeholder={'Number of people'} />
-                        <Icon size={ICON_SIZE.X_SMALL} src={chooseNumberIcon} />
+                        <input
+                            type='number'
+                            min='1'
+                            placeholder={'Number of people'}
+                        />
                     </StyledSearchInput>
                 </StyledSearchItem>
             </StyledSearchAction>

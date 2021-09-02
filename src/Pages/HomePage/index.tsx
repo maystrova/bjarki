@@ -97,7 +97,7 @@ const HomePage = () => {
                         <div>
                             {' '}
                             <StyledScroll>Scroll</StyledScroll>
-                            <StyledScrollButton>
+                            <StyledScrollButton onClick={() => {}}>
                                 <Icon size={ICON_SIZE.XX_SMALL} src={down} />
                             </StyledScrollButton>
                         </div>

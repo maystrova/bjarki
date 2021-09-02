@@ -5,6 +5,12 @@ import { CITIES } from 'services/type'
 import monteRosa from 'destinations/pics/monte-rosa.jpg'
 import chongqing from 'destinations/pics/chongqing.jpg'
 import venice from 'destinations/pics/venice.jpg'
+import newYork from 'destinations/pics/new-york.jpg'
+import sfo from 'destinations/pics/sfo.jpg'
+import reynisfjara from 'destinations/pics/reynisfjara.jpg'
+import tokyo from 'destinations/pics/tokyo.jpg'
+import yosemite from 'destinations/pics/yosemite.jpg'
+import luangPrabang from 'destinations/pics/luang-prabang.jpg'
 
 interface StyledHomePageProps {
     city: CITIES
@@ -37,6 +43,48 @@ const StyledHomePage = styled.div`
         props.city === CITIES.VENICE &&
         css`
             background: no-repeat url(${venice});
+            background-size: cover;
+        `}
+
+    ${(props: StyledHomePageProps) =>
+        props.city === CITIES.NEW_YORK &&
+        css`
+            background: no-repeat url(${newYork});
+            background-size: cover;
+        `}
+
+    ${(props: StyledHomePageProps) =>
+        props.city === CITIES.SAN_FRANCISCO &&
+        css`
+            background: no-repeat url(${sfo});
+            background-size: cover;
+        `}
+
+    ${(props: StyledHomePageProps) =>
+        props.city === CITIES.REYNISFJARA &&
+        css`
+            background: no-repeat url(${reynisfjara});
+            background-size: cover;
+        `}
+
+    ${(props: StyledHomePageProps) =>
+        props.city === CITIES.TOKYO &&
+        css`
+            background: no-repeat url(${tokyo});
+            background-size: cover;
+        `}
+
+    ${(props: StyledHomePageProps) =>
+        props.city === CITIES.YOSEMITE &&
+        css`
+            background: no-repeat url(${yosemite});
+            background-size: cover;
+        `}
+
+    ${(props: StyledHomePageProps) =>
+        props.city === CITIES.LUANG_PRABANG &&
+        css`
+            background: no-repeat url(${luangPrabang});
             background-size: cover;
         `}
 `
