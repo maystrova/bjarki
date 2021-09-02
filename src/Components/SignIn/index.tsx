@@ -3,10 +3,17 @@ import React from 'react'
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import { Button, BUTTON_TYPE } from 'Components/Button'
 
-import { StyledSignIn } from './style'
+import {
+    StyledSignIn,
+    StyledSignInActions,
+    StyledSignInField,
+    StyledSignInHeader,
+} from './style'
 
 import google from 'Components/SignIn/pics/google-icon.svg'
 import facebook from 'Components/SignIn/pics/fb-icon.svg'
+import close from 'Components/SignIn/pics/close-icon.svg'
+import hidePassword from 'Components/SignIn/pics/hide-password.svg'
 
 interface SignInProps {
     isOpen: boolean
@@ -25,7 +32,10 @@ interface SignInButtonType {
 const buttonTitleSample = 'Sign in with'
 
 const SignIn = ({ isOpen }: SignInProps) => {
-    const SIGN_IN: SignInType[] = [{ title: 'Username' }, { title: 'Password' }]
+    const SIGN_IN: SignInType[] = [
+        { title: 'Username' },
+        { title: 'Password', icon: hidePassword },
+    ]
 
     const SIGN_IN_BUTTONS: SignInButtonType[] = [
         { title: `${buttonTitleSample} Google`, icon: google },
@@ -34,21 +44,29 @@ const SignIn = ({ isOpen }: SignInProps) => {
 
     return (
         <StyledSignIn>
-            <header>
-                <button></button>
-                <h1>Sign In</h1>
-            </header>
-            <div>
+            <StyledSignInHeader>
+                <button>
+                    <Icon size={ICON_SIZE.X_SMALL} src={close} />
+                </button>
+            </StyledSignInHeader>
+            <h1>Sign In</h1>
+
+            <StyledSignInActions>
                 {SIGN_IN.map(field => {
                     return (
-                        <div key={field.title}>
-                            <input type='text' placeholder={field.title} />
-                            {field.icon && (
-                                <Icon
-                                    size={ICON_SIZE.X_SMALL}
-                                    src={field.icon}
-                                />
-                            )}
+                        <div>
+                            <StyledSignInField key={field.title}>
+                                <input type='text' placeholder={field.title} />
+                                {field.icon && (
+                                    <button>
+                                        {' '}
+                                        <Icon
+                                            size={ICON_SIZE.SMALL}
+                                            src={field.icon}
+                                        />
+                                    </button>
+                                )}
+                            </StyledSignInField>
                         </div>
                     )
                 })}
@@ -65,7 +83,7 @@ const SignIn = ({ isOpen }: SignInProps) => {
                     onClick={() => {}}
                     type={BUTTON_TYPE.PRIMARY}
                 />
-            </div>
+            </StyledSignInActions>
             <div>
                 <span>or</span>
             </div>

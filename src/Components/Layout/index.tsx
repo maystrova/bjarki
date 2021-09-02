@@ -29,7 +29,7 @@ const Layout = () => {
                     </Route>
                 </Switch>
 
-                {/*<SignIn isOpen={isShowAuthorizationWindow} />*/}
+                <SignIn isOpen={isShowAuthorizationWindow} />
             </StyledLayout>
         </BrowserRouter>
     )
