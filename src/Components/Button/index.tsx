@@ -5,6 +5,8 @@ export enum BUTTON_WIDTH {}
 
 export enum BUTTON_TYPE {
     PRIMARY = 'Primary',
+    ONLY_TEXT = 'Only_text',
+    UNDERLINED = 'Underlined',
 }
 
 interface ButtonProps {
