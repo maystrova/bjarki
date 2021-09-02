@@ -18,13 +18,18 @@ const Layout = () => {
         <BrowserRouter>
             <StyledLayout>
                 <GlobalStyle />
-                <Header />
+                <Header
+                    onLogInClicked={() => setIsShowAuthorizationWindow(true)}
+                    onSignUpClicked={() => setIsShowAuthorizationWindow(true)}
+                    onSwitchLangClicked={() => {}}
+                />
                 <Switch>
                     <Route path={[ROUTES.HOME_PAGE, '/']}>
                         <HomePage />
                     </Route>
                 </Switch>
-                {isShowAuthorizationWindow && <SignIn />}
+
+                {/*<SignIn isOpen={isShowAuthorizationWindow} />*/}
             </StyledLayout>
         </BrowserRouter>
     )

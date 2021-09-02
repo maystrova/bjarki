@@ -4,6 +4,7 @@ const StyledDestination = styled.div`
     display: grid;
     grid-template-columns: 60% 40%;
     text-shadow: 0.5px 0.5px 0.5px black;
+    padding: 0 85px;
 `
 const StyledDestinationInfo = styled.div`
     display: grid;

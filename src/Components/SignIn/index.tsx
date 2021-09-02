@@ -8,7 +8,9 @@ import { StyledSignIn } from './style'
 import google from 'Components/SignIn/pics/google-icon.svg'
 import facebook from 'Components/SignIn/pics/fb-icon.svg'
 
-interface SignInProps {}
+interface SignInProps {
+    isOpen: boolean
+}
 
 interface SignInType {
     title: string
@@ -22,7 +24,7 @@ interface SignInButtonType {
 
 const buttonTitleSample = 'Sign in with'
 
-const SignIn = ({}: SignInProps) => {
+const SignIn = ({ isOpen }: SignInProps) => {
     const SIGN_IN: SignInType[] = [{ title: 'Username' }, { title: 'Password' }]
 
     const SIGN_IN_BUTTONS: SignInButtonType[] = [

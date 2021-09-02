@@ -19,10 +19,9 @@ interface StyledHomePageProps {
 const StyledHomePage = styled.div`
     background-color: gray;
     color: #fff;
-    padding: 30px 85px;
     height: 100vh;
     display: grid;
-    grid-template-rows: 90% 1fr;
+    grid-template-rows: 80% 1fr;
 
     ${(props: StyledHomePageProps) =>
         props.city === CITIES.MONTE_ROSA &&
@@ -89,9 +88,10 @@ const StyledHomePage = styled.div`
 `
 
 const StyledHomePageFooter = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 11fr;
-    height: 72px;
+    position: absolute;
+    bottom: 0;
+    left: 85px;
+    right: 0;
 `
 
 const StyledScroll = styled.div`
@@ -111,12 +111,8 @@ const StyledScrollButton = styled.button`
 `
 
 const StyledSearchActions = styled.div`
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 85px;
     display: grid;
-    grid-template-columns: 1fr 11fr;
+    grid-template-columns: 10% 90%;
 `
 
 const StyledScrollArea = styled.div`
@@ -129,6 +125,7 @@ const StyledChooseOption = styled.div`
     display: flex;
     margin-bottom: 14px;
     align-items: center;
+    margin-left: 10%;
 `
 
 const StyledChosenOption = styled.div`

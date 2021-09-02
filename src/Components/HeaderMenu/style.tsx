@@ -12,17 +12,21 @@ const StyledMenuItem = styled.div`
     align-items: center;
     font-size: 14px;
     margin-right: 30px;
+
     :last-child {
         margin-right: 0;
     }
-    & a {
-        text-decoration: none;
+    & button {
         color: #fff;
         display: flex;
-    }
+        align-items: center;
+        background: transparent;
+        outline: none;
+        border: none;
 
-    & img {
-        margin-left: 3px;
+        & img {
+            margin-left: 3px;
+        }
     }
 `
 

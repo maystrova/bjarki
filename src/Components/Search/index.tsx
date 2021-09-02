@@ -12,7 +12,7 @@ import calendarIcon from 'Components/Search/pics/calendar-icon.svg'
 import locationIcon from 'Components/Search/pics/location-icon.svg'
 import chooseNumberIcon from 'Components/Search/pics/search-choose-number.svg'
 import { Icon, ICON_SIZE } from 'Components/Icon'
-import { Button, BUTTON_TYPE } from 'Components/Button'
+import { Button, BUTTON_TYPE, BUTTON_WIDTH } from 'Components/Button'
 
 interface SearchProps {
     onDestinationSearchTape: (event: any) => void

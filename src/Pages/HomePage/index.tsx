@@ -80,6 +80,16 @@ const HomePage = () => {
                 />
             )}
             <StyledHomePageFooter>
+                <StyledChooseOption>
+                    <StyledChosenOption>
+                        <input type='radio' />
+                        <span>Places to stay</span>
+                    </StyledChosenOption>
+                    <StyledChosenOption>
+                        <input type='radio' />
+                        <span>Adventures</span>
+                    </StyledChosenOption>
+                </StyledChooseOption>
                 <StyledSearchActions>
                     <StyledScrollArea>
                         <div>
@@ -91,16 +101,6 @@ const HomePage = () => {
                         </div>
                     </StyledScrollArea>
                     <div>
-                        <StyledChooseOption>
-                            <StyledChosenOption>
-                                <input type='radio' />
-                                <span>Places to stay</span>
-                            </StyledChosenOption>
-                            <StyledChosenOption>
-                                <input type='radio' />
-                                <span>Adventures</span>
-                            </StyledChosenOption>
-                        </StyledChooseOption>
                         <Search
                             onDestinationSearchTape={event => {
                                 setDestinationSearch(event.target.value)
