@@ -5,9 +5,6 @@ import { useParams } from 'react-router-dom'
 import { CITIES, DestinationType } from 'services/type'
 import { ClientWeather, getWeather } from 'services/weather'
 
-import { Logo } from 'Components/Logo'
-import { HeaderMenu } from 'Components/HeaderMenu'
-import { UserActionMenu } from 'Components/UserActionMenu'
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import { Search } from 'Components/Search'
 import { Destination } from 'Components/Destination'
@@ -15,8 +12,6 @@ import { Destination } from 'Components/Destination'
 import {
     StyledHomePage,
     StyledHomePageFooter,
-    StyledHomePageHeader,
-    StyledHomePageHeaderLogo,
     StyledScroll,
     StyledScrollArea,
     StyledScrollButton,
@@ -69,13 +64,6 @@ const HomePage = () => {
         <StyledHomePage
             city={destination ? destination.city : CITIES.MONTE_ROSA}
         >
-            <StyledHomePageHeader>
-                <StyledHomePageHeaderLogo>
-                    <Logo />
-                    <HeaderMenu />
-                </StyledHomePageHeaderLogo>
-                <UserActionMenu />
-            </StyledHomePageHeader>
             {destination && (
                 <Destination
                     city={destination.city}

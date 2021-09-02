@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
 const StyledLayout = styled.div`
     margin: 0 auto;
+    position: relative;
 
     & button {
         cursor: pointer;

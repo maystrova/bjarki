@@ -22,8 +22,7 @@ const StyledHomePage = styled.div`
     padding: 30px 85px;
     height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    position: relative;
+    grid-template-rows: 90% 1fr;
 
     ${(props: StyledHomePageProps) =>
         props.city === CITIES.MONTE_ROSA &&
@@ -89,18 +88,6 @@ const StyledHomePage = styled.div`
         `}
 `
 
-const StyledHomePageHeaderLogo = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-`
-
-const StyledHomePageHeader = styled.header`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 88px;
-`
-
 const StyledHomePageFooter = styled.div`
     display: grid;
     grid-template-columns: 1fr 11fr;
@@ -154,8 +141,6 @@ const StyledChosenOption = styled.div`
 
 export {
     StyledHomePage,
-    StyledHomePageHeader,
-    StyledHomePageHeaderLogo,
     StyledHomePageFooter,
     StyledScroll,
     StyledScrollButton,
