@@ -36,6 +36,7 @@ const HomePage = () => {
         temp: 0,
         feels_like: '',
     })
+    const [destinationSearch, setDestinationSearch] = useState<string>('')
 
     let params = useParams<{ alias: string }>()
 
@@ -47,7 +48,6 @@ const HomePage = () => {
         try {
             const cityWeather = await getWeather(city)
 
-            // const weatherDescription = cityWeather?.weather.
             if (cityWeather) {
                 setWeather({
                     temp: cityWeather.main.temp - 273.15,
@@ -113,7 +113,12 @@ const HomePage = () => {
                                 <span>Adventures</span>
                             </StyledChosenOption>
                         </StyledChooseOption>
-                        <Search />
+                        <Search
+                            onDestinationSearchTape={event => {
+                                setDestinationSearch(event.target.value)
+                            }}
+                            value={destinationSearch}
+                        />
                     </div>
                 </StyledSearchActions>
             </StyledHomePageFooter>

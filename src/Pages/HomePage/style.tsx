@@ -93,6 +93,7 @@ const StyledScrollArea = styled.div`
 const StyledChooseOption = styled.div`
     display: flex;
     margin-bottom: 14px;
+    align-items: center;
 `
 
 const StyledChosenOption = styled.div`

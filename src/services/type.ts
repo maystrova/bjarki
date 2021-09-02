@@ -27,6 +27,5 @@ export type MenuType = {
 export type DestinationType = {
     city: CITIES
     country: COUNTRIES
-    weather: string
     alias: string
 }

@@ -17,7 +17,7 @@ import {
 } from './style'
 import further from 'Pages/HomePage/pics/arrow-right.svg'
 import explore from 'Pages/HomePage/pics/explore.png'
-import { Weather, WeatherProps } from '../Weather'
+import { Weather, WeatherProps } from 'Components/Weather'
 
 interface DestinationProps {
     city: string
@@ -28,8 +28,8 @@ interface DestinationProps {
 }
 
 const today = new Date()
-const date = today.getDate()
-const month = today.getMonth() + 1
+const date = today.getDate().toString()
+const month = (today.getMonth() + 1).toString()
 
 const Destination = ({
     country,
@@ -42,8 +42,10 @@ const Destination = ({
         <StyledDestination>
             <StyledDestinationInfo>
                 <StyledDate>
-                    <StyledDay>{date}</StyledDay>
-                    <StyledMonth>{` / ${month}`}</StyledMonth>
+                    <StyledDay>{`${date.length === 1 && 0}${date}`}</StyledDay>
+                    <StyledMonth>{` / ${
+                        month.length === 1 && 0
+                    }${month}`}</StyledMonth>
                 </StyledDate>
                 <div>
                     <Weather
