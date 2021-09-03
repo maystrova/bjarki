@@ -12,13 +12,17 @@ import { GlobalStyle, StyledLayout } from './style'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
-        useState<boolean>(true)
+        useState<boolean>(false)
 
     return (
         <BrowserRouter>
             <StyledLayout>
                 <GlobalStyle />
                 <Header
+                    onFlightClicked={() => {}}
+                    onDiscoversClicked={() => {}}
+                    onNewsClicked={() => {}}
+                    onDealClicked={() => {}}
                     onLogInClicked={() => setIsShowAuthorizationWindow(true)}
                     onSignUpClicked={() => setIsShowAuthorizationWindow(true)}
                     onSwitchLangClicked={() => {}}
@@ -29,7 +33,10 @@ const Layout = () => {
                     </Route>
                 </Switch>
 
-                <SignIn isOpen={isShowAuthorizationWindow} />
+                <SignIn
+                    onCancel={() => setIsShowAuthorizationWindow(false)}
+                    isOpen={isShowAuthorizationWindow}
+                />
             </StyledLayout>
         </BrowserRouter>
     )

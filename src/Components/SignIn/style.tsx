@@ -1,7 +1,30 @@
 import styled from 'styled-components'
 
+const StyledModal = styled.div`
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+const StyledModalOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    z-index: 1;
+`
+
 const StyledSignIn = styled.div`
     position: fixed;
+    z-index: 1;
     top: 0;
     right: 0;
     bottom: 0;
@@ -101,4 +124,6 @@ export {
     StyledSignInWithSocialMediaButtons,
     StyledSignInWithSocialMediaButton,
     StyledSignInFooter,
+    StyledModal,
+    StyledModalOverlay,
 }
