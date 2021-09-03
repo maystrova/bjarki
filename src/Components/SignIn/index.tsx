@@ -1,13 +1,24 @@
 import React from 'react'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
-import { Button, BUTTON_TYPE } from 'Components/Button'
+import {
+    Button,
+    BUTTON_HEIGHT,
+    BUTTON_TYPE,
+    BUTTON_WIDTH,
+} from 'Components/Button'
 
 import {
+    StyledOr,
+    StyledRememberMe,
     StyledSignIn,
     StyledSignInActions,
     StyledSignInField,
+    StyledSignInFooter,
     StyledSignInHeader,
+    StyledSignInSubtitles,
+    StyledSignInWithSocialMediaButton,
+    StyledSignInWithSocialMediaButtons,
 } from './style'
 
 import google from 'Components/SignIn/pics/google-icon.svg'
@@ -42,6 +53,8 @@ const SignIn = ({ isOpen }: SignInProps) => {
         { title: `${buttonTitleSample} Facebook`, icon: facebook },
     ]
 
+    if (!isOpen) return null
+
     return (
         <StyledSignIn>
             <StyledSignInHeader>
@@ -50,7 +63,6 @@ const SignIn = ({ isOpen }: SignInProps) => {
                 </button>
             </StyledSignInHeader>
             <h1>Sign In</h1>
-
             <StyledSignInActions>
                 {SIGN_IN.map(field => {
                     return (
@@ -70,40 +82,53 @@ const SignIn = ({ isOpen }: SignInProps) => {
                         </div>
                     )
                 })}
-                <div>
-                    <div>Remember me</div>
+                <StyledSignInSubtitles>
+                    <StyledRememberMe>
+                        <input type='checkbox' />
+                        <span>Remember me</span>
+                    </StyledRememberMe>
                     <Button
                         title={'Forgot Password?'}
                         onClick={() => {}}
                         type={BUTTON_TYPE.ONLY_TEXT}
                     />
-                </div>
-                <Button
-                    title={'Sign In'}
-                    onClick={() => {}}
-                    type={BUTTON_TYPE.PRIMARY}
-                />
+                </StyledSignInSubtitles>
             </StyledSignInActions>
-            <div>
+            <Button
+                title={'Sign In'}
+                onClick={() => {}}
+                type={BUTTON_TYPE.PRIMARY}
+                width={BUTTON_WIDTH.BIG}
+                height={BUTTON_HEIGHT.MEDIUM}
+                borderRadius={'4px'}
+            />
+            <StyledOr>
                 <span>or</span>
-            </div>
-            {SIGN_IN_BUTTONS.map(button => {
-                return (
-                    <div>
-                        <Icon size={ICON_SIZE.MEDIUM} src={button.icon} />
-                        <Button
-                            title={button.title}
-                            onClick={() => {}}
-                            type={BUTTON_TYPE.ONLY_TEXT}
-                        />
-                    </div>
-                )
-            })}
-            <footer>
-                <div>
-                    Don't have an account? <button>Sign Up</button>
-                </div>
-            </footer>
+            </StyledOr>
+            <StyledSignInWithSocialMediaButtons>
+                {SIGN_IN_BUTTONS.map(button => {
+                    return (
+                        <StyledSignInWithSocialMediaButton>
+                            <Icon size={ICON_SIZE.MEDIUM} src={button.icon} />
+                            <Button
+                                title={button.title}
+                                onClick={() => {}}
+                                type={BUTTON_TYPE.ONLY_TEXT}
+                            />
+                        </StyledSignInWithSocialMediaButton>
+                    )
+                })}
+            </StyledSignInWithSocialMediaButtons>
+
+            <StyledSignInFooter>
+                <div>Don't have an account? </div>
+
+                <Button
+                    title={'Sign Up'}
+                    onClick={() => {}}
+                    type={BUTTON_TYPE.UNDERLINED}
+                />
+            </StyledSignInFooter>
         </StyledSignIn>
     )
 }

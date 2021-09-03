@@ -24,6 +24,7 @@ export enum CITIES {
 export type MenuType = {
     title: string
     icon?: string
+    onClick: () => void
 }
 
 export type DestinationType = {

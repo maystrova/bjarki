@@ -1,15 +1,29 @@
 import React from 'react'
+
+import { MenuType } from 'services/type'
+
 import { StyledMenu, StyledMenuItem } from './style'
-import { MenuType } from '../../services/type'
 
-const HEADER_MENU: MenuType[] = [
-    { title: 'Deal' },
-    { title: 'Flight' },
-    { title: 'Discovers' },
-    { title: 'News' },
-]
+interface HeaderMenuProps {
+    onDealClick: () => void
+    onFlightClick: () => void
+    onDiscoversClick: () => void
+    onNewsClick: () => void
+}
 
-const HeaderMenu = () => {
+const HeaderMenu = ({
+    onDealClick,
+    onNewsClick,
+    onFlightClick,
+    onDiscoversClick,
+}: HeaderMenuProps) => {
+    const HEADER_MENU: MenuType[] = [
+        { title: 'Deal', onClick: onDealClick },
+        { title: 'Flight', onClick: onFlightClick },
+        { title: 'Discovers', onClick: onDiscoversClick },
+        { title: 'News', onClick: onNewsClick },
+    ]
+
     return (
         <StyledMenu>
             {HEADER_MENU.map(item => {

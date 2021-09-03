@@ -37,7 +37,8 @@ const StyledButton = styled.button`
             border: none;
             background: transparent;
             font-size: 14px;
-            text-decoration: underline;
+            border-bottom: 1px solid rgba(252, 69, 0, 1);
+            padding: 3px;
         `}
 `
 

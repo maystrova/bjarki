@@ -8,37 +8,24 @@ import { StyledMenu, StyledMenuItem } from 'Components/HeaderMenu/style'
 
 import arrow from 'Components/HeaderMenu/pics/arrow.svg'
 
-const USER_ACTION_MENU: MenuType[] = [
-    { title: 'Eng', icon: arrow },
-    { title: 'Sign Up' },
-    { title: 'Log In' },
-]
-
 interface UserActionMenuProps {
-    switchLang: (title: string) => void
-    signUp: (title: string) => void
-    logIn: (title: string) => void
+    switchLang: () => void
+    signUp: () => void
+    logIn: () => void
 }
 
 const UserActionMenu = ({ switchLang, signUp, logIn }: UserActionMenuProps) => {
-    const onMenuItemClick = (title: string) => {
-        switch (title) {
-            case 'Eng':
-                return switchLang
-            case 'Sign Up':
-                return signUp
-            case 'Log In':
-                return logIn
-            default:
-                return undefined
-        }
-    }
+    const USER_ACTION_MENU: MenuType[] = [
+        { title: 'Eng', icon: arrow, onClick: switchLang },
+        { title: 'Sign Up', onClick: signUp },
+        { title: 'Log In', onClick: logIn },
+    ]
     return (
         <StyledMenu>
             {USER_ACTION_MENU.map(item => {
                 return (
                     <StyledMenuItem key={item.title}>
-                        <button onClick={() => onMenuItemClick(item.title)}>
+                        <button onClick={item.onClick}>
                             {item.title}
                             {item.icon && (
                                 <Icon

@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
 const StyledSignIn = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     background: white;
-    padding: 30px 80px;
+    padding: 10px 80px;
     display: grid;
-    grid-row-gap: 30px;
+    grid-row-gap: 20px;
+    width: 30%;
 `
 
 const StyledSignInHeader = styled.div`
@@ -38,6 +39,7 @@ const StyledSignInField = styled.label`
     & input {
         width: 100%;
         border: none;
+        outline: none;
     }
 
     & button {
@@ -46,9 +48,57 @@ const StyledSignInField = styled.label`
     }
 `
 
+const StyledSignInSubtitles = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const StyledRememberMe = styled.div`
+    font-size: 14px;
+    color: rgba(100, 100, 100, 1);
+    display: flex;
+    align-items: center;
+    & input {
+        margin-right: 3px;
+    }
+`
+
+const StyledOr = styled.div`
+    color: rgba(100, 100, 100, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const StyledSignInWithSocialMediaButtons = styled.div`
+    display: grid;
+    grid-gap: 10px;
+`
+
+const StyledSignInWithSocialMediaButton = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+const StyledSignInFooter = styled.footer`
+    color: rgba(100, 100, 100, 1);
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 export {
     StyledSignIn,
     StyledSignInHeader,
     StyledSignInActions,
     StyledSignInField,
+    StyledSignInSubtitles,
+    StyledRememberMe,
+    StyledOr,
+    StyledSignInWithSocialMediaButtons,
+    StyledSignInWithSocialMediaButton,
+    StyledSignInFooter,
 }

@@ -12,7 +12,7 @@ import { GlobalStyle, StyledLayout } from './style'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
-        useState<boolean>(false)
+        useState<boolean>(true)
 
     return (
         <BrowserRouter>
