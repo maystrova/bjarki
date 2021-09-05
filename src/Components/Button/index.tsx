@@ -36,7 +36,7 @@ const Button = ({
         <StyledButton
             onClick={onClick}
             selfType={type}
-            style={{ width: width, height: height, borderRadius: borderRadius }}
+            style={{ width, height, borderRadius }}
         >
             {title}
         </StyledButton>

@@ -1,7 +1,7 @@
 import { CONFIG } from 'config'
 
 interface WeatherState {
-    description: 'clear sky'
+    description: string
     icon: string
     id: number
     main: string
