@@ -4,7 +4,7 @@ import { MenuType } from 'services/type'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
 
-import { StyledMenu, StyledMenuItem } from './style'
+import { StyledMenu, StyledMenuItem } from 'Components/HeaderMenu/style'
 
 import arrow from 'Components/HeaderMenu/pics/arrow.svg'
 
