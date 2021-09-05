@@ -43,7 +43,7 @@ interface SignInButtonType {
     icon: string
 }
 
-const buttonTitleSample = 'Sign in with'
+const buttonTitleSample: string = 'Sign in with'
 
 const SignIn = ({ isOpen, onCancel }: SignInProps) => {
     const SIGN_IN: SignInType[] = [
