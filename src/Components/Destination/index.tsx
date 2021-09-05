@@ -17,7 +17,7 @@ import {
 } from './style'
 import further from 'Pages/HomePage/pics/arrow-right.svg'
 import explore from 'Pages/HomePage/pics/explore.png'
-import { Weather, WeatherProps } from 'Components/Weather'
+import { Weather } from 'Components/Weather'
 
 interface DestinationProps {
     city: string
@@ -27,9 +27,9 @@ interface DestinationProps {
     weatherDescription: string
 }
 
-const today = new Date()
-const date = today.getDate().toString()
-const month = (today.getMonth() + 1).toString()
+const today: any = new Date()
+const date: string = today.getDate().toString()
+const month: string = (today.getMonth() + 1).toString()
 
 const Destination = ({
     country,

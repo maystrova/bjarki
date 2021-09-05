@@ -71,7 +71,7 @@ const SignIn = ({ isOpen, onCancel }: SignInProps) => {
                 <StyledSignInActions>
                     {SIGN_IN.map(field => {
                         return (
-                            <div>
+                            <div key={field.title}>
                                 <StyledSignInField key={field.title}>
                                     <input
                                         type='text'
@@ -116,7 +116,9 @@ const SignIn = ({ isOpen, onCancel }: SignInProps) => {
                 <StyledSignInWithSocialMediaButtons>
                     {SIGN_IN_BUTTONS.map(button => {
                         return (
-                            <StyledSignInWithSocialMediaButton>
+                            <StyledSignInWithSocialMediaButton
+                                key={button.title}
+                            >
                                 <Icon
                                     size={ICON_SIZE.MEDIUM}
                                     src={button.icon}
