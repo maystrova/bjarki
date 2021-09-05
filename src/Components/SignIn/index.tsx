@@ -23,7 +23,7 @@ import {
     StyledSignInWithSocialMediaButtons,
 } from './style'
 
-import google from 'Components/SignIn/pics/google-icon.svg'
+import google from './pics/google-icon.svg'
 import facebook from 'Components/SignIn/pics/fb-icon.svg'
 import close from 'Components/SignIn/pics/close-icon.svg'
 import hidePassword from 'Components/SignIn/pics/hide-password.svg'
