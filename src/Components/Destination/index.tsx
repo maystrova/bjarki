@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
+import { Weather } from 'Components/Weather'
 
 import { StyledDestination } from './style'
 import {
@@ -15,9 +16,9 @@ import {
     StyledExplore,
     StyledExploreButton,
 } from './style'
+
 import further from 'Pages/HomePage/pics/arrow-right.svg'
 import explore from 'Pages/HomePage/pics/explore.png'
-import { Weather } from 'Components/Weather'
 
 interface DestinationProps {
     city: string

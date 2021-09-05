@@ -6,6 +6,7 @@ export interface StyledButtonProps {
 }
 
 const StyledButton = styled.button`
+    padding-right: 0;
     &:hover {
         opacity: 80%;
     }
