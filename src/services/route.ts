@@ -4,7 +4,7 @@ export type RouteType = {
 }
 
 const ROUTES = {
-    HOME_PAGE: '/home-page/:alias',
+    HOME_PAGE: '/city/:alias',
 }
 
 export { ROUTES }
