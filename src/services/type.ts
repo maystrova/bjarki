@@ -17,16 +17,18 @@ export enum CITIES {
     VENICE = 'Venice',
     REYNISFJARA = 'Reynisfjara',
     TOKYO = 'Tokyo',
+    NEW_YORK = 'New York',
+    SAN_FRANCISCO = 'San Francisco',
 }
 
 export type MenuType = {
     title: string
     icon?: string
+    onClick: () => void
 }
 
 export type DestinationType = {
     city: CITIES
     country: COUNTRIES
-    background: string
-    weather: string
+    alias: string
 }

@@ -33,10 +33,15 @@ const StyledSearchInput = styled.label`
     }
 `
 
+const StyledSearchDate = styled.input`
+    color: rgba(100, 100, 100, 1);
+`
+
 export {
     StyledSearch,
     StyledSearchItem,
     StyledSearchInput,
     StyledSearchAction,
     StyledSearchItemTitle,
+    StyledSearchDate,
 }

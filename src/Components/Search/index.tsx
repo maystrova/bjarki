@@ -1,76 +1,64 @@
 import React from 'react'
 import {
     StyledSearch,
-    StyledSearchItem,
     StyledSearchAction,
-    StyledSearchItemTitle,
+    StyledSearchDate,
     StyledSearchInput,
+    StyledSearchItem,
+    StyledSearchItemTitle,
 } from './style'
 
-import calendarIcon from './pics/calendar-icon.svg'
-import locationIcon from './pics/location-icon.svg'
-import chooseNumberIcon from './pics/search-choose-number.svg'
-import { Icon, ICON_SIZE } from '../Icon'
-import { Button, BUTTON_TYPE } from '../Button'
+import calendarIcon from 'Components/Search/pics/calendar-icon.svg'
+import locationIcon from 'Components/Search/pics/location-icon.svg'
+import chooseNumberIcon from 'Components/Search/pics/search-choose-number.svg'
+import { Icon, ICON_SIZE } from 'Components/Icon'
+import { Button, BUTTON_TYPE, BUTTON_WIDTH } from 'Components/Button'
 
-interface SearchProps {}
-
-interface SearchType {
-    title: string
-    placeholder: string
-    inputType: INPUT_TYPE
-    icon: string
+interface SearchProps {
+    onDestinationSearchTape: (event: any) => void
+    value: string
 }
 
-export enum INPUT_TYPE {
-    TEXT = 'text',
-}
-
-const SEARCH: SearchType[] = [
-    {
-        title: 'Destination',
-        placeholder: 'Where are you going?',
-        inputType: INPUT_TYPE.TEXT,
-        icon: locationIcon,
-    },
-    {
-        title: 'Check in - Check out',
-        placeholder: '',
-        icon: calendarIcon,
-        inputType: INPUT_TYPE.TEXT,
-    },
-    {
-        title: 'Travellers',
-        placeholder: 'Number of people',
-        inputType: INPUT_TYPE.TEXT,
-        icon: chooseNumberIcon,
-    },
-]
-
-const Search = ({}: SearchProps) => {
+const Search = ({ onDestinationSearchTape, value }: SearchProps) => {
     return (
         <StyledSearch>
-            {SEARCH.map(searchItem => {
-                return (
-                    <StyledSearchAction>
-                        <StyledSearchItem>
-                            <StyledSearchItemTitle>
-                                {searchItem.title}
-                            </StyledSearchItemTitle>
-                            <StyledSearchInput>
-                                <Icon
-                                    size={ICON_SIZE.X_SMALL}
-                                    src={searchItem.icon}
-                                />
-                                <input
-                                    type={searchItem.inputType}
-                                    placeholder={searchItem.placeholder}
-                                />
-                            </StyledSearchInput>
-                        </StyledSearchItem>
-                    </StyledSearchAction>
-                )
-            })}
+            <StyledSearchAction>
+                <StyledSearchItem>
+                    <StyledSearchItemTitle>Destination</StyledSearchItemTitle>
+                    <StyledSearchInput>
+                        <Icon size={ICON_SIZE.X_SMALL} src={locationIcon} />
+                        <input
+                            type='text'
+                            placeholder={'Where are you going?'}
+                            onChange={onDestinationSearchTape}
+                            value={value}
+                        />
+                    </StyledSearchInput>
+                </StyledSearchItem>
+            </StyledSearchAction>
+            <StyledSearchAction>
+                <StyledSearchItem>
+                    <StyledSearchItemTitle>
+                        Check in - Check out
+                    </StyledSearchItemTitle>
+                    <StyledSearchInput>
+                        <StyledSearchDate type='date' />
+                        <StyledSearchDate type='date' />
+                    </StyledSearchInput>
+                </StyledSearchItem>
+            </StyledSearchAction>
+            <StyledSearchAction>
+                <StyledSearchItem>
+                    <StyledSearchItemTitle>Travellers</StyledSearchItemTitle>
+                    <StyledSearchInput>
+                        <input
+                            type='number'
+                            min='1'
+                            placeholder={'Number of people'}
+                        />
+                    </StyledSearchInput>
+                </StyledSearchItem>
+            </StyledSearchAction>
             <Button
                 title={'Search'}
                 onClick={() => {}}

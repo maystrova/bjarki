@@ -1,50 +1,113 @@
-import React from 'react'
-import { Logo } from '../../Components/Logo'
+import React, { useContext, useState, useEffect } from 'react'
+import { BjarkiContext } from 'context/storeContext'
+import { useParams } from 'react-router-dom'
+
+import { CITIES, DestinationType } from 'services/type'
+import { ClientWeather, getWeather } from 'services/weather'
+
+import { Icon, ICON_SIZE } from 'Components/Icon'
+import { Search } from 'Components/Search'
+import { Destination } from 'Components/Destination'
+
 import {
     StyledHomePage,
     StyledHomePageFooter,
-    StyledHomePageHeader,
-    StyledHomePageHeaderLogo,
     StyledScroll,
     StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
+    StyledChooseOption,
+    StyledChosenOption,
 } from './style'
-import { HeaderMenu } from '../../Components/HeaderMenu'
-import { UserActionMenu } from '../../Components/UserActionMenu'
 
-import { Icon, ICON_SIZE } from '../../Components/Icon'
+import down from 'Pages/HomePage/pics/arrow-down.svg'
+import clouds from 'Pages/HomePage/pics/cloudy-icon.svg'
+import rain from 'Pages/HomePage/pics/light-rain.svg'
+import defaultWeather from 'Pages/HomePage/pics/cloudy-and-sun.svg'
 
-import down from './pics/arrow-down.svg'
-import { Search } from '../../Components/Search'
-import { Destination } from '../../Components/Destination'
+const HomePage = () => {
+    const { store } = useContext(BjarkiContext)
+    const [weather, setWeather] = useState<ClientWeather>({
+        temp: 0,
+        feels_like: '',
+    })
+    const [destinationSearch, setDestinationSearch] = useState<string>('')
 
-interface HomePageProps {}
+    let params = useParams<{ alias: string }>()
 
-const HomePage = ({}: HomePageProps) => {
+    const destination: DestinationType | undefined = store.destinations.find(
+        destination => destination.alias === params.alias,
+    )
+
+    const handleGetWeather = async (city: string) => {
+        try {
+            const cityWeather = await getWeather(city)
+
+            if (cityWeather) {
+                setWeather({
+                    temp: cityWeather.main.temp - 273.15,
+                    feels_like: cityWeather.weather[0].main.toString(),
+                })
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    useEffect(() => {
+        if (destination) {
+            handleGetWeather(destination.city)
+        }
+    }, [destination])
+
     return (
-        <StyledHomePage>
-            <StyledHomePageHeader>
-                <StyledHomePageHeaderLogo>
-                    <Logo />
-                    <HeaderMenu />
-                </StyledHomePageHeaderLogo>
-                <UserActionMenu />
-            </StyledHomePageHeader>
-            <Destination />
+        <StyledHomePage
+            city={destination ? destination.city : CITIES.MONTE_ROSA}
+        >
+            {destination && (
+                <Destination
+                    city={destination.city}
+                    country={destination.country}
+                    weatherDescription={weather.feels_like}
+                    weatherIcon={
+                        weather.feels_like === 'Clouds'
+                            ? clouds
+                            : weather.feels_like === 'Rain'
+                            ? rain
+                            : defaultWeather
+                    }
+                    temperature={`${Math.round(weather.temp).toString()}ºC`}
+                />
+            )}
             <StyledHomePageFooter>
+                <StyledChooseOption>
+                    <StyledChosenOption>
+                        <input type='radio' />
+                        <span>Places to stay</span>
+                    </StyledChosenOption>
+                    <StyledChosenOption>
+                        <input type='radio' />
+                        <span>Adventures</span>
+                    </StyledChosenOption>
+                </StyledChooseOption>
                 <StyledSearchActions>
                     <StyledScrollArea>
-                        {' '}
                         <div>
                             {' '}
                             <StyledScroll>Scroll</StyledScroll>
-                            <StyledScrollButton>
+                            <StyledScrollButton onClick={() => {}}>
                                 <Icon size={ICON_SIZE.XX_SMALL} src={down} />
                             </StyledScrollButton>
                         </div>
                     </StyledScrollArea>
-                    <Search />
+                    <div>
+                        <Search
+                            onDestinationSearchTape={event => {
+                                setDestinationSearch(event.target.value)
+                            }}
+                            value={destinationSearch}
+                        />
+                    </div>
                 </StyledSearchActions>
             </StyledHomePageFooter>
         </StyledHomePage>

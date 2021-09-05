@@ -1,4 +1,7 @@
 import React from 'react'
+
+import { Icon, ICON_SIZE } from 'Components/Icon'
+
 import { StyledDestination } from './style'
 import {
     StyledCity,
@@ -9,45 +12,57 @@ import {
     StyledDestinationTitle,
     StyledDiscover,
     StyledMonth,
-    StyledWeather,
     StyledExplore,
     StyledExploreButton,
 } from './style'
-import { Icon, ICON_SIZE } from '../Icon'
-import cloud from '../../Pages/HomePage/pics/cloud.svg'
-import further from '../../Pages/HomePage/pics/arrow-right.svg'
-import explore from '../../Pages/HomePage/pics/explore.png'
+import further from 'Pages/HomePage/pics/arrow-right.svg'
+import explore from 'Pages/HomePage/pics/explore.png'
+import { Weather } from 'Components/Weather'
 
-interface DestinationProps {}
+interface DestinationProps {
+    city: string
+    country: string
+    weatherIcon: string
+    temperature: string
+    weatherDescription: string
+}
 
-const today = new Date()
-const date = today.getDate()
-const month = today.getMonth()
+const today: any = new Date()
+const date: string = today.getDate().toString()
+const month: string = (today.getMonth() + 1).toString()
 
-const Destination = ({}: DestinationProps) => {
+const Destination = ({
+    country,
+    city,
+    temperature,
+    weatherDescription,
+    weatherIcon,
+}: DestinationProps) => {
     return (
         <StyledDestination>
             <StyledDestinationInfo>
                 <StyledDate>
-                    <StyledDay>{date}</StyledDay>
-                    <StyledMonth>{` / ${month}`}</StyledMonth>
+                    <StyledDay>{`${date.length === 1 && 0}${date}`}</StyledDay>
+                    <StyledMonth>{` / ${
+                        month.length === 1 && 0
+                    }${month}`}</StyledMonth>
                 </StyledDate>
                 <div>
-                    <StyledWeather>
-                        <Icon size={ICON_SIZE.SMALL} src={cloud} />
-                        <span>-16C</span>
-                        <span>Very Cold</span>
-                    </StyledWeather>
+                    <Weather
+                        icon={weatherIcon}
+                        temperature={temperature}
+                        description={weatherDescription}
+                    />
                     <StyledDestinationTitle>
-                        <StyledCity>Monte Rosa</StyledCity>
+                        <StyledCity>{city}</StyledCity>
 
                         <StyledCountry>
-                            <span>Switzerland</span>
+                            <span>{country}</span>
                         </StyledCountry>
                     </StyledDestinationTitle>
 
                     <StyledDiscover>
-                        <a href=''>
+                        <a href='#'>
                             <span>Discover</span>
                             <Icon size={ICON_SIZE.X_SMALL} src={further} />
                         </a>

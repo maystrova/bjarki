@@ -20,6 +20,26 @@ const StyledButton = styled.button`
             font-size: 16px;
             font-weight: 700;
         `}
+
+    ${(props: StyledButtonProps) =>
+        props.selfType === BUTTON_TYPE.ONLY_TEXT &&
+        css`
+            color: rgba(56, 56, 56, 1);
+            border: none;
+            background: transparent;
+            font-size: 14px;
+        `}
+
+    ${(props: StyledButtonProps) =>
+        props.selfType === BUTTON_TYPE.UNDERLINED &&
+        css`
+            color: rgba(252, 69, 0, 1);
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(252, 69, 0, 1);
+            padding: 3px;
+        `}
 `
 
 export { StyledButton }

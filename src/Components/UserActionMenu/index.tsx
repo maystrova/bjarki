@@ -1,22 +1,31 @@
 import React from 'react'
-import { MenuType } from '../../services/type'
-import { StyledMenu, StyledMenuItem } from '../HeaderMenu/style'
-import arrow from '../HeaderMenu/pics/arrow.svg'
-import { Icon, ICON_SIZE } from '../Icon'
 
-const USER_ACTION_MENU: MenuType[] = [
-    { title: 'Eng', icon: arrow },
-    { title: 'Sign Up' },
-    { title: 'Log In' },
-]
+import { MenuType } from 'services/type'
 
-const UserActionMenu = () => {
+import { Icon, ICON_SIZE } from 'Components/Icon'
+
+import { StyledMenu, StyledMenuItem } from 'Components/HeaderMenu/style'
+
+import arrow from 'Components/HeaderMenu/pics/arrow.svg'
+
+interface UserActionMenuProps {
+    switchLang: () => void
+    signUp: () => void
+    logIn: () => void
+}
+
+const UserActionMenu = ({ switchLang, signUp, logIn }: UserActionMenuProps) => {
+    const USER_ACTION_MENU: MenuType[] = [
+        { title: 'Eng', icon: arrow, onClick: switchLang },
+        { title: 'Sign Up', onClick: signUp },
+        { title: 'Log In', onClick: logIn },
+    ]
     return (
         <StyledMenu>
             {USER_ACTION_MENU.map(item => {
                 return (
-                    <StyledMenuItem>
-                        <a href=''>
+                    <StyledMenuItem key={item.title}>
+                        <button onClick={item.onClick}>
                             {item.title}
                             {item.icon && (
                                 <Icon
@@ -24,7 +33,7 @@ const UserActionMenu = () => {
                                     src={item.icon}
                                 />
                             )}
-                        </a>
+                        </button>
                     </StyledMenuItem>
                 )
             })}
