@@ -140,11 +140,13 @@ const SignIn = ({
                             <StyledSignInWithSocialMediaButton
                                 key={button.title}
                             >
-                                <Icon
-                                    size={ICON_SIZE.MEDIUM}
-                                    src={button.icon}
-                                />
                                 <Button
+                                    children={
+                                        <Icon
+                                            size={ICON_SIZE.MEDIUM}
+                                            src={button.icon}
+                                        />
+                                    }
                                     title={button.title}
                                     onClick={() => {
                                         if (button.title.includes('Google')) {

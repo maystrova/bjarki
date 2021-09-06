@@ -7,9 +7,6 @@ export interface StyledButtonProps {
 
 const StyledButton = styled.button`
     padding-right: 0;
-    &:hover {
-        opacity: 80%;
-    }
 
     ${(props: StyledButtonProps) =>
         props.selfType === BUTTON_TYPE.PRIMARY &&
@@ -20,6 +17,10 @@ const StyledButton = styled.button`
             text-transform: uppercase;
             font-size: 16px;
             font-weight: 700;
+
+            &:hover {
+                opacity: 80%;
+            }
         `}
 
     ${(props: StyledButtonProps) =>
@@ -29,6 +30,16 @@ const StyledButton = styled.button`
             border: none;
             background: transparent;
             font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & img {
+                margin-right: 10px;
+            }
+
+            &:hover {
+            }
         `}
 
     ${(props: StyledButtonProps) =>

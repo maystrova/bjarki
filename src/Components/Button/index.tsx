@@ -22,6 +22,7 @@ interface ButtonProps {
     title: string
     onClick: () => void
     type: BUTTON_TYPE
+    children?: React.ReactChild
 }
 
 const Button = ({
@@ -31,6 +32,7 @@ const Button = ({
     type,
     height,
     borderRadius,
+    children,
 }: ButtonProps) => {
     return (
         <StyledButton
@@ -38,6 +40,7 @@ const Button = ({
             selfType={type}
             style={{ width, height, borderRadius }}
         >
+            {children}
             {title}
         </StyledButton>
     )
