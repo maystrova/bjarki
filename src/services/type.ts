@@ -7,6 +7,9 @@ export enum COUNTRIES {
     ITALY = 'Italy',
     JAPAN = 'Japan',
     CURACAO = 'Curacao',
+    VIETNAM = 'Vietnam',
+    GREECE = 'Greece',
+    TANZANIA = 'Tanzania',
 }
 
 export enum CITIES {

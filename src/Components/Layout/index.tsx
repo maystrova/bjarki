@@ -13,6 +13,7 @@ import { GlobalStyle, StyledLayout } from './style'
 import firebase from 'firebase/compat'
 
 import anonAvatar from 'services/anon-avatar.png'
+import { DiscoverPage } from '../../Pages/DiscoverPage'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
@@ -58,8 +59,13 @@ const Layout = () => {
                     onSwitchLangClicked={() => {}}
                 />
                 <Switch>
-                    <Route path={[ROUTES.HOME_PAGE, '/']}>
+                    <Route path={ROUTES.HOME_PAGE}>
                         <HomePage />
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route path={[ROUTES.DISCOVER_PAGE, '/']}>
+                        <DiscoverPage />
                     </Route>
                 </Switch>
 
