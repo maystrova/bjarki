@@ -113,7 +113,11 @@ const SignIn = ({
                     })}
                     <StyledSignInSubtitles>
                         <StyledRememberMe>
-                            <input type='checkbox' />
+                            <input
+                                type='checkbox'
+                                placeholder={'Remember me'}
+                                value={'Remember me'}
+                            />
                             <span>Remember me</span>
                         </StyledRememberMe>
                         <Button

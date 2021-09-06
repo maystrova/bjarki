@@ -39,6 +39,7 @@ const StyledButton = styled.button`
             }
 
             &:hover {
+                color: rgba(252, 69, 0, 1);
             }
         `}
 

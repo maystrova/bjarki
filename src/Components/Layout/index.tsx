@@ -54,7 +54,7 @@ const Layout = () => {
                     onNewsClicked={() => {}}
                     onDealClicked={() => {}}
                     onLogInClicked={() => setIsShowAuthorizationWindow(true)}
-                    onSignUpClicked={() => setIsShowAuthorizationWindow(true)}
+                    onSignUpClicked={() => {}}
                     onSwitchLangClicked={() => {}}
                 />
                 <Switch>

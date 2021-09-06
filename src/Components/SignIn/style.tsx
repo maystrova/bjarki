@@ -77,11 +77,12 @@ const StyledSignInSubtitles = styled.div`
     align-items: center;
 `
 
-const StyledRememberMe = styled.div`
+const StyledRememberMe = styled.label`
     font-size: 14px;
     color: rgba(100, 100, 100, 1);
     display: flex;
     align-items: center;
+    cursor: pointer;
     & input {
         margin-right: 3px;
     }
