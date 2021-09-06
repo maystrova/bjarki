@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import {
@@ -27,15 +27,19 @@ import google from './pics/google-icon.svg'
 import facebook from 'Components/SignIn/pics/fb-icon.svg'
 import close from 'Components/SignIn/pics/close-icon.svg'
 import hidePassword from 'Components/SignIn/pics/hide-password.svg'
+import showPassword from 'Components/SignIn/pics/password-icon.svg'
 
 interface SignInProps {
     isOpen: boolean
     onCancel: () => void
+    onGoogleAuth: () => void
+    onFacebookAuth: () => void
 }
 
 interface SignInType {
     title: string
     icon?: string
+    inputType: string
 }
 
 interface SignInButtonType {
@@ -45,10 +49,21 @@ interface SignInButtonType {
 
 const buttonTitleSample: string = 'Sign in with'
 
-const SignIn = ({ isOpen, onCancel }: SignInProps) => {
+const SignIn = ({
+    isOpen,
+    onCancel,
+    onGoogleAuth,
+    onFacebookAuth,
+}: SignInProps) => {
+    const [isShowPassword, setIsShowPassword] = useState<boolean>(false)
+
     const SIGN_IN: SignInType[] = [
-        { title: 'Username' },
-        { title: 'Password', icon: hidePassword },
+        { title: 'Username', inputType: 'text' },
+        {
+            title: 'Password',
+            icon: isShowPassword ? hidePassword : showPassword,
+            inputType: isShowPassword ? 'text' : 'password',
+        },
     ]
 
     const SIGN_IN_BUTTONS: SignInButtonType[] = [
@@ -74,11 +89,17 @@ const SignIn = ({ isOpen, onCancel }: SignInProps) => {
                             <div key={field.title}>
                                 <StyledSignInField key={field.title}>
                                     <input
-                                        type='text'
+                                        type={field.inputType}
                                         placeholder={field.title}
                                     />
                                     {field.icon && (
-                                        <button>
+                                        <button
+                                            onClick={() =>
+                                                setIsShowPassword(
+                                                    !isShowPassword,
+                                                )
+                                            }
+                                        >
                                             {' '}
                                             <Icon
                                                 size={ICON_SIZE.SMALL}
@@ -125,7 +146,15 @@ const SignIn = ({ isOpen, onCancel }: SignInProps) => {
                                 />
                                 <Button
                                     title={button.title}
-                                    onClick={() => {}}
+                                    onClick={() => {
+                                        if (button.title.includes('Google')) {
+                                            onGoogleAuth()
+                                        } else if (
+                                            button.title.includes('Facebook')
+                                        ) {
+                                            onFacebookAuth()
+                                        }
+                                    }}
                                     type={BUTTON_TYPE.ONLY_TEXT}
                                 />
                             </StyledSignInWithSocialMediaButton>

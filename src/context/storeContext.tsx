@@ -1,16 +1,19 @@
 import React, { createContext, useReducer, ReactChild, Dispatch } from 'react'
-import { DestinationType } from '../services/type'
-import { DESTINATIONS } from '../destinations/destinations'
+import { DestinationType } from 'services/type'
+import { DESTINATIONS } from 'destinations/destinations'
 import { ACTION } from './actions'
 import { reducer } from './reducer'
 import { ThemeProvider } from 'styled-components'
+import { DEFAULT_USER, User } from 'services/user'
 
 export interface StoreType {
     destinations: DestinationType[]
+    user: User
 }
 
 const INITIAL_STORE: StoreType = {
     destinations: DESTINATIONS,
+    user: DEFAULT_USER,
 }
 
 export const BjarkiContext = createContext<{
