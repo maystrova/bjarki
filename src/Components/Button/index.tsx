@@ -13,13 +13,14 @@ export enum BUTTON_TYPE {
     PRIMARY = 'Primary',
     ONLY_TEXT = 'Only_text',
     UNDERLINED = 'Underlined',
+    ROUND = 'Round',
 }
 
 interface ButtonProps {
     width?: BUTTON_WIDTH
     height?: BUTTON_HEIGHT
     borderRadius?: string
-    title: string
+    title?: string
     onClick: () => void
     type: BUTTON_TYPE
     children?: React.ReactChild

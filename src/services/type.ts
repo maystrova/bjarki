@@ -1,21 +1,16 @@
 export enum COUNTRIES {
+    GREECE = 'Greece',
+    TANZANIA = 'Tanzania',
+    VIETNAM = 'Vietnam',
+    JAPAN = 'Japan',
     SWITZERLAND = 'Switzerland',
     CHINA = 'China',
     LAOS = 'Laos',
     ICELAND = 'Iceland',
     UNITED_STATES = 'United States',
     ITALY = 'Italy',
-    JAPAN = 'Japan',
     CURACAO = 'Curacao',
-    VIETNAM = 'Vietnam',
-    GREECE = 'Greece',
-    TANZANIA = 'Tanzania',
 }
-
-let countries = Object.entries(COUNTRIES).map(([key, value]) => ({
-    title: key,
-    name: value,
-}))
 
 export enum CITIES {
     MONTE_ROSA = 'Monte Rosa',
@@ -41,10 +36,3 @@ export type DestinationType = {
     alias: string
     number?: number
 }
-
-// export type CountryType = {
-//     title: COUNTRIES
-//     number: number
-// }
-
-export { countries }

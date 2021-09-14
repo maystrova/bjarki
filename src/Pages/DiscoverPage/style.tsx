@@ -13,11 +13,18 @@ const StyledDiscoverPage = styled.div`
 `
 
 const StyledDiscoverPageCountryList = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 40px;
-    overflow: hidden;
+    //display: grid;
+    //grid-template-columns: repeat(4, 1fr);
+    //grid-column-gap: 40px;
+    white-space: nowrap;
+    display: flex;
     overflow-x: scroll;
+    max-width: content-box;
+    //overflow-y: hidden;
+    //-webkit-overflow-scrolling: touch;
+    //max-width: fit-content;
+    //flex-wrap: nowrap;
+    //overflow-x: auto;
 `
 
 export { StyledDiscoverPage, StyledDiscoverPageCountryList }

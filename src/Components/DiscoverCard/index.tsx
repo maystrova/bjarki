@@ -1,9 +1,15 @@
 import React from 'react'
-import { StyledDiscoverCard } from './style'
+
 import { COUNTRIES } from 'services/type'
 
+import {
+    StyledDiscoverCard,
+    StyledDiscoverCardInfo,
+    StyledDiscoverCardCountryNumber,
+} from './style'
+
 interface DiscoverCardProps {
-    cardNumber: number
+    cardNumber: string
     title: string
     country: COUNTRIES
 }
@@ -11,8 +17,12 @@ interface DiscoverCardProps {
 const DiscoverCard = ({ cardNumber, title, country }: DiscoverCardProps) => {
     return (
         <StyledDiscoverCard country={country}>
-            <div>{cardNumber}</div>
-            <h1>{title}</h1>
+            <StyledDiscoverCardInfo>
+                <StyledDiscoverCardCountryNumber>
+                    <div>{`–– ${cardNumber} ––`}</div>
+                </StyledDiscoverCardCountryNumber>
+                <h1>{title}</h1>
+            </StyledDiscoverCardInfo>
         </StyledDiscoverCard>
     )
 }

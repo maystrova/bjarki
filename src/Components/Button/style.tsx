@@ -53,6 +53,20 @@ const StyledButton = styled.button`
             border-bottom: 1px solid rgba(252, 69, 0, 1);
             padding: 3px;
         `}
+
+    ${(props: StyledButtonProps) =>
+        props.selfType === BUTTON_TYPE.ROUND &&
+        css`
+            border: none;
+            width: 42px;
+            height: 42px;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+        `}
 `
 
 export { StyledButton }
