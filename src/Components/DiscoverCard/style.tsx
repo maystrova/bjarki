@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { COUNTRIES } from 'services/type'
+import { COUNTRIES, DestinationType } from 'services/type'
 
 import japan from 'Pages/DiscoverPage/pics/japan-card.png'
 

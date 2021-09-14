@@ -25,6 +25,7 @@ const DESTINATIONS: DestinationType[] = [
         country: COUNTRIES.JAPAN,
         city: CITIES.TOKYO,
         alias: 'tokyo',
+        number: 1,
     },
     {
         country: COUNTRIES.LAOS,

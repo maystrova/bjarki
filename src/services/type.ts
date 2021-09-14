@@ -12,6 +12,11 @@ export enum COUNTRIES {
     TANZANIA = 'Tanzania',
 }
 
+let countries = Object.entries(COUNTRIES).map(([key, value]) => ({
+    title: key,
+    name: value,
+}))
+
 export enum CITIES {
     MONTE_ROSA = 'Monte Rosa',
     CHONGQING = 'Chongqing',
@@ -34,4 +39,12 @@ export type DestinationType = {
     city: CITIES
     country: COUNTRIES
     alias: string
+    number?: number
 }
+
+// export type CountryType = {
+//     title: COUNTRIES
+//     number: number
+// }
+
+export { countries }

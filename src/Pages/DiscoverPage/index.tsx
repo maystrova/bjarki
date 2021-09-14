@@ -1,12 +1,17 @@
 import React from 'react'
+
+import { DiscoverCard } from 'Components/DiscoverCard'
+
 import { COUNTRIES } from 'services/type'
 import { StyledDiscoverPage, StyledDiscoverPageCountryList } from './style'
-import { DiscoverCard } from '../../Components/DiscoverCard'
 
 interface DiscoverPageProps {}
 
 const DiscoverPage = ({}: DiscoverPageProps) => {
-    let countries = Object.entries(COUNTRIES)
+    let countries = Object.entries(COUNTRIES).map(([key, value]) => ({
+        title: key,
+        name: value,
+    }))
 
     return (
         <StyledDiscoverPage>
@@ -17,8 +22,8 @@ const DiscoverPage = ({}: DiscoverPageProps) => {
                         return (
                             <DiscoverCard
                                 cardNumber={1}
-                                title={''}
-                                country={COUNTRIES.JAPAN}
+                                title={country.name}
+                                country={country.name}
                             />
                         )
                     })}
