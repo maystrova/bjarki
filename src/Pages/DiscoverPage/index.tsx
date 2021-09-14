@@ -21,7 +21,7 @@ const DiscoverPage = ({}: DiscoverPageProps) => {
                     {countries.map(country => {
                         return (
                             <DiscoverCard
-                                cardNumber={1}
+                                cardNumber={countries.indexOf(country)}
                                 title={country.name}
                                 country={country.name}
                             />
