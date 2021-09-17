@@ -16,10 +16,11 @@ const StyledDiscoverPageCountryList = styled.div`
     //display: grid;
     //grid-template-columns: repeat(4, 1fr);
     //grid-column-gap: 40px;
-    white-space: nowrap;
-    display: flex;
-    overflow-x: scroll;
-    max-width: content-box;
+    //white-space: nowrap;
+    ////display: flex;
+    //overflow-x: scroll;
+    //max-width: content-box;
+    //align-items: center;
     //overflow-y: hidden;
     //-webkit-overflow-scrolling: touch;
     //max-width: fit-content;
