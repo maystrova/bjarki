@@ -43,10 +43,12 @@ const Destination = ({
         <StyledDestination>
             <StyledDestinationInfo>
                 <StyledDate>
-                    <StyledDay>{`${date.length === 1 && 0}${date}`}</StyledDay>
+                    <StyledDay>{`${
+                        date.length < 2 ? 0 + date : date
+                    }`}</StyledDay>
                     <StyledMonth>{` / ${
-                        month.length === 1 && 0
-                    }${month}`}</StyledMonth>
+                        month.length < 2 ? 0 + month : month
+                    }`}</StyledMonth>
                 </StyledDate>
                 <div>
                     <Weather

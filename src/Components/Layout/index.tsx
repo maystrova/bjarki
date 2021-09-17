@@ -64,7 +64,7 @@ const Layout = () => {
                     </Route>
                 </Switch>
                 <Switch>
-                    <Route path={[ROUTES.DISCOVER_PAGE, '/']}>
+                    <Route path={[ROUTES.DISCOVER_PAGE]}>
                         <DiscoverPage />
                     </Route>
                 </Switch>

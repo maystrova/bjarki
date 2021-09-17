@@ -21,29 +21,29 @@ const DiscoverPage = ({}: DiscoverPageProps) => {
         <StyledDiscoverPage>
             <div>
                 <StyledDiscoverPageCountryList>
-                    <CardSlider title={'Destination'}>
-                        <div>
-                            {' '}
-                            {countries.map(country => {
-                                return (
-                                    <div>
-                                        {' '}
-                                        <DiscoverCard
-                                            cardNumber={`${
-                                                countries
-                                                    .indexOf(country)
-                                                    .toString().length < 2 && 0
-                                            }${countries
-                                                .indexOf(country)
-                                                .toString()}`}
-                                            title={country.name}
-                                            country={country.name}
-                                        />
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </CardSlider>
+                    {/*<CardSlider title={'Destination'}>*/}
+                    {/*    <div>*/}
+                    {/*        {' '}*/}
+                    {/*        {countries.map(country => {*/}
+                    {/*            return (*/}
+                    {/*                <div>*/}
+                    {/*                    {' '}*/}
+                    {/*                    <DiscoverCard*/}
+                    {/*                        cardNumber={`${*/}
+                    {/*                            countries*/}
+                    {/*                                .indexOf(country)*/}
+                    {/*                                .toString().length < 2 && 0*/}
+                    {/*                        }${countries*/}
+                    {/*                            .indexOf(country)*/}
+                    {/*                            .toString()}`}*/}
+                    {/*                        title={country.name}*/}
+                    {/*                        country={country.name}*/}
+                    {/*                    />*/}
+                    {/*                </div>*/}
+                    {/*            )*/}
+                    {/*        })}*/}
+                    {/*    </div>*/}
+                    {/*</CardSlider>*/}
 
                     <Button onClick={() => {}} type={BUTTON_TYPE.ROUND}>
                         <Icon size={ICON_SIZE.SMALL} src={further} />
