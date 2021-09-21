@@ -3,7 +3,7 @@ import { BjarkiContext } from 'context/storeContext'
 import { useParams } from 'react-router-dom'
 import { animateScroll as scroll } from 'react-scroll'
 
-import { CITIES, DestinationType } from 'services/type'
+import { CITIES, CityType, DestinationType } from 'services/type'
 import { ClientWeather, getWeather } from 'services/weather'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
@@ -20,6 +20,7 @@ import {
     StyledChooseOption,
     StyledChosenOption,
     StyledDiscoverToday,
+    StyledPlacesToDiscover,
 } from './style'
 
 import down from 'Pages/HomePage/pics/arrow-down.svg'
@@ -34,17 +35,26 @@ const HomePage = () => {
         feels_like: '',
     })
     const [destinationSearch, setDestinationSearch] = useState<string>('')
-    // const [scroll, setScroll] = useState<boolean>(false)
 
     let params = useParams<{ alias: string }>()
 
-    const destination: DestinationType | undefined = store.destinations.find(
-        destination => destination.alias === params.alias,
-    )
+    let city: CityType | undefined = undefined
 
-    const handleGetWeather = async (city: string) => {
+    store.destinations.forEach(destination => {
+        const foundCity: CityType | undefined = destination.city.find(
+            city => city.alias === params.alias,
+        )
+
+        if (foundCity) {
+            city = foundCity
+        }
+    })
+
+    console.log('city', city)
+
+    const handleGetWeather = async (city: CityType) => {
         try {
-            const cityWeather = await getWeather(city)
+            const cityWeather = await getWeather(city.name)
 
             if (cityWeather) {
                 setWeather({
@@ -58,31 +68,29 @@ const HomePage = () => {
     }
 
     useEffect(() => {
-        if (destination) {
-            handleGetWeather(destination.city)
+        if (city) {
+            handleGetWeather(city)
         }
-    }, [destination])
+    }, [city])
 
     return (
         <div>
-            <StyledHomePage
-                city={destination ? destination.city : CITIES.MONTE_ROSA}
-            >
-                {destination && (
-                    <Destination
-                        city={destination.city}
-                        country={destination.country}
-                        weatherDescription={weather.feels_like}
-                        weatherIcon={
-                            weather.feels_like === 'Clouds'
-                                ? clouds
-                                : weather.feels_like === 'Rain'
-                                ? rain
-                                : defaultWeather
-                        }
-                        temperature={`${Math.round(weather.temp).toString()}ºC`}
-                    />
-                )}
+            <StyledHomePage city={CITIES.MONTE_ROSA}>
+                {/*{destination && (*/}
+                {/*    <Destination*/}
+                {/*        city={destination.city}*/}
+                {/*        country={destination.country}*/}
+                {/*        weatherDescription={weather.feels_like}*/}
+                {/*        weatherIcon={*/}
+                {/*            weather.feels_like === 'Clouds'*/}
+                {/*                ? clouds*/}
+                {/*                : weather.feels_like === 'Rain'*/}
+                {/*                ? rain*/}
+                {/*                : defaultWeather*/}
+                {/*        }*/}
+                {/*        temperature={`${Math.round(weather.temp).toString()}ºC`}*/}
+                {/*    />*/}
+                {/*)}*/}
                 <StyledHomePageFooter>
                     <StyledChooseOption>
                         <StyledChosenOption>
@@ -121,13 +129,13 @@ const HomePage = () => {
                 </StyledHomePageFooter>
             </StyledHomePage>
             <StyledDiscoverToday>
-                <div>
+                <StyledPlacesToDiscover>
                     <h3>Discover Today</h3>
                     <div>
                         Come and explore the best of the world, from modern
                         cities to natural landscapes
                     </div>
-                </div>
+                </StyledPlacesToDiscover>
             </StyledDiscoverToday>
         </div>
     )

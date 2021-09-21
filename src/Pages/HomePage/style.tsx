@@ -137,7 +137,11 @@ const StyledChosenOption = styled.div`
     }
 `
 
-const StyledDiscoverToday = styled.div``
+const StyledDiscoverToday = styled.div`
+    height: 423px;
+`
+
+const StyledPlacesToDiscover = styled.div``
 
 export {
     StyledHomePage,
@@ -149,4 +153,5 @@ export {
     StyledChooseOption,
     StyledChosenOption,
     StyledDiscoverToday,
+    StyledPlacesToDiscover,
 }

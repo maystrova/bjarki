@@ -30,9 +30,13 @@ export type MenuType = {
     onClick: () => void
 }
 
-export type DestinationType = {
-    city: CITIES
-    country: COUNTRIES
+export type CityType = {
+    name: CITIES
     alias: string
+}
+
+export type DestinationType = {
+    city: CityType[]
+    country: COUNTRIES
     number?: number
 }

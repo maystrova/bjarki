@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { DiscoverCard } from 'Components/DiscoverCard'
+import { CountryCard } from 'Components/CountryCard'
 
 import { COUNTRIES } from 'services/type'
 import { StyledDiscoverPage, StyledDiscoverPageCountryList } from './style'
@@ -28,7 +28,7 @@ const DiscoverPage = ({}: DiscoverPageProps) => {
                     {/*            return (*/}
                     {/*                <div>*/}
                     {/*                    {' '}*/}
-                    {/*                    <DiscoverCard*/}
+                    {/*                    <CountryCard*/}
                     {/*                        cardNumber={`${*/}
                     {/*                            countries*/}
                     {/*                                .indexOf(country)*/}
