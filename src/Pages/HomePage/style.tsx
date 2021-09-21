@@ -18,6 +18,7 @@ interface StyledHomePageProps {
 
 const StyledHomePage = styled.div`
     background-color: gray;
+    position: relative;
     color: #fff;
     height: 100vh;
     display: grid;
@@ -136,6 +137,8 @@ const StyledChosenOption = styled.div`
     }
 `
 
+const StyledDiscoverToday = styled.div``
+
 export {
     StyledHomePage,
     StyledHomePageFooter,
@@ -145,4 +148,5 @@ export {
     StyledScrollArea,
     StyledChooseOption,
     StyledChosenOption,
+    StyledDiscoverToday,
 }

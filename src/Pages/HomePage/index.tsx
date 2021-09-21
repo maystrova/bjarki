@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { BjarkiContext } from 'context/storeContext'
 import { useParams } from 'react-router-dom'
+import { animateScroll as scroll } from 'react-scroll'
 
 import { CITIES, DestinationType } from 'services/type'
 import { ClientWeather, getWeather } from 'services/weather'
@@ -18,6 +19,7 @@ import {
     StyledSearchActions,
     StyledChooseOption,
     StyledChosenOption,
+    StyledDiscoverToday,
 } from './style'
 
 import down from 'Pages/HomePage/pics/arrow-down.svg'
@@ -32,6 +34,7 @@ const HomePage = () => {
         feels_like: '',
     })
     const [destinationSearch, setDestinationSearch] = useState<string>('')
+    // const [scroll, setScroll] = useState<boolean>(false)
 
     let params = useParams<{ alias: string }>()
 
@@ -61,56 +64,72 @@ const HomePage = () => {
     }, [destination])
 
     return (
-        <StyledHomePage
-            city={destination ? destination.city : CITIES.MONTE_ROSA}
-        >
-            {destination && (
-                <Destination
-                    city={destination.city}
-                    country={destination.country}
-                    weatherDescription={weather.feels_like}
-                    weatherIcon={
-                        weather.feels_like === 'Clouds'
-                            ? clouds
-                            : weather.feels_like === 'Rain'
-                            ? rain
-                            : defaultWeather
-                    }
-                    temperature={`${Math.round(weather.temp).toString()}ºC`}
-                />
-            )}
-            <StyledHomePageFooter>
-                <StyledChooseOption>
-                    <StyledChosenOption>
-                        <input type='radio' />
-                        <span>Places to stay</span>
-                    </StyledChosenOption>
-                    <StyledChosenOption>
-                        <input type='radio' />
-                        <span>Adventures</span>
-                    </StyledChosenOption>
-                </StyledChooseOption>
-                <StyledSearchActions>
-                    <StyledScrollArea>
+        <div>
+            <StyledHomePage
+                city={destination ? destination.city : CITIES.MONTE_ROSA}
+            >
+                {destination && (
+                    <Destination
+                        city={destination.city}
+                        country={destination.country}
+                        weatherDescription={weather.feels_like}
+                        weatherIcon={
+                            weather.feels_like === 'Clouds'
+                                ? clouds
+                                : weather.feels_like === 'Rain'
+                                ? rain
+                                : defaultWeather
+                        }
+                        temperature={`${Math.round(weather.temp).toString()}ºC`}
+                    />
+                )}
+                <StyledHomePageFooter>
+                    <StyledChooseOption>
+                        <StyledChosenOption>
+                            <input type='radio' />
+                            <span>Places to stay</span>
+                        </StyledChosenOption>
+                        <StyledChosenOption>
+                            <input type='radio' />
+                            <span>Adventures</span>
+                        </StyledChosenOption>
+                    </StyledChooseOption>
+                    <StyledSearchActions>
+                        <StyledScrollArea>
+                            <div>
+                                {' '}
+                                <StyledScroll>Scroll</StyledScroll>
+                                <StyledScrollButton
+                                    onClick={() => scroll.scrollToBottom()}
+                                >
+                                    <Icon
+                                        size={ICON_SIZE.XX_SMALL}
+                                        src={down}
+                                    />
+                                </StyledScrollButton>
+                            </div>
+                        </StyledScrollArea>
                         <div>
-                            {' '}
-                            <StyledScroll>Scroll</StyledScroll>
-                            <StyledScrollButton onClick={() => {}}>
-                                <Icon size={ICON_SIZE.XX_SMALL} src={down} />
-                            </StyledScrollButton>
+                            <Search
+                                onDestinationSearchTape={event => {
+                                    setDestinationSearch(event.target.value)
+                                }}
+                                value={destinationSearch}
+                            />
                         </div>
-                    </StyledScrollArea>
+                    </StyledSearchActions>
+                </StyledHomePageFooter>
+            </StyledHomePage>
+            <StyledDiscoverToday>
+                <div>
+                    <h3>Discover Today</h3>
                     <div>
-                        <Search
-                            onDestinationSearchTape={event => {
-                                setDestinationSearch(event.target.value)
-                            }}
-                            value={destinationSearch}
-                        />
+                        Come and explore the best of the world, from modern
+                        cities to natural landscapes
                     </div>
-                </StyledSearchActions>
-            </StyledHomePageFooter>
-        </StyledHomePage>
+                </div>
+            </StyledDiscoverToday>
+        </div>
     )
 }
 
