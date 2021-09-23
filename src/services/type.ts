@@ -38,5 +38,4 @@ export type CityType = {
 export type DestinationType = {
     city: CityType[]
     country: COUNTRIES
-    number?: number
 }

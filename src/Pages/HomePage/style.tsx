@@ -13,7 +13,7 @@ import yosemite from 'destinations/pics/yosemite.jpg'
 import luangPrabang from 'destinations/pics/luang-prabang.jpg'
 
 interface StyledHomePageProps {
-    city: CITIES
+    city: string
 }
 
 const StyledHomePage = styled.div`

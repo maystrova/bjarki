@@ -1,32 +1,33 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BjarkiContext } from 'context/storeContext'
 import { useParams } from 'react-router-dom'
 import { animateScroll as scroll } from 'react-scroll'
 
-import { CITIES, CityType, DestinationType } from 'services/type'
+import { CITIES, CityType, COUNTRIES } from 'services/type'
 import { ClientWeather, getWeather } from 'services/weather'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import { Search } from 'Components/Search'
-import { Destination } from 'Components/Destination'
 
 import {
+    StyledChooseOption,
+    StyledChosenOption,
+    StyledDiscoverToday,
     StyledHomePage,
     StyledHomePageFooter,
+    StyledPlacesToDiscover,
     StyledScroll,
     StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
-    StyledChooseOption,
-    StyledChosenOption,
-    StyledDiscoverToday,
-    StyledPlacesToDiscover,
 } from './style'
 
 import down from 'Pages/HomePage/pics/arrow-down.svg'
-import clouds from 'Pages/HomePage/pics/cloudy-icon.svg'
-import rain from 'Pages/HomePage/pics/light-rain.svg'
-import defaultWeather from 'Pages/HomePage/pics/cloudy-and-sun.svg'
+import { HomePageInterface } from './type'
+import { Destination } from '../../Components/Destination'
+import clouds from './pics/cloudy-icon.svg'
+import rain from './pics/light-rain.svg'
+import defaultWeather from './pics/cloudy-and-sun.svg'
 
 const HomePage = () => {
     const { store } = useContext(BjarkiContext)
@@ -35,26 +36,33 @@ const HomePage = () => {
         feels_like: '',
     })
     const [destinationSearch, setDestinationSearch] = useState<string>('')
+    const [currentCity, setCurrentCity] = useState<HomePageInterface>({
+        city: CITIES.MONTE_ROSA,
+        country: COUNTRIES.SWITZERLAND,
+    })
 
     let params = useParams<{ alias: string }>()
 
-    let city: CityType | undefined = undefined
+    const getCityFromStore = (): void => {
+        store.destinations.forEach(destination => {
+            const foundCity: CityType | undefined = destination.city.find(
+                city => city.alias === params.alias,
+            )
 
-    store.destinations.forEach(destination => {
-        const foundCity: CityType | undefined = destination.city.find(
-            city => city.alias === params.alias,
-        )
+            if (foundCity) {
+                const newCurrentCity: HomePageInterface = {
+                    city: foundCity.name,
+                    country: destination.country,
+                }
+                setCurrentCity(newCurrentCity)
+            }
+        })
+        return undefined
+    }
 
-        if (foundCity) {
-            city = foundCity
-        }
-    })
-
-    console.log('city', city)
-
-    const handleGetWeather = async (city: CityType) => {
+    const handleGetWeather = async (city: HomePageInterface) => {
         try {
-            const cityWeather = await getWeather(city.name)
+            const cityWeather = await getWeather(city.city)
 
             if (cityWeather) {
                 setWeather({
@@ -68,29 +76,31 @@ const HomePage = () => {
     }
 
     useEffect(() => {
-        if (city) {
-            handleGetWeather(city)
-        }
-    }, [city])
+        getCityFromStore()
+    }, [])
+
+    useEffect(() => {
+        handleGetWeather(currentCity)
+    }, [currentCity])
 
     return (
         <div>
-            <StyledHomePage city={CITIES.MONTE_ROSA}>
-                {/*{destination && (*/}
-                {/*    <Destination*/}
-                {/*        city={destination.city}*/}
-                {/*        country={destination.country}*/}
-                {/*        weatherDescription={weather.feels_like}*/}
-                {/*        weatherIcon={*/}
-                {/*            weather.feels_like === 'Clouds'*/}
-                {/*                ? clouds*/}
-                {/*                : weather.feels_like === 'Rain'*/}
-                {/*                ? rain*/}
-                {/*                : defaultWeather*/}
-                {/*        }*/}
-                {/*        temperature={`${Math.round(weather.temp).toString()}ºC`}*/}
-                {/*    />*/}
-                {/*)}*/}
+            <StyledHomePage
+                city={currentCity ? currentCity.city : CITIES.MONTE_ROSA}
+            >
+                <Destination
+                    city={currentCity.city}
+                    country={currentCity.country}
+                    weatherDescription={weather.feels_like}
+                    weatherIcon={
+                        weather.feels_like === 'Clouds'
+                            ? clouds
+                            : weather.feels_like === 'Rain'
+                            ? rain
+                            : defaultWeather
+                    }
+                    temperature={`${Math.round(weather.temp).toString()}ºC`}
+                />
                 <StyledHomePageFooter>
                     <StyledChooseOption>
                         <StyledChosenOption>
