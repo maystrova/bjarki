@@ -1,20 +1,22 @@
 import React from 'react'
 
-import { StyledDiscoverCard } from './style'
-import { CITIES } from 'services/type'
+import {
+    StyledDiscoverCard,
+    StyledDiscoverCardCity,
+    StyledDiscoverCardCountry,
+} from './style'
 
 interface DiscoverCardProps {
     country: string
     city: string
-    place: CITIES
 }
 
-const DiscoverCard = ({ country, city, place }: DiscoverCardProps) => {
+const DiscoverCard = ({ country, city }: DiscoverCardProps) => {
     return (
-        <StyledDiscoverCard city={place}>
+        <StyledDiscoverCard city={city}>
             <div>
-                <div>{country}</div>
-                <div>{city}</div>
+                <StyledDiscoverCardCountry>{country}</StyledDiscoverCardCountry>
+                <StyledDiscoverCardCity>{city}</StyledDiscoverCardCity>
             </div>
         </StyledDiscoverCard>
     )

@@ -10,24 +10,28 @@ import { Icon, ICON_SIZE } from 'Components/Icon'
 import { Search } from 'Components/Search'
 
 import {
+    StyledAdditionalInformation,
     StyledChooseOption,
     StyledChosenOption,
     StyledDiscoverToday,
     StyledHomePage,
     StyledHomePageFooter,
-    StyledPlacesToDiscover,
+    StyledDiscoverTodayTitle,
     StyledScroll,
     StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
+    StyledPlacesToDiscover,
+    StyledOrangeLine,
 } from './style'
 
 import down from 'Pages/HomePage/pics/arrow-down.svg'
 import { HomePageInterface } from './type'
-import { Destination } from '../../Components/Destination'
+import { Destination } from 'Components/Destination'
 import clouds from './pics/cloudy-icon.svg'
 import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
+import { DiscoverCard } from '../../Components/DiscoverCard'
 
 const HomePage = () => {
     const { store } = useContext(BjarkiContext)
@@ -138,15 +142,36 @@ const HomePage = () => {
                     </StyledSearchActions>
                 </StyledHomePageFooter>
             </StyledHomePage>
-            <StyledDiscoverToday>
-                <StyledPlacesToDiscover>
-                    <h3>Discover Today</h3>
-                    <div>
-                        Come and explore the best of the world, from modern
-                        cities to natural landscapes
-                    </div>
-                </StyledPlacesToDiscover>
-            </StyledDiscoverToday>
+            <StyledAdditionalInformation>
+                <StyledDiscoverToday>
+                    <StyledDiscoverTodayTitle>
+                        <StyledOrangeLine>––</StyledOrangeLine>
+                        <h3>Discover Today</h3>
+                        <span>
+                            Come and explore the best of the world, from modern
+                            cities to natural landscapes
+                        </span>
+                    </StyledDiscoverTodayTitle>
+                    <StyledPlacesToDiscover>
+                        <DiscoverCard
+                            country={COUNTRIES.UNITED_STATES}
+                            city={CITIES.YOSEMITE}
+                        />
+                        <DiscoverCard
+                            country={COUNTRIES.ICELAND}
+                            city={CITIES.REYNISFJARA}
+                        />
+                        <DiscoverCard
+                            country={COUNTRIES.ITALY}
+                            city={CITIES.VENICE}
+                        />
+                        <DiscoverCard
+                            country={COUNTRIES.JAPAN}
+                            city={CITIES.TOKYO}
+                        />
+                    </StyledPlacesToDiscover>
+                </StyledDiscoverToday>
+            </StyledAdditionalInformation>
         </div>
     )
 }

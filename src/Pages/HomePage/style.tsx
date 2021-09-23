@@ -137,11 +137,38 @@ const StyledChosenOption = styled.div`
     }
 `
 
-const StyledDiscoverToday = styled.div`
-    height: 423px;
+const StyledAdditionalInformation = styled.div`
+    padding: 0 0 0 85px;
 `
 
-const StyledPlacesToDiscover = styled.div``
+const StyledDiscoverToday = styled.div`
+    height: 423px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const StyledOrangeLine = styled.div`
+    color: rgba(252, 69, 0, 1);
+`
+
+const StyledDiscoverTodayTitle = styled.div`
+    width: 254px;
+
+    & h3 {
+        margin-bottom: 24px;
+    }
+
+    & span {
+        color: rgba(100, 100, 100, 1);
+    }
+`
+
+const StyledPlacesToDiscover = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+`
 
 export {
     StyledHomePage,
@@ -154,4 +181,7 @@ export {
     StyledChosenOption,
     StyledDiscoverToday,
     StyledPlacesToDiscover,
+    StyledAdditionalInformation,
+    StyledDiscoverTodayTitle,
+    StyledOrangeLine,
 }
