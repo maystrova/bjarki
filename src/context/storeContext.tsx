@@ -1,18 +1,21 @@
 import React, { createContext, useReducer, ReactChild, Dispatch } from 'react'
-import { DestinationType } from 'services/type'
+import { DestinationType, HotelType } from 'services/type'
 import { DESTINATIONS } from 'destinations/destinations'
 import { ACTION } from './actions'
 import { reducer } from './reducer'
 import { ThemeProvider } from 'styled-components'
 import { DEFAULT_USER, User } from 'services/user'
+import { HOTELS } from 'hotels/hotels'
 
 export interface StoreType {
     destinations: DestinationType[]
     user: User
+    hotels: HotelType[]
 }
 
 const INITIAL_STORE: StoreType = {
     destinations: DESTINATIONS,
+    hotels: HOTELS,
     user: DEFAULT_USER,
 }
 

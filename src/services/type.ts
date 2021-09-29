@@ -22,6 +22,8 @@ export enum CITIES {
     TOKYO = 'Tokyo',
     NEW_YORK = 'New York',
     SAN_FRANCISCO = 'San Francisco',
+    MALDIVES = 'Maldives',
+    RIO_DE_JANEIRO = 'Rio de Janeiro',
 }
 
 export type MenuType = {
@@ -38,4 +40,11 @@ export type CityType = {
 export type DestinationType = {
     city: CityType[]
     country: COUNTRIES
+}
+
+export type HotelType = {
+    title: string
+    location: string
+    price: number
+    image: string
 }
