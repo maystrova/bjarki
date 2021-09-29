@@ -7,6 +7,10 @@ import { CITIES, CityType, COUNTRIES } from 'services/type'
 import { ClientWeather, getWeather } from 'services/weather'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
+import { DiscoverCard } from 'Components/DiscoverCard'
+import { Destination } from 'Components/Destination'
+import { AdditionalDiscoverInfo } from 'Components/AdditionalDiscoverInfo'
+import { ExploreCard } from 'Components/ExploreCard'
 import { Search } from 'Components/Search'
 
 import {
@@ -16,22 +20,26 @@ import {
     StyledDiscoverToday,
     StyledHomePage,
     StyledHomePageFooter,
-    StyledDiscoverTodayTitle,
     StyledScroll,
     StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
     StyledPlacesToDiscover,
-    StyledOrangeLine,
+    StyledPlacesToStay,
+    StyledExploreCards,
 } from './style'
-
 import down from 'Pages/HomePage/pics/arrow-down.svg'
 import { HomePageInterface } from './type'
-import { Destination } from 'Components/Destination'
 import clouds from './pics/cloudy-icon.svg'
 import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
-import { DiscoverCard } from '../../Components/DiscoverCard'
+import homesPic from 'Pages/HomePage/pics/homes.png'
+import villasPic from 'Pages/HomePage/pics/villas.png'
+
+interface exploreCardsType {
+    title: string
+    image: string
+}
 
 const HomePage = () => {
     const { store } = useContext(BjarkiContext)
@@ -86,6 +94,11 @@ const HomePage = () => {
     useEffect(() => {
         handleGetWeather(currentCity)
     }, [currentCity])
+
+    const EXPLORE_CARDS: exploreCardsType[] = [
+        { title: '15,000 + Homes', image: homesPic },
+        { title: '34,000 + Villas', image: villasPic },
+    ]
 
     return (
         <div>
@@ -144,14 +157,12 @@ const HomePage = () => {
             </StyledHomePage>
             <StyledAdditionalInformation>
                 <StyledDiscoverToday>
-                    <StyledDiscoverTodayTitle>
-                        <StyledOrangeLine>––</StyledOrangeLine>
-                        <h3>Discover Today</h3>
-                        <span>
-                            Come and explore the best of the world, from modern
-                            cities to natural landscapes
-                        </span>
-                    </StyledDiscoverTodayTitle>
+                    <AdditionalDiscoverInfo
+                        title={'Discover Today'}
+                        description={
+                            'Come and explore the best of the world, from modern cities to natural landscapes'
+                        }
+                    />
                     <StyledPlacesToDiscover>
                         <DiscoverCard
                             country={COUNTRIES.UNITED_STATES}
@@ -171,6 +182,25 @@ const HomePage = () => {
                         />
                     </StyledPlacesToDiscover>
                 </StyledDiscoverToday>
+                <StyledPlacesToStay>
+                    <StyledExploreCards>
+                        {EXPLORE_CARDS.map(card => {
+                            return (
+                                <ExploreCard
+                                    title={card.title}
+                                    image={card.image}
+                                    onCardClick={() => {}}
+                                />
+                            )
+                        })}
+                    </StyledExploreCards>
+                    <AdditionalDiscoverInfo
+                        title={'Nice Places to Stay'}
+                        description={
+                            'Lots of attractive options for apartments and villas '
+                        }
+                    />
+                </StyledPlacesToStay>
             </StyledAdditionalInformation>
         </div>
     )

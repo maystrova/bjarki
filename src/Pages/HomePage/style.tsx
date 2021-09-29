@@ -23,6 +23,7 @@ const StyledHomePage = styled.div`
     height: 100vh;
     display: grid;
     grid-template-rows: 80% 1fr;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
 
     ${(props: StyledHomePageProps) =>
         props.city === CITIES.MONTE_ROSA &&
@@ -138,7 +139,9 @@ const StyledChosenOption = styled.div`
 `
 
 const StyledAdditionalInformation = styled.div`
-    padding: 0 0 0 85px;
+    padding: 0 85px;
+    display: grid;
+    grid-row-gap: 50px;
 `
 
 const StyledDiscoverToday = styled.div`
@@ -148,26 +151,22 @@ const StyledDiscoverToday = styled.div`
     align-items: center;
 `
 
-const StyledOrangeLine = styled.div`
-    color: rgba(252, 69, 0, 1);
-`
-
-const StyledDiscoverTodayTitle = styled.div`
-    width: 254px;
-
-    & h3 {
-        margin-bottom: 24px;
-    }
-
-    & span {
-        color: rgba(100, 100, 100, 1);
-    }
-`
-
 const StyledPlacesToDiscover = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 30px;
+`
+
+const StyledExploreCards = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 30px;
+`
+
+const StyledPlacesToStay = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 `
 
 export {
@@ -182,6 +181,6 @@ export {
     StyledDiscoverToday,
     StyledPlacesToDiscover,
     StyledAdditionalInformation,
-    StyledDiscoverTodayTitle,
-    StyledOrangeLine,
+    StyledPlacesToStay,
+    StyledExploreCards,
 }
