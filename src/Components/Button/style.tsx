@@ -7,12 +7,12 @@ export interface StyledButtonProps {
 
 const StyledButton = styled.button`
     padding-right: 0;
+    border: none;
 
     ${(props: StyledButtonProps) =>
         props.selfType === BUTTON_TYPE.PRIMARY &&
         css`
             color: #ffffff;
-            border: none;
             background-color: rgba(252, 69, 0, 1);
             text-transform: uppercase;
             font-size: 16px;
@@ -27,7 +27,6 @@ const StyledButton = styled.button`
         props.selfType === BUTTON_TYPE.ONLY_TEXT &&
         css`
             color: rgba(56, 56, 56, 1);
-            border: none;
             background: transparent;
             font-size: 14px;
             display: flex;
@@ -47,17 +46,16 @@ const StyledButton = styled.button`
         props.selfType === BUTTON_TYPE.UNDERLINED &&
         css`
             color: rgba(252, 69, 0, 1);
-            border: none;
             background: transparent;
             font-size: 14px;
             border-bottom: 1px solid rgba(252, 69, 0, 1);
             padding: 3px;
         `}
 
+
     ${(props: StyledButtonProps) =>
         props.selfType === BUTTON_TYPE.ROUND &&
         css`
-            border: none;
             width: 42px;
             height: 42px;
             padding: 10px;

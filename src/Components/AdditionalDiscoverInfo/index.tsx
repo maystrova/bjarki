@@ -4,7 +4,7 @@ import { StyledAdditionalDiscoverInfo, StyledOrangeLine } from './style'
 
 interface AdditionalDiscoverInfoProps {
     title: string
-    description: string
+    description?: string
 }
 
 const AdditionalDiscoverInfo = ({

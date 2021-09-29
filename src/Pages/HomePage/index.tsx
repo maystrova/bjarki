@@ -18,15 +18,17 @@ import {
     StyledChooseOption,
     StyledChosenOption,
     StyledDiscoverToday,
+    StyledExploreCards,
+    StyledFeaturedHotels,
+    StyledFeaturedHotelsHeader,
     StyledHomePage,
     StyledHomePageFooter,
+    StyledPlacesToDiscover,
+    StyledPlacesToStay,
     StyledScroll,
     StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
-    StyledPlacesToDiscover,
-    StyledPlacesToStay,
-    StyledExploreCards,
 } from './style'
 import down from 'Pages/HomePage/pics/arrow-down.svg'
 import { HomePageInterface } from './type'
@@ -35,6 +37,7 @@ import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
+import viewAll from 'Pages/HomePage/pics/black-arrow.svg'
 
 interface exploreCardsType {
     title: string
@@ -201,6 +204,17 @@ const HomePage = () => {
                         }
                     />
                 </StyledPlacesToStay>
+                <StyledFeaturedHotels>
+                    <StyledFeaturedHotelsHeader>
+                        <AdditionalDiscoverInfo title={'Featured Hotels'} />
+                        <div>
+                            <button>
+                                View All{' '}
+                                <Icon size={ICON_SIZE.XX_SMALL} src={viewAll} />
+                            </button>
+                        </div>
+                    </StyledFeaturedHotelsHeader>
+                </StyledFeaturedHotels>
             </StyledAdditionalInformation>
         </div>
     )
