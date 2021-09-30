@@ -1,5 +1,9 @@
 import React from 'react'
-import { StyledHotelCard } from './style'
+import {
+    StyledHotelCard,
+    StyledHotelCardLocation,
+    StyledHotelCardPrice,
+} from './style'
 
 interface HotelCardProps {
     image: string
@@ -13,10 +17,12 @@ const HotelCard = ({ image, title, location, price }: HotelCardProps) => {
         <StyledHotelCard>
             <div>
                 <img src={image} alt='img' />
-            </div>
-            <div>{location}</div>
+            </div>{' '}
+            <StyledHotelCardLocation>{location}</StyledHotelCardLocation>
             <div>{title}</div>
-            <div>${price} per night</div>
+            <StyledHotelCardPrice>
+                ${price} <span>per night</span>
+            </StyledHotelCardPrice>
         </StyledHotelCard>
     )
 }
