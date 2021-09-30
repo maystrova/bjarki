@@ -11,6 +11,8 @@ import { DiscoverCard } from 'Components/DiscoverCard'
 import { Destination } from 'Components/Destination'
 import { AdditionalDiscoverInfo } from 'Components/AdditionalDiscoverInfo'
 import { ExploreCard } from 'Components/ExploreCard'
+import { HomePageInterface } from './type'
+
 import { Search } from 'Components/Search'
 
 import {
@@ -29,15 +31,16 @@ import {
     StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
+    StyledFeaturedHotelsList,
 } from './style'
 import down from 'Pages/HomePage/pics/arrow-down.svg'
-import { HomePageInterface } from './type'
 import clouds from './pics/cloudy-icon.svg'
 import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
 import viewAll from 'Pages/HomePage/pics/black-arrow.svg'
+import { HotelCard } from '../../Components/HotelCard'
 
 interface exploreCardsType {
     title: string
@@ -214,6 +217,19 @@ const HomePage = () => {
                             </button>
                         </div>
                     </StyledFeaturedHotelsHeader>
+                    <StyledFeaturedHotelsList>
+                        {' '}
+                        {store.hotels.map(hotel => {
+                            return (
+                                <HotelCard
+                                    image={hotel.image}
+                                    title={hotel.title}
+                                    location={hotel.location}
+                                    price={hotel.price}
+                                />
+                            )
+                        })}
+                    </StyledFeaturedHotelsList>
                 </StyledFeaturedHotels>
             </StyledAdditionalInformation>
         </div>

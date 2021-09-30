@@ -187,6 +187,12 @@ const StyledFeaturedHotelsHeader = styled.header`
     }
 `
 
+const StyledFeaturedHotelsList = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
 export {
     StyledHomePage,
     StyledHomePageFooter,
@@ -203,4 +209,5 @@ export {
     StyledExploreCards,
     StyledFeaturedHotels,
     StyledFeaturedHotelsHeader,
+    StyledFeaturedHotelsList,
 }
