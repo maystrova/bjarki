@@ -1,11 +1,11 @@
-import { CITIES, COUNTRIES, HotelType } from 'services/type'
+import { AdventuresType, CITIES, COUNTRIES } from 'services/type'
 
 import thePearlPacific from './pics/the-pearl-pacific.png'
 import luxuryStarCost from './pics/luxury-star-cost.png'
 import grandChillaxHotel from './pics/grand-chillax-hotel.png'
 import plaza from './pics/the-plaza.png'
 
-const HOTELS: HotelType[] = [
+const HOTELS: AdventuresType[] = [
     {
         title: 'The Pearl Pacific',
         location: CITIES.MALDIVES,

@@ -14,6 +14,7 @@ import { AdditionalDiscoverInfo } from 'Components/AdditionalDiscoverInfo'
 import { ExploreCard } from 'Components/ExploreCard'
 import { Search } from 'Components/Search'
 import { AdventureCard } from 'Components/AdventureCard'
+import { ExploreList } from 'Components/ExploreList'
 
 import {
     StyledAdditionalInformation,
@@ -21,8 +22,6 @@ import {
     StyledChosenOption,
     StyledDiscoverToday,
     StyledExploreCards,
-    StyledFeaturedHotels,
-    StyledFeaturedHotelsHeader,
     StyledHomePage,
     StyledHomePageFooter,
     StyledPlacesToDiscover,
@@ -31,7 +30,6 @@ import {
     StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
-    StyledFeaturedHotelsList,
 } from './style'
 import down from 'Pages/HomePage/pics/arrow-down.svg'
 import clouds from './pics/cloudy-icon.svg'
@@ -39,7 +37,7 @@ import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
-import viewAll from 'Pages/HomePage/pics/black-arrow.svg'
+import { StyledExploreList } from '../../Components/ExploreList/style'
 
 interface exploreCardsType {
     title: string
@@ -206,31 +204,25 @@ const HomePage = () => {
                         }
                     />
                 </StyledPlacesToStay>
-                <StyledFeaturedHotels>
-                    <StyledFeaturedHotelsHeader>
-                        <AdditionalDiscoverInfo title={'Featured Hotels'} />
-                        <div>
-                            <button>
-                                View All{' '}
-                                <Icon size={ICON_SIZE.XX_SMALL} src={viewAll} />
-                            </button>
-                        </div>
-                    </StyledFeaturedHotelsHeader>
-                    <StyledFeaturedHotelsList>
-                        {' '}
-                        {store.hotels.map(hotel => {
-                            return (
-                                <AdventureCard
-                                    image={hotel.image}
-                                    title={hotel.title}
-                                    location={hotel.location}
-                                    price={hotel.price}
-                                    priceDescription={'per night'}
-                                />
-                            )
-                        })}
-                    </StyledFeaturedHotelsList>
-                </StyledFeaturedHotels>
+                <ExploreList
+                    title={'Featured Hotels'}
+                    list={
+                        <StyledExploreList>
+                            {store.hotels.map(hotel => {
+                                return (
+                                    <AdventureCard
+                                        image={hotel.image}
+                                        title={hotel.title}
+                                        location={hotel.location}
+                                        price={hotel.price}
+                                        priceDescription={'per night'}
+                                    />
+                                )
+                            })}
+                        </StyledExploreList>
+                    }
+                    onViewAllClick={() => {}}
+                />
             </StyledAdditionalInformation>
         </div>
     )

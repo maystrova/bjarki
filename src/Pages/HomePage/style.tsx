@@ -169,30 +169,6 @@ const StyledPlacesToStay = styled.div`
     justify-content: space-between;
 `
 
-const StyledFeaturedHotels = styled.div``
-
-const StyledFeaturedHotelsHeader = styled.header`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    & button {
-        background: transparent;
-        border: none;
-        font-size: 14px;
-        border-bottom: 1px solid rgba(252, 69, 0, 1);
-        padding: 3px;
-        display: flex;
-        align-items: center;
-    }
-`
-
-const StyledFeaturedHotelsList = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
-
 export {
     StyledHomePage,
     StyledHomePageFooter,
@@ -207,7 +183,4 @@ export {
     StyledAdditionalInformation,
     StyledPlacesToStay,
     StyledExploreCards,
-    StyledFeaturedHotels,
-    StyledFeaturedHotelsHeader,
-    StyledFeaturedHotelsList,
 }

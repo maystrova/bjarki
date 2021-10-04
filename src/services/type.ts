@@ -10,6 +10,8 @@ export enum COUNTRIES {
     UNITED_STATES = 'United States',
     ITALY = 'Italy',
     CURACAO = 'Curacao',
+    BARBADOS = 'Barbados',
+    EGYPT = 'Egypt',
 }
 
 export enum CITIES {
@@ -24,6 +26,10 @@ export enum CITIES {
     SAN_FRANCISCO = 'San Francisco',
     MALDIVES = 'Maldives',
     RIO_DE_JANEIRO = 'Rio de Janeiro',
+    BRIDGETOWN = 'Bridgetown',
+    GODAFOSS = 'Godafoss',
+    HOI_AN = 'Hoi An',
+    GIZA = 'Giza',
 }
 
 export type MenuType = {
@@ -42,9 +48,10 @@ export type DestinationType = {
     country: COUNTRIES
 }
 
-export type HotelType = {
+export type AdventuresType = {
     title: string
     location: string
     price: number
     image: string
+    priceDescription?: string
 }
