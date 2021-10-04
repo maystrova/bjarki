@@ -4,6 +4,7 @@ const StyledExploreListHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    white-space: nowrap;
 
     & button {
         background: transparent;
@@ -19,7 +20,6 @@ const StyledExploreListHeader = styled.header`
 const StyledExploreList = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: center;
 `
 
 export { StyledExploreListHeader, StyledExploreList }

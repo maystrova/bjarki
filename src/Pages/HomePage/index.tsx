@@ -223,6 +223,29 @@ const HomePage = () => {
                     }
                     onViewAllClick={() => {}}
                 />
+                <ExploreList
+                    title={'Experience Top Adventures'}
+                    list={
+                        <StyledExploreList>
+                            {store.adventures.map(adventure => {
+                                return (
+                                    <AdventureCard
+                                        image={adventure.image}
+                                        title={adventure.title}
+                                        location={adventure.location}
+                                        price={adventure.price}
+                                        priceDescription={
+                                            adventure.priceDescription
+                                                ? adventure.priceDescription
+                                                : ''
+                                        }
+                                    />
+                                )
+                            })}
+                        </StyledExploreList>
+                    }
+                    onViewAllClick={() => {}}
+                />
             </StyledAdditionalInformation>
         </div>
     )

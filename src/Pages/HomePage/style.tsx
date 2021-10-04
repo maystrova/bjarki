@@ -141,7 +141,7 @@ const StyledChosenOption = styled.div`
 const StyledAdditionalInformation = styled.div`
     padding: 0 85px;
     display: grid;
-    grid-row-gap: 50px;
+    grid-row-gap: 100px;
 `
 
 const StyledDiscoverToday = styled.div`
