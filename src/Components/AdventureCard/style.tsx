@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const StyledHotelCard = styled.div`
+const StyledAdventureCard = styled.div`
     width: 255px;
     border-bottom: 1px solid rgba(228, 228, 228, 1);
     line-height: 2;
@@ -11,16 +11,20 @@ const StyledHotelCard = styled.div`
     }
 `
 
-const StyledHotelCardLocation = styled.div`
+const StyledAdventureCardLocation = styled.div`
     font-size: 12px;
     color: rgba(100, 100, 100, 1);
 `
 
-const StyledHotelCardPrice = styled.div`
+const StyledAdventureCardPrice = styled.div`
     & span {
         color: rgba(100, 100, 100, 1);
         font-size: 14px;
     }
 `
 
-export { StyledHotelCard, StyledHotelCardLocation, StyledHotelCardPrice }
+export {
+    StyledAdventureCard,
+    StyledAdventureCardLocation,
+    StyledAdventureCardPrice,
+}

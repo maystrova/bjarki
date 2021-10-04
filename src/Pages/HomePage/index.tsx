@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { animateScroll as scroll } from 'react-scroll'
 
 import { CITIES, CityType, COUNTRIES } from 'services/type'
+import { HomePageInterface } from './type'
 import { ClientWeather, getWeather } from 'services/weather'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
@@ -11,9 +12,8 @@ import { DiscoverCard } from 'Components/DiscoverCard'
 import { Destination } from 'Components/Destination'
 import { AdditionalDiscoverInfo } from 'Components/AdditionalDiscoverInfo'
 import { ExploreCard } from 'Components/ExploreCard'
-import { HomePageInterface } from './type'
-
 import { Search } from 'Components/Search'
+import { AdventureCard } from 'Components/AdventureCard'
 
 import {
     StyledAdditionalInformation,
@@ -40,7 +40,6 @@ import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
 import viewAll from 'Pages/HomePage/pics/black-arrow.svg'
-import { HotelCard } from '../../Components/HotelCard'
 
 interface exploreCardsType {
     title: string
@@ -221,11 +220,12 @@ const HomePage = () => {
                         {' '}
                         {store.hotels.map(hotel => {
                             return (
-                                <HotelCard
+                                <AdventureCard
                                     image={hotel.image}
                                     title={hotel.title}
                                     location={hotel.location}
                                     price={hotel.price}
+                                    priceDescription={'per night'}
                                 />
                             )
                         })}
