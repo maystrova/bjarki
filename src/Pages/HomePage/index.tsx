@@ -38,6 +38,7 @@ import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
 import { StyledExploreList } from '../../Components/ExploreList/style'
+import { Footer } from '../../Components/Footer'
 
 interface exploreCardsType {
     title: string
@@ -247,6 +248,7 @@ const HomePage = () => {
                     onViewAllClick={() => {}}
                 />
             </StyledAdditionalInformation>
+            <Footer />
         </div>
     )
 }

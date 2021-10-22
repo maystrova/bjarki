@@ -13,7 +13,7 @@ import { GlobalStyle, StyledLayout } from './style'
 import firebase from 'firebase/compat'
 
 import anonAvatar from 'services/anon-avatar.png'
-import { DiscoverPage } from '../../Pages/DiscoverPage'
+import { DiscoverPage } from 'Pages/DiscoverPage'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =

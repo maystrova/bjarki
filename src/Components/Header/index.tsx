@@ -28,7 +28,7 @@ const Header = ({
     return (
         <StyledHeader>
             <StyledLogo>
-                <Logo />
+                <Logo type={'HeaderLogo'} title={'Bjarki'} />
                 <HeaderMenu
                     onDealClick={onDealClicked}
                     onDiscoversClick={onDiscoversClicked}
