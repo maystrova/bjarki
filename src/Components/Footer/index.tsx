@@ -5,6 +5,7 @@ import { Logo } from 'Components/Logo'
 import { FooterMenu } from '../FooterMenu'
 
 import { StyledFooter } from './style'
+import { Button, BUTTON_TYPE } from '../Button'
 
 interface FooterProps {}
 
@@ -35,7 +36,15 @@ const Footer = ({}: FooterProps) => {
                 children={
                     <ul>
                         {FOOTER_MENUS.map(item => {
-                            return <li onClick={item.onClick}>{item.title}</li>
+                            return (
+                                <li>
+                                    <Button
+                                        onClick={item.onClick}
+                                        type={BUTTON_TYPE.MENU_ITEM}
+                                        title={item.title}
+                                    />
+                                </li>
+                            )
                         })}
                     </ul>
                 }

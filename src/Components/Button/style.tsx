@@ -65,6 +65,14 @@ const StyledButton = styled.button`
             align-items: center;
             background: #fff;
         `}
+
+    ${(props: StyledButtonProps) =>
+        props.selfType === BUTTON_TYPE.MENU_ITEM &&
+        css`
+            color: #fff;
+            background: transparent;
+            font-size: 14px;
+        `}
 `
 
 export { StyledButton }

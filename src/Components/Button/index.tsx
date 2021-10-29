@@ -14,6 +14,7 @@ export enum BUTTON_TYPE {
     ONLY_TEXT = 'Only_text',
     UNDERLINED = 'Underlined',
     ROUND = 'Round',
+    MENU_ITEM = 'Menu_Item',
 }
 
 interface ButtonProps {
