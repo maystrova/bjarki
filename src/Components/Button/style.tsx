@@ -73,6 +73,19 @@ const StyledButton = styled.button`
             background: transparent;
             font-size: 14px;
         `}
+
+    ${(props: StyledButtonProps) =>
+        props.selfType === BUTTON_TYPE.SOCIAL_MEDIA &&
+        css`
+            background: transparent;
+
+            & img {
+                height: 14px;
+            }
+
+            & :hover {
+            }
+        `}
 `
 
 export { StyledButton }

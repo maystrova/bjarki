@@ -1,11 +1,16 @@
 import React from 'react'
 
 import { Logo } from 'Components/Logo'
-
 import { FooterMenu } from '../FooterMenu'
+import { Button, BUTTON_TYPE } from 'Components/Button'
 
-import { StyledFooter } from './style'
-import { Button, BUTTON_TYPE } from '../Button'
+import { StyledFooter, StyledSocialMedia } from './style'
+
+import instaIcon from 'Components/Footer/pics/insta.svg'
+import fbIcon from 'Components/Footer/pics/fb.svg'
+import twitterIcon from 'Components/Footer/pics/twitter.svg'
+import googleIcon from 'Components/Footer/pics/google-icon.svg'
+import { Icon, ICON_SIZE } from '../Icon'
 
 interface FooterProps {}
 
@@ -14,7 +19,12 @@ interface FooterMenuType {
     onClick: () => void
 }
 
-const FOOTER_MENUS: FooterMenuType[] = [
+interface SocialMediaType {
+    icon: string
+    onClick: () => void
+}
+
+const FOOTER_MENU: FooterMenuType[] = [
     { title: 'About', onClick: () => {} },
     { title: 'Blog', onClick: () => {} },
     { title: 'Help', onClick: () => {} },
@@ -28,6 +38,13 @@ const FOOTER_MENUS: FooterMenuType[] = [
     { title: 'Sitemap', onClick: () => {} },
 ]
 
+const SOCIAL_MEDIA: SocialMediaType[] = [
+    { icon: fbIcon, onClick: () => {} },
+    { icon: twitterIcon, onClick: () => {} },
+    { icon: googleIcon, onClick: () => {} },
+    { icon: instaIcon, onClick: () => {} },
+]
+
 const Footer = ({}: FooterProps) => {
     return (
         <StyledFooter>
@@ -35,7 +52,7 @@ const Footer = ({}: FooterProps) => {
             <FooterMenu
                 children={
                     <ul>
-                        {FOOTER_MENUS.map(item => {
+                        {FOOTER_MENU.map(item => {
                             return (
                                 <li>
                                     <Button
@@ -49,6 +66,19 @@ const Footer = ({}: FooterProps) => {
                     </ul>
                 }
             />
+            <StyledSocialMedia>
+                {SOCIAL_MEDIA.map(item => {
+                    return (
+                        <Button
+                            onClick={item.onClick}
+                            type={BUTTON_TYPE.SOCIAL_MEDIA}
+                            children={
+                                <Icon size={ICON_SIZE.SMALL} src={item.icon} />
+                            }
+                        />
+                    )
+                })}
+            </StyledSocialMedia>
         </StyledFooter>
     )
 }

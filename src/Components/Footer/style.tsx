@@ -9,4 +9,10 @@ const StyledFooter = styled.div`
     align-items: center;
 `
 
-export { StyledFooter }
+const StyledSocialMedia = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+`
+
+export { StyledFooter, StyledSocialMedia }
