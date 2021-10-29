@@ -1,8 +1,9 @@
 import React from 'react'
 
 import { Logo } from 'Components/Logo'
-import { FooterMenu } from '../FooterMenu'
+import { FooterMenu } from 'Components/FooterMenu'
 import { Button, BUTTON_TYPE } from 'Components/Button'
+import { Icon, ICON_SIZE } from 'Components/Icon'
 
 import { StyledFooter, StyledSocialMedia } from './style'
 
@@ -10,7 +11,6 @@ import instaIcon from 'Components/Footer/pics/insta.svg'
 import fbIcon from 'Components/Footer/pics/fb.svg'
 import twitterIcon from 'Components/Footer/pics/twitter.svg'
 import googleIcon from 'Components/Footer/pics/google-icon.svg'
-import { Icon, ICON_SIZE } from '../Icon'
 
 interface FooterProps {}
 

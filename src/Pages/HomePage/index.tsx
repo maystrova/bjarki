@@ -139,7 +139,7 @@ const HomePage = () => {
                                 {' '}
                                 <StyledScroll>Scroll</StyledScroll>
                                 <StyledScrollButton
-                                    onClick={() => scroll.scrollToBottom()}
+                                    onClick={() => scroll.scrollTo(700)}
                                 >
                                     <Icon
                                         size={ICON_SIZE.XX_SMALL}
