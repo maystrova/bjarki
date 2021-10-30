@@ -18,11 +18,10 @@ interface StyledHomePageProps {
 
 const StyledHomePage = styled.div`
     background-color: gray;
-    position: relative;
     color: #fff;
     height: 100vh;
     display: grid;
-    grid-template-rows: 80% 1fr;
+    grid-template-rows: 85% 15%;
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
 
     ${(props: StyledHomePageProps) =>
@@ -90,10 +89,9 @@ const StyledHomePage = styled.div`
 `
 
 const StyledHomePageFooter = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 85px;
-    right: 0;
+    display: grid;
+    align-items: flex-end;
+    padding-left: 85px;
 `
 
 const StyledScroll = styled.div`
@@ -105,11 +103,8 @@ const StyledScrollButton = styled.button`
     border: 1.5px solid rgba(255, 255, 255, 0.3);
     background: transparent;
     border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 30px;
+    height: 30px;
 `
 
 const StyledSearchActions = styled.div`
@@ -119,15 +114,14 @@ const StyledSearchActions = styled.div`
 
 const StyledScrollArea = styled.div`
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
 `
 
 const StyledChooseOption = styled.div`
     display: flex;
     margin-bottom: 14px;
     align-items: center;
-    margin-left: 10%;
 `
 
 const StyledChosenOption = styled.div`

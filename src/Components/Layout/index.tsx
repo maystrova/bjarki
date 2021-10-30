@@ -59,7 +59,7 @@ const Layout = () => {
                     onSwitchLangClicked={() => {}}
                 />
                 <Switch>
-                    <Route path={ROUTES.HOME_PAGE}>
+                    <Route path={[ROUTES.HOME_PAGE, '/']}>
                         <HomePage />
                     </Route>
                 </Switch>

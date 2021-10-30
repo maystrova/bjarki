@@ -14,6 +14,7 @@ import { AdditionalDiscoverInfo } from 'Components/AdditionalDiscoverInfo'
 import { ExploreCard } from 'Components/ExploreCard'
 import { Search } from 'Components/Search'
 import { AdventureCard } from 'Components/AdventureCard'
+import { Footer } from 'Components/Footer'
 import { ExploreList } from 'Components/ExploreList'
 
 import {
@@ -31,14 +32,14 @@ import {
     StyledScrollButton,
     StyledSearchActions,
 } from './style'
+import { StyledExploreList } from 'Components/ExploreList/style'
+
 import down from 'Pages/HomePage/pics/arrow-down.svg'
 import clouds from './pics/cloudy-icon.svg'
 import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
-import { StyledExploreList } from '../../Components/ExploreList/style'
-import { Footer } from '../../Components/Footer'
 
 interface exploreCardsType {
     title: string
@@ -123,20 +124,9 @@ const HomePage = () => {
                     temperature={`${Math.round(weather.temp).toString()}ºC`}
                 />
                 <StyledHomePageFooter>
-                    <StyledChooseOption>
-                        <StyledChosenOption>
-                            <input type='radio' />
-                            <span>Places to stay</span>
-                        </StyledChosenOption>
-                        <StyledChosenOption>
-                            <input type='radio' />
-                            <span>Adventures</span>
-                        </StyledChosenOption>
-                    </StyledChooseOption>
                     <StyledSearchActions>
                         <StyledScrollArea>
                             <div>
-                                {' '}
                                 <StyledScroll>Scroll</StyledScroll>
                                 <StyledScrollButton
                                     onClick={() => scroll.scrollTo(700)}
@@ -149,6 +139,16 @@ const HomePage = () => {
                             </div>
                         </StyledScrollArea>
                         <div>
+                            <StyledChooseOption>
+                                <StyledChosenOption>
+                                    <input type='radio' />
+                                    <span>Places to stay</span>
+                                </StyledChosenOption>
+                                <StyledChosenOption>
+                                    <input type='radio' />
+                                    <span>Adventures</span>
+                                </StyledChosenOption>
+                            </StyledChooseOption>
                             <Search
                                 onDestinationSearchTape={event => {
                                     setDestinationSearch(event.target.value)
