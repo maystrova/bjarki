@@ -1,10 +1,10 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { MenuType } from 'services/type'
+import { ROUTES } from 'services/route'
 
 import { StyledMenu, StyledMenuItem } from './style'
-import { useHistory } from 'react-router-dom'
-import { ROUTES } from '../../services/route'
 
 const HeaderMenu = () => {
     const history = useHistory()
@@ -16,7 +16,7 @@ const HeaderMenu = () => {
             title: 'Discovers',
             onClick: () => history.push(ROUTES.DISCOVER_PAGE),
         },
-        { title: 'News', onClick: () => {} },
+        { title: 'News', onClick: () => history.push(ROUTES.NEWS_PAGE) },
     ]
 
     return (

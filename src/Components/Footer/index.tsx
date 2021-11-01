@@ -11,6 +11,8 @@ import instaIcon from 'Components/Footer/pics/insta.svg'
 import fbIcon from 'Components/Footer/pics/fb.svg'
 import twitterIcon from 'Components/Footer/pics/twitter.svg'
 import googleIcon from 'Components/Footer/pics/google-icon.svg'
+import { useHistory } from 'react-router-dom'
+import { ROUTES } from '../../services/route'
 
 interface FooterProps {}
 
@@ -24,28 +26,29 @@ interface SocialMediaType {
     onClick: () => void
 }
 
-const FOOTER_MENU: FooterMenuType[] = [
-    { title: 'About', onClick: () => {} },
-    { title: 'Blog', onClick: () => {} },
-    { title: 'Help', onClick: () => {} },
-    { title: 'Contact', onClick: () => {} },
-    { title: 'Deal', onClick: () => {} },
-    { title: 'Flight', onClick: () => {} },
-    { title: 'Tour', onClick: () => {} },
-    { title: 'Hotel', onClick: () => {} },
-    { title: 'Terms & Conditions', onClick: () => {} },
-    { title: 'FAQs', onClick: () => {} },
-    { title: 'Sitemap', onClick: () => {} },
-]
-
-const SOCIAL_MEDIA: SocialMediaType[] = [
-    { icon: fbIcon, onClick: () => {} },
-    { icon: twitterIcon, onClick: () => {} },
-    { icon: googleIcon, onClick: () => {} },
-    { icon: instaIcon, onClick: () => {} },
-]
-
 const Footer = ({}: FooterProps) => {
+    const history = useHistory()
+
+    const FOOTER_MENU: FooterMenuType[] = [
+        { title: 'About', onClick: () => {} },
+        { title: 'Blog', onClick: () => {} },
+        { title: 'Help', onClick: () => {} },
+        { title: 'Contact', onClick: () => {} },
+        { title: 'Deal', onClick: () => {} },
+        { title: 'Flight', onClick: () => history.push(ROUTES.FLIGHT_PAGE) },
+        { title: 'Tour', onClick: () => {} },
+        { title: 'Hotel', onClick: () => {} },
+        { title: 'Terms & Conditions', onClick: () => {} },
+        { title: 'FAQs', onClick: () => {} },
+        { title: 'Sitemap', onClick: () => {} },
+    ]
+
+    const SOCIAL_MEDIA: SocialMediaType[] = [
+        { icon: fbIcon, onClick: () => {} },
+        { icon: twitterIcon, onClick: () => {} },
+        { icon: googleIcon, onClick: () => {} },
+        { icon: instaIcon, onClick: () => {} },
+    ]
     return (
         <StyledFooter>
             <Logo title={'© 2020, Bjarki'} type={'FooterLogo'} />

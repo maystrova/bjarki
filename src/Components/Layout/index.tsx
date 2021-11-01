@@ -15,6 +15,7 @@ import firebase from 'firebase/compat'
 import anonAvatar from 'services/anon-avatar.png'
 import { DiscoverPage } from 'Pages/DiscoverPage'
 import { FlightPage } from '../../Pages/FlightPage'
+import { NewsPage } from '../../Pages/NewsPage'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
@@ -70,6 +71,11 @@ const Layout = () => {
                 <Switch>
                     <Route path={ROUTES.FLIGHT_PAGE} exact>
                         <FlightPage />
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route path={ROUTES.NEWS_PAGE} exact>
+                        <NewsPage />
                     </Route>
                 </Switch>
 
