@@ -11,7 +11,7 @@ const HeaderMenu = () => {
 
     const HEADER_MENU: MenuType[] = [
         { title: 'Deal', onClick: () => {} },
-        { title: 'Flight', onClick: () => {} },
+        { title: 'Flight', onClick: () => history.push(ROUTES.FLIGHT_PAGE) },
         {
             title: 'Discovers',
             onClick: () => history.push(ROUTES.DISCOVER_PAGE),
