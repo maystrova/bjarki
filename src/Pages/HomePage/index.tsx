@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { BjarkiContext } from 'context/storeContext'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { animateScroll as scroll } from 'react-scroll'
 
 import { CITIES, CityType, COUNTRIES } from 'services/type'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom'
 
 import { ROUTES } from 'services/route'
 import { User } from 'services/user'
@@ -45,26 +45,24 @@ const Layout = () => {
             .catch(() => {})
     }
 
+    const history = useHistory()
+
     return (
         <BrowserRouter>
             <StyledLayout>
                 <GlobalStyle />
                 <Header
-                    onFlightClicked={() => {}}
-                    onDiscoversClicked={() => {}}
-                    onNewsClicked={() => {}}
-                    onDealClicked={() => {}}
                     onLogInClicked={() => setIsShowAuthorizationWindow(true)}
                     onSignUpClicked={() => {}}
                     onSwitchLangClicked={() => {}}
                 />
                 <Switch>
-                    <Route path={[ROUTES.HOME_PAGE, '/']}>
+                    <Route path={[ROUTES.HOME_PAGE, '/']} exact>
                         <HomePage />
                     </Route>
                 </Switch>
                 <Switch>
-                    <Route path={[ROUTES.DISCOVER_PAGE]}>
+                    <Route path={ROUTES.DISCOVER_PAGE} exact>
                         <DiscoverPage />
                     </Route>
                 </Switch>

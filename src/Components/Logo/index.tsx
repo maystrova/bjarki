@@ -26,7 +26,7 @@ const Logo = ({ title, type }: LogoProps) => {
             )}
             <StyledLogo
                 onClick={() => {
-                    history.push('/')
+                    history.push('/city/monte-rosa')
                     type === 'FooterLogo' && scroll.scrollToTop()
                 }}
             >
