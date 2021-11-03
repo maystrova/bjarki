@@ -16,6 +16,8 @@ import anonAvatar from 'services/anon-avatar.png'
 import { DiscoverPage } from 'Pages/DiscoverPage'
 import { FlightPage } from '../../Pages/FlightPage'
 import { NewsPage } from '../../Pages/NewsPage'
+import { HotelListPage } from '../../Pages/HotelListPage'
+import { AdventuresListPage } from '../../Pages/AdventuresListPage'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
@@ -76,6 +78,16 @@ const Layout = () => {
                 <Switch>
                     <Route path={ROUTES.NEWS_PAGE} exact>
                         <NewsPage />
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route path={ROUTES.HOTEL_LIST_PAGE} exact>
+                        <HotelListPage />
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route path={ROUTES.ADVENTURES_LIST_PAGE} exact>
+                        <AdventuresListPage />
                     </Route>
                 </Switch>
 

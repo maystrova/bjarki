@@ -19,6 +19,7 @@ interface SearchProps {
     value: string
     list: string
     datalist: React.ReactChild
+    onSearchButtonClicked: () => void
 }
 
 const Search = ({
@@ -26,6 +27,7 @@ const Search = ({
     value,
     list,
     datalist,
+    onSearchButtonClicked,
 }: SearchProps) => {
     return (
         <StyledSearch>
@@ -71,7 +73,7 @@ const Search = ({
             </StyledSearchAction>
             <Button
                 title={'Search'}
-                onClick={() => {}}
+                onClick={onSearchButtonClicked}
                 type={BUTTON_TYPE.PRIMARY}
             />
         </StyledSearch>

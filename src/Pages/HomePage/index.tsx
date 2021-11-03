@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { BjarkiContext } from 'context/storeContext'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { animateScroll as scroll } from 'react-scroll'
 
+import { BjarkiContext } from 'context/storeContext'
+
+import { ROUTES } from 'services/route'
 import { CITIES, CityType, COUNTRIES } from 'services/type'
 import { HomePageInterface } from './type'
-import { ClientWeather, getWeather } from 'services/weather'
 
+import { ClientWeather, getWeather } from 'services/weather'
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import { DiscoverCard } from 'Components/DiscoverCard'
 import { Destination } from 'Components/Destination'
@@ -15,8 +17,8 @@ import { ExploreCard } from 'Components/ExploreCard'
 import { Search } from 'Components/Search'
 import { AdventureCard } from 'Components/AdventureCard'
 import { Footer } from 'Components/Footer'
-import { ExploreList } from 'Components/ExploreList'
 
+import { ExploreList } from 'Components/ExploreList'
 import {
     StyledAdditionalInformation,
     StyledChooseOption,
@@ -32,8 +34,8 @@ import {
     StyledScrollButton,
     StyledSearchActions,
 } from './style'
-import { StyledExploreList } from 'Components/ExploreList/style'
 
+import { StyledExploreList } from 'Components/ExploreList/style'
 import down from 'Pages/HomePage/pics/arrow-down.svg'
 import clouds from './pics/cloudy-icon.svg'
 import rain from './pics/light-rain.svg'
@@ -58,7 +60,7 @@ const HomePage = () => {
         country: COUNTRIES.SWITZERLAND,
     })
     const [placesToStayIsChecked, setPlacesToStayIsChecked] =
-        useState<boolean>(false)
+        useState<boolean>(true)
     const [adventuresIsChecked, setAdventuresIsChecked] =
         useState<boolean>(false)
 
@@ -110,6 +112,8 @@ const HomePage = () => {
             console.error(error)
         }
     }
+
+    const history = useHistory()
 
     useEffect(() => {
         getCityFromStore()
@@ -200,6 +204,13 @@ const HomePage = () => {
                                             )
                                         })}
                                     </div>
+                                }
+                                onSearchButtonClicked={() =>
+                                    history.push(
+                                        placesToStayIsChecked
+                                            ? ROUTES.HOTEL_LIST_PAGE
+                                            : ROUTES.ADVENTURES_LIST_PAGE,
+                                    )
                                 }
                             />
                         </div>
