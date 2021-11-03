@@ -1,4 +1,7 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
+
+import { ROUTES } from 'services/route'
 
 import { Logo } from 'Components/Logo'
 import { FooterMenu } from 'Components/FooterMenu'
@@ -11,8 +14,6 @@ import instaIcon from 'Components/Footer/pics/insta.svg'
 import fbIcon from 'Components/Footer/pics/fb.svg'
 import twitterIcon from 'Components/Footer/pics/twitter.svg'
 import googleIcon from 'Components/Footer/pics/google-icon.svg'
-import { useHistory } from 'react-router-dom'
-import { ROUTES } from '../../services/route'
 
 interface FooterProps {}
 

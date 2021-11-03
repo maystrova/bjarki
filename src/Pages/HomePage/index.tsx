@@ -57,6 +57,10 @@ const HomePage = () => {
         city: CITIES.MONTE_ROSA,
         country: COUNTRIES.SWITZERLAND,
     })
+    const [placesToStayIsChecked, setPlacesToStayIsChecked] =
+        useState<boolean>(false)
+    const [adventuresIsChecked, setAdventuresIsChecked] =
+        useState<boolean>(false)
 
     let params = useParams<{ alias: string }>()
 
@@ -141,11 +145,25 @@ const HomePage = () => {
                         <div>
                             <StyledChooseOption>
                                 <StyledChosenOption>
-                                    <input type='radio' />
+                                    <input
+                                        type='radio'
+                                        checked={placesToStayIsChecked}
+                                        onClick={() => {
+                                            setPlacesToStayIsChecked(true)
+                                            setAdventuresIsChecked(false)
+                                        }}
+                                    />
                                     <span>Places to stay</span>
                                 </StyledChosenOption>
                                 <StyledChosenOption>
-                                    <input type='radio' />
+                                    <input
+                                        type='radio'
+                                        checked={adventuresIsChecked}
+                                        onClick={() => {
+                                            setAdventuresIsChecked(true)
+                                            setPlacesToStayIsChecked(false)
+                                        }}
+                                    />
                                     <span>Adventures</span>
                                 </StyledChosenOption>
                             </StyledChooseOption>
