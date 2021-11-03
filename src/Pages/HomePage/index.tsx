@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { BjarkiContext } from 'context/storeContext'
-import { useHistory, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { animateScroll as scroll } from 'react-scroll'
 
 import { CITIES, CityType, COUNTRIES } from 'services/type'
@@ -62,6 +62,8 @@ const HomePage = () => {
     const [adventuresIsChecked, setAdventuresIsChecked] =
         useState<boolean>(false)
 
+    const [destinationsList, setDestinationsList] = useState<string[]>([])
+
     let params = useParams<{ alias: string }>()
 
     const getCityFromStore = (): void => {
@@ -79,6 +81,19 @@ const HomePage = () => {
             }
         })
         return undefined
+    }
+
+    const getDestinationsFromStore = (): void => {
+        const newDestinations: string[] = store.destinations.map(
+            destination => {
+                const foundCity = destination.city.map(city => {
+                    return city.name
+                })
+                const foundCountry = destination.country
+                return `${foundCity}, ${foundCountry}`
+            },
+        )
+        setDestinationsList(newDestinations)
     }
 
     const handleGetWeather = async (city: HomePageInterface) => {
@@ -99,6 +114,8 @@ const HomePage = () => {
     useEffect(() => {
         getCityFromStore()
     }, [])
+
+    useEffect(() => getDestinationsFromStore(), [])
 
     useEffect(() => {
         handleGetWeather(currentCity)
@@ -144,34 +161,46 @@ const HomePage = () => {
                         </StyledScrollArea>
                         <div>
                             <StyledChooseOption>
-                                <StyledChosenOption>
+                                <StyledChosenOption
+                                    onClick={() => {
+                                        setPlacesToStayIsChecked(true)
+                                        setAdventuresIsChecked(false)
+                                    }}
+                                >
                                     <input
                                         type='radio'
                                         checked={placesToStayIsChecked}
-                                        onClick={() => {
-                                            setPlacesToStayIsChecked(true)
-                                            setAdventuresIsChecked(false)
-                                        }}
                                     />
                                     <span>Places to stay</span>
                                 </StyledChosenOption>
-                                <StyledChosenOption>
+                                <StyledChosenOption
+                                    onClick={() => {
+                                        setAdventuresIsChecked(true)
+                                        setPlacesToStayIsChecked(false)
+                                    }}
+                                >
                                     <input
                                         type='radio'
                                         checked={adventuresIsChecked}
-                                        onClick={() => {
-                                            setAdventuresIsChecked(true)
-                                            setPlacesToStayIsChecked(false)
-                                        }}
                                     />
                                     <span>Adventures</span>
                                 </StyledChosenOption>
                             </StyledChooseOption>
                             <Search
+                                list={'destinations'}
                                 onDestinationSearchTape={event => {
                                     setDestinationSearch(event.target.value)
                                 }}
                                 value={destinationSearch}
+                                datalist={
+                                    <div>
+                                        {destinationsList.map(destination => {
+                                            return (
+                                                <option value={destination} />
+                                            )
+                                        })}
+                                    </div>
+                                }
                             />
                         </div>
                     </StyledSearchActions>

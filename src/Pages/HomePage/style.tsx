@@ -126,6 +126,7 @@ const StyledChooseOption = styled.div`
 
 const StyledChosenOption = styled.div`
     margin-right: 30px;
+    cursor: pointer;
 
     & input {
         margin-right: 5px;
