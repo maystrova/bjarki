@@ -5,7 +5,13 @@ import { animateScroll as scroll } from 'react-scroll'
 import { BjarkiContext } from 'context/storeContext'
 
 import { ROUTES } from 'services/route'
-import { CITIES, CityType, COUNTRIES } from 'services/type'
+import {
+    CITIES,
+    CityType,
+    CityWithCountry,
+    COUNTRIES,
+    DestinationType,
+} from 'services/type'
 import { HomePageInterface } from './type'
 
 import { ClientWeather, getWeather } from 'services/weather'
@@ -64,7 +70,9 @@ const HomePage = () => {
     const [adventuresIsChecked, setAdventuresIsChecked] =
         useState<boolean>(false)
 
-    const [destinationsList, setDestinationsList] = useState<string[]>([])
+    const [destinationsList, setDestinationsList] = useState<CityWithCountry[]>(
+        [],
+    )
 
     let params = useParams<{ alias: string }>()
 
@@ -85,16 +93,31 @@ const HomePage = () => {
         return undefined
     }
 
+    const getCountryByCity = (
+        city: string,
+        destination: DestinationType,
+    ): string => {
+        const preparedCities: string[] = destination.city.map(city => city.name)
+
+        if (preparedCities.includes(city)) {
+            return destination.country
+        }
+
+        return 'City undefined'
+    }
+
     const getDestinationsFromStore = (): void => {
-        const newDestinations: string[] = store.destinations.map(
-            destination => {
-                const foundCity = destination.city.map(city => {
-                    return city.name
+        let newDestinations: CityWithCountry[] = []
+
+        for (const value of store.destinations) {
+            value.city.forEach(city => {
+                newDestinations.push({
+                    name: city.name,
+                    country: getCountryByCity(city.name, value),
                 })
-                const foundCountry = destination.country
-                return `${foundCity}, ${foundCountry}`
-            },
-        )
+            })
+        }
+
         setDestinationsList(newDestinations)
     }
 
@@ -200,7 +223,9 @@ const HomePage = () => {
                                     <div>
                                         {destinationsList.map(destination => {
                                             return (
-                                                <option value={destination} />
+                                                <option
+                                                    value={`${destination.name}, ${destination.country}`}
+                                                />
                                             )
                                         })}
                                     </div>

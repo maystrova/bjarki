@@ -48,6 +48,8 @@ export type DestinationType = {
     country: COUNTRIES
 }
 
+export type CityWithCountry = { name: string; country: string }
+
 export type AdventuresType = {
     title: string
     location: string
