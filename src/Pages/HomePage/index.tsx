@@ -23,8 +23,8 @@ import { ExploreCard } from 'Components/ExploreCard'
 import { Search } from 'Components/Search'
 import { AdventureCard } from 'Components/AdventureCard'
 import { Footer } from 'Components/Footer'
-
 import { ExploreList } from 'Components/ExploreList'
+
 import {
     StyledAdditionalInformation,
     StyledChooseOption,
@@ -40,8 +40,8 @@ import {
     StyledScrollButton,
     StyledSearchActions,
 } from './style'
-
 import { StyledExploreList } from 'Components/ExploreList/style'
+
 import down from 'Pages/HomePage/pics/arrow-down.svg'
 import clouds from './pics/cloudy-icon.svg'
 import rain from './pics/light-rain.svg'
@@ -305,7 +305,7 @@ const HomePage = () => {
                             })}
                         </StyledExploreList>
                     }
-                    onViewAllClick={() => {}}
+                    onViewAllClick={() => history.push(ROUTES.HOTEL_LIST_PAGE)}
                 />
                 <ExploreList
                     title={'Experience Top Adventures'}
@@ -328,7 +328,9 @@ const HomePage = () => {
                             })}
                         </StyledExploreList>
                     }
-                    onViewAllClick={() => {}}
+                    onViewAllClick={() =>
+                        history.push(ROUTES.ADVENTURES_LIST_PAGE)
+                    }
                 />
             </StyledAdditionalInformation>
             <Footer />
