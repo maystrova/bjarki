@@ -33,6 +33,19 @@ const DESTINATIONS: DestinationType[] = [
             { name: CITIES.YOSEMITE, alias: 'yosemite' },
         ],
     },
+    {
+        country: COUNTRIES.BARBADOS,
+        city: [{ name: CITIES.BRIDGETOWN, alias: 'bridgetown' }],
+    },
+    {
+        country: COUNTRIES.ICELAND,
+        city: [{ name: CITIES.GODAFOSS, alias: 'godafoss' }],
+    },
+    {
+        country: COUNTRIES.VIETNAM,
+        city: [{ name: CITIES.HOI_AN, alias: 'hoi-an' }],
+    },
+    { country: COUNTRIES.EGYPT, city: [{ name: CITIES.GIZA, alias: 'giza' }] },
 ]
 
 export { DESTINATIONS }
