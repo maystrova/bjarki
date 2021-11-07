@@ -23,8 +23,15 @@ const StyledAdventureCardPrice = styled.div`
     }
 `
 
+const StyledAdventureCardAdditionalInfo = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
 export {
     StyledAdventureCard,
     StyledAdventureCardLocation,
     StyledAdventureCardPrice,
+    StyledAdventureCardAdditionalInfo,
 }

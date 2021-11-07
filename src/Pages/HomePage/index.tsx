@@ -300,6 +300,8 @@ const HomePage = () => {
                                         location={hotel.location}
                                         price={hotel.price}
                                         priceDescription={'per night'}
+                                        rating={hotel.rating}
+                                        reviewsCount={hotel.reviewsCount}
                                     />
                                 )
                             })}
@@ -323,6 +325,8 @@ const HomePage = () => {
                                                 ? adventure.priceDescription
                                                 : ''
                                         }
+                                        rating={adventure.rating}
+                                        reviewsCount={adventure.reviewsCount}
                                     />
                                 )
                             })}

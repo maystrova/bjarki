@@ -29,6 +29,8 @@ const AdventuresListPage = ({}: AdventuresListPageProps) => {
                             location={adventure.location}
                             price={adventure.price}
                             priceDescription={'per 15 days tour'}
+                            rating={adventure.rating}
+                            reviewsCount={adventure.reviewsCount}
                         />
                     )
                 })}

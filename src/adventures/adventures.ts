@@ -14,6 +14,8 @@ const ADVENTURES: AdventuresType[] = [
         price: 170,
         priceDescription: priceDescription,
         image: yogaRetreat,
+        rating: 8.5,
+        reviewsCount: 1143,
     },
     {
         title: 'Explore The North',
@@ -21,6 +23,8 @@ const ADVENTURES: AdventuresType[] = [
         price: 80,
         priceDescription: priceDescription,
         image: exploreTheNorth,
+        rating: 9.3,
+        reviewsCount: 183,
     },
     {
         title: 'Scuba Diving Day Trips',
@@ -28,6 +32,8 @@ const ADVENTURES: AdventuresType[] = [
         price: 129,
         priceDescription: priceDescription,
         image: scubaDiving,
+        rating: 8.9,
+        reviewsCount: 423,
     },
     {
         title: 'Camel Ride Around Pyramids',
@@ -35,6 +41,8 @@ const ADVENTURES: AdventuresType[] = [
         price: 50,
         priceDescription: priceDescription,
         image: camelRide,
+        rating: 9.5,
+        reviewsCount: 73,
     },
 ]
 
