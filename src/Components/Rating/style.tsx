@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 const StyledRating = styled.div`
-    width: 80px;
+    max-width: 80px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     font-size: 14px;
     cursor: pointer;

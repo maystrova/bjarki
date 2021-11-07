@@ -4,7 +4,11 @@ import { BjarkiContext } from 'context/storeContext'
 
 import { AdventureCard } from 'Components/AdventureCard'
 
-import { StyledAdventuresListPage, StyledAvailableInfo } from './style'
+import {
+    StyledAdventureOption,
+    StyledAdventuresListPage,
+    StyledAvailableInfo,
+} from './style'
 import { StyledExploreList } from 'Components/ExploreList/style'
 
 interface AdventuresListPageProps {
@@ -17,8 +21,19 @@ const AdventuresListPage = ({}: AdventuresListPageProps) => {
     return (
         <StyledAdventuresListPage>
             <StyledAvailableInfo>
-                {store.adventures.length} Adventures
-                <span> available in {}</span>
+                <div>
+                    {store.adventures.length} Adventures
+                    <span> available</span>
+                </div>
+                <div>
+                    <StyledAdventureOption>
+                        <input
+                            type='number'
+                            min='1'
+                            placeholder={`${''} travellers`}
+                        />
+                    </StyledAdventureOption>
+                </div>
             </StyledAvailableInfo>
             <StyledExploreList>
                 {store.adventures.map(adventure => {

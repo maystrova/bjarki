@@ -35,7 +35,7 @@ const HOTELS: AdventuresType[] = [
         location: COUNTRIES.GREECE,
         image: plaza,
         price: 507,
-        rating: 9.0,
+        rating: 9.1,
         reviewsCount: 3471,
     },
 ]
