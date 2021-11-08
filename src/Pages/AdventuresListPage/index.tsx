@@ -3,13 +3,18 @@ import React, { useContext } from 'react'
 import { BjarkiContext } from 'context/storeContext'
 
 import { AdventureCard } from 'Components/AdventureCard'
+import { Icon, ICON_SIZE } from 'Components/Icon'
+import { Button, BUTTON_TYPE } from 'Components/Button'
 
 import {
+    StyledAdventureFilter,
     StyledAdventureOption,
     StyledAdventuresListPage,
     StyledAvailableInfo,
 } from './style'
 import { StyledExploreList } from 'Components/ExploreList/style'
+
+import filterIcon from 'Pages/AdventuresListPage/pics/filter-icon.svg'
 
 interface AdventuresListPageProps {
     // destination: string
@@ -31,6 +36,28 @@ const AdventuresListPage = ({}: AdventuresListPageProps) => {
                             type='number'
                             min='1'
                             placeholder={`${''} travellers`}
+                        />
+                    </StyledAdventureOption>
+                    <StyledAdventureOption>
+                        <input type='date' />
+                        <input type='date' />
+                    </StyledAdventureOption>
+                    <StyledAdventureOption>
+                        <input type='text' placeholder={'Type'} />
+                    </StyledAdventureOption>
+                    <StyledAdventureOption>
+                        <Button
+                            onClick={() => {}}
+                            type={BUTTON_TYPE.SOCIAL_MEDIA}
+                            children={
+                                <StyledAdventureFilter>
+                                    <Icon
+                                        size={ICON_SIZE.MEDIUM}
+                                        src={filterIcon}
+                                    />{' '}
+                                    <div>More Filter</div>
+                                </StyledAdventureFilter>
+                            }
                         />
                     </StyledAdventureOption>
                 </div>

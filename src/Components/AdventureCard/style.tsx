@@ -9,6 +9,11 @@ const StyledAdventureCard = styled.div`
     & img {
         width: 255px;
     }
+
+    & a {
+        text-decoration: none;
+        color: inherit;
+    }
 `
 
 const StyledAdventureCardLocation = styled.div`

@@ -1,11 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
+import { ROUTES } from 'services/route'
+
+import { Rating } from 'Components/Rating'
+
 import {
     StyledAdventureCard,
     StyledAdventureCardAdditionalInfo,
     StyledAdventureCardLocation,
     StyledAdventureCardPrice,
 } from './style'
-import { Rating } from '../Rating'
 
 interface AdventureCardProps {
     image: string
@@ -28,19 +33,21 @@ const AdventureCard = ({
 }: AdventureCardProps) => {
     return (
         <StyledAdventureCard>
-            <div>
-                <img src={image} alt='img' />
-            </div>
-            <StyledAdventureCardLocation>
-                {location}
-            </StyledAdventureCardLocation>
-            <div>{title}</div>
-            <StyledAdventureCardAdditionalInfo>
-                <StyledAdventureCardPrice>
-                    ${price} <span>{priceDescription}</span>
-                </StyledAdventureCardPrice>
-                <Rating rating={rating} reviewsCount={reviewsCount} />
-            </StyledAdventureCardAdditionalInfo>
+            <Link to={ROUTES.DISCOVER_PAGE}>
+                <div>
+                    <img src={image} alt='img' />
+                </div>
+                <StyledAdventureCardLocation>
+                    {location}
+                </StyledAdventureCardLocation>
+                <div>{title}</div>
+                <StyledAdventureCardAdditionalInfo>
+                    <StyledAdventureCardPrice>
+                        ${price} <span>{priceDescription}</span>
+                    </StyledAdventureCardPrice>
+                    <Rating rating={rating} reviewsCount={reviewsCount} />
+                </StyledAdventureCardAdditionalInfo>
+            </Link>
         </StyledAdventureCard>
     )
 }
