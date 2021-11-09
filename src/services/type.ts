@@ -58,4 +58,5 @@ export type AdventuresType = {
     priceDescription?: string
     rating: number
     reviewsCount: number
+    alias: string
 }

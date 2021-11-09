@@ -23,6 +23,13 @@ interface AdventuresListPageProps {
 const AdventuresListPage = ({}: AdventuresListPageProps) => {
     const { store } = useContext(BjarkiContext)
 
+    const ADVENTURE_TYPES: string[] = [
+        'Retreat',
+        'Diving',
+        'Exploring',
+        'Beach',
+    ]
+
     return (
         <StyledAdventuresListPage>
             <StyledAvailableInfo>
@@ -43,7 +50,12 @@ const AdventuresListPage = ({}: AdventuresListPageProps) => {
                         <input type='date' />
                     </StyledAdventureOption>
                     <StyledAdventureOption>
-                        <input type='text' placeholder={'Type'} />
+                        <input type='text' placeholder={'Type'} list={'type'} />
+                        <datalist id={'type'}>
+                            {ADVENTURE_TYPES.map(type => {
+                                return <option value={type} />
+                            })}
+                        </datalist>
                     </StyledAdventureOption>
                     <StyledAdventureOption>
                         <Button

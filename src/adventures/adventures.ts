@@ -7,6 +7,13 @@ import camelRide from './pics/camel-ride.png'
 
 const priceDescription = '15 day tour'
 
+export enum ADVENTURE_ALIAS {
+    YOGA_RETREAT = 'yoga-and-meditation-retreat',
+    EXPLORE_THE_NORTH = 'explore-the-north',
+    SCUBA_DIVING = 'scuba-diving-day-trips',
+    CAMEL_RIDE = 'camel-ride-around-pyramids',
+}
+
 const ADVENTURES: AdventuresType[] = [
     {
         title: 'Yoga & Meditation Retreat',
@@ -16,6 +23,7 @@ const ADVENTURES: AdventuresType[] = [
         image: yogaRetreat,
         rating: 8.5,
         reviewsCount: 1143,
+        alias: ADVENTURE_ALIAS.YOGA_RETREAT,
     },
     {
         title: 'Explore The North',
@@ -25,6 +33,7 @@ const ADVENTURES: AdventuresType[] = [
         image: exploreTheNorth,
         rating: 9.3,
         reviewsCount: 183,
+        alias: ADVENTURE_ALIAS.EXPLORE_THE_NORTH,
     },
     {
         title: 'Scuba Diving Day Trips',
@@ -34,6 +43,7 @@ const ADVENTURES: AdventuresType[] = [
         image: scubaDiving,
         rating: 8.9,
         reviewsCount: 423,
+        alias: ADVENTURE_ALIAS.SCUBA_DIVING,
     },
     {
         title: 'Camel Ride Around Pyramids',
@@ -43,6 +53,7 @@ const ADVENTURES: AdventuresType[] = [
         image: camelRide,
         rating: 9.5,
         reviewsCount: 73,
+        alias: ADVENTURE_ALIAS.CAMEL_RIDE,
     },
 ]
 

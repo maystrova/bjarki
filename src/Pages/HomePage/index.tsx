@@ -153,6 +153,10 @@ const HomePage = () => {
         { title: '34,000 + Villas', image: villasPic },
     ]
 
+    const searchAdventures = (destination: string) => {
+        history.push(ROUTES.ADVENTURES_LIST_PAGE)
+    }
+
     return (
         <div>
             <StyledHomePage

@@ -5,6 +5,13 @@ import luxuryStarCost from './pics/luxury-star-cost.png'
 import grandChillaxHotel from './pics/grand-chillax-hotel.png'
 import plaza from './pics/the-plaza.png'
 
+export enum HOTELS_ALIAS {
+    THE_PEARL_PACIFIC = 'the-pearl-pacific',
+    LUXURY_STAR_COST = 'luxury-star-cost',
+    GRAND_CHILLAX_HOTEL = 'grand-chillax-hotel',
+    PLAZA = 'the-plaza',
+}
+
 const HOTELS: AdventuresType[] = [
     {
         title: 'The Pearl Pacific',
@@ -13,6 +20,7 @@ const HOTELS: AdventuresType[] = [
         price: 251,
         rating: 9.5,
         reviewsCount: 247,
+        alias: HOTELS_ALIAS.THE_PEARL_PACIFIC,
     },
     {
         title: 'Luxury Star Cost',
@@ -21,6 +29,7 @@ const HOTELS: AdventuresType[] = [
         price: 378,
         rating: 8.5,
         reviewsCount: 1203,
+        alias: HOTELS_ALIAS.LUXURY_STAR_COST,
     },
     {
         title: 'Grand Chillax Hotel',
@@ -29,6 +38,7 @@ const HOTELS: AdventuresType[] = [
         price: 137,
         rating: 9.3,
         reviewsCount: 77,
+        alias: HOTELS_ALIAS.GRAND_CHILLAX_HOTEL,
     },
     {
         title: 'The Plaza',
@@ -37,6 +47,7 @@ const HOTELS: AdventuresType[] = [
         price: 507,
         rating: 9.1,
         reviewsCount: 3471,
+        alias: HOTELS_ALIAS.PLAZA,
     },
 ]
 

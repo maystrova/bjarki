@@ -4,20 +4,21 @@ import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom'
 import { ROUTES } from 'services/route'
 import { User } from 'services/user'
 
-import { HomePage } from 'Pages/HomePage'
-
 import { SignIn } from 'Components/SignIn'
 import { Header } from 'Components/Header'
 
-import { GlobalStyle, StyledLayout } from './style'
-import firebase from 'firebase/compat'
-
-import anonAvatar from 'services/anon-avatar.png'
+import { HomePage } from 'Pages/HomePage'
 import { DiscoverPage } from 'Pages/DiscoverPage'
-import { FlightPage } from '../../Pages/FlightPage'
-import { NewsPage } from '../../Pages/NewsPage'
-import { HotelListPage } from '../../Pages/HotelListPage'
-import { AdventuresListPage } from '../../Pages/AdventuresListPage'
+import { FlightPage } from 'Pages/FlightPage'
+import { NewsPage } from 'Pages/NewsPage'
+import { HotelListPage } from 'Pages/HotelListPage'
+import { AdventuresListPage } from 'Pages/AdventuresListPage'
+import { AdventurePage } from 'Pages/AdventurePage'
+
+import { GlobalStyle, StyledLayout } from './style'
+
+import firebase from 'firebase/compat'
+import anonAvatar from 'services/anon-avatar.png'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
@@ -88,6 +89,11 @@ const Layout = () => {
                 <Switch>
                     <Route path={ROUTES.ADVENTURES_LIST_PAGE} exact>
                         <AdventuresListPage />
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route path={ROUTES.ADVENTURE_PAGE} exact>
+                        <AdventurePage />
                     </Route>
                 </Switch>
 
