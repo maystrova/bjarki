@@ -78,13 +78,20 @@ const AdventuresListPage = ({}: AdventuresListPageProps) => {
                 {store.adventures.map(adventure => {
                     return (
                         <AdventureCard
-                            image={adventure.image}
+                            image={adventure.image ? adventure.image : ''}
                             title={adventure.title}
-                            location={adventure.location}
-                            price={adventure.price}
+                            location={
+                                adventure.location ? adventure.location : ''
+                            }
+                            price={adventure.price ? adventure.price : 0}
                             priceDescription={'per 15 days tour'}
-                            rating={adventure.rating}
-                            reviewsCount={adventure.reviewsCount}
+                            rating={adventure.rating ? adventure.rating : 0}
+                            reviewsCount={
+                                adventure.reviewsCount
+                                    ? adventure.reviewsCount
+                                    : 0
+                            }
+                            onCardClick={() => {}}
                         />
                     )
                 })}

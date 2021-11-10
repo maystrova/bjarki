@@ -12,9 +12,16 @@ export enum HOTELS_ALIAS {
     PLAZA = 'the-plaza',
 }
 
+export enum HOTEL_TITLE {
+    THE_PEARL_PACIFIC = 'The Pearl Pacific',
+    LUXURY_STAR_COST = 'Luxury Star Cost',
+    GRAND_CHILLAX_HOTEL = 'Grand Chillax Hotel',
+    PLAZA = 'The Plaza',
+}
+
 const HOTELS: AdventuresType[] = [
     {
-        title: 'The Pearl Pacific',
+        title: HOTEL_TITLE.THE_PEARL_PACIFIC,
         location: CITIES.MALDIVES,
         image: thePearlPacific,
         price: 251,
@@ -23,7 +30,7 @@ const HOTELS: AdventuresType[] = [
         alias: HOTELS_ALIAS.THE_PEARL_PACIFIC,
     },
     {
-        title: 'Luxury Star Cost',
+        title: HOTEL_TITLE.LUXURY_STAR_COST,
         location: CITIES.SAN_FRANCISCO,
         image: luxuryStarCost,
         price: 378,
@@ -32,7 +39,7 @@ const HOTELS: AdventuresType[] = [
         alias: HOTELS_ALIAS.LUXURY_STAR_COST,
     },
     {
-        title: 'Grand Chillax Hotel',
+        title: HOTEL_TITLE.GRAND_CHILLAX_HOTEL,
         location: CITIES.RIO_DE_JANEIRO,
         image: grandChillaxHotel,
         price: 137,
@@ -41,7 +48,7 @@ const HOTELS: AdventuresType[] = [
         alias: HOTELS_ALIAS.GRAND_CHILLAX_HOTEL,
     },
     {
-        title: 'The Plaza',
+        title: HOTEL_TITLE.PLAZA,
         location: COUNTRIES.GREECE,
         image: plaza,
         price: 507,

@@ -21,6 +21,7 @@ interface AdventureCardProps {
     priceDescription: string
     rating: number
     reviewsCount: number
+    onCardClick: () => void
 }
 
 const AdventureCard = ({
@@ -31,6 +32,7 @@ const AdventureCard = ({
     priceDescription,
     rating,
     reviewsCount,
+    onCardClick,
 }: AdventureCardProps) => {
     const history = useHistory()
 
@@ -42,23 +44,21 @@ const AdventureCard = ({
                 )
             case ADVENTURE_TITLE.EXPLORE_THE_NORTH:
                 return history.push(
-                    `adventure/${ADVENTURE_ALIAS.EXPLORE_THE_NORTH}`,
+                    `/adventure/${ADVENTURE_ALIAS.EXPLORE_THE_NORTH}`,
                 )
             case ADVENTURE_TITLE.SCUBA_DIVING:
-                return history.push(`adventure/${ADVENTURE_ALIAS.SCUBA_DIVING}`)
+                return history.push(
+                    `/adventure/${ADVENTURE_ALIAS.SCUBA_DIVING}`,
+                )
             case ADVENTURE_TITLE.CAMEL_RIDE:
-                return history.push(`adventure/${ADVENTURE_ALIAS.CAMEL_RIDE}`)
+                return history.push(`/adventure/${ADVENTURE_ALIAS.CAMEL_RIDE}`)
             default:
                 history.push(ROUTES.ADVENTURES_LIST_PAGE)
         }
     }
 
     return (
-        <StyledAdventureCard
-            onClick={() => {
-                goToAdventurePage(title)
-            }}
-        >
+        <StyledAdventureCard onClick={() => onCardClick()}>
             <div>
                 <img src={image} alt='img' />
             </div>

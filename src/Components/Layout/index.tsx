@@ -19,6 +19,7 @@ import { GlobalStyle, StyledLayout } from './style'
 
 import firebase from 'firebase/compat'
 import anonAvatar from 'services/anon-avatar.png'
+import { HotelPage } from '../../Pages/HotelPage'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
@@ -94,6 +95,11 @@ const Layout = () => {
                 <Switch>
                     <Route path={ROUTES.ADVENTURE_PAGE} exact>
                         <AdventurePage />
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route path={ROUTES.HOTEL_PAGE} exact>
+                        <HotelPage />
                     </Route>
                 </Switch>
 

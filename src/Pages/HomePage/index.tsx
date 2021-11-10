@@ -48,6 +48,7 @@ import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
+import { ADVENTURE_ALIAS } from '../../adventures/adventures'
 
 interface exploreCardsType {
     title: string
@@ -299,14 +300,24 @@ const HomePage = () => {
                             {store.hotels.map(hotel => {
                                 return (
                                     <AdventureCard
-                                        image={hotel.image}
+                                        image={hotel.image ? hotel.image : ''}
                                         title={hotel.title}
-                                        location={hotel.location}
-                                        price={hotel.price}
+                                        location={
+                                            hotel.location ? hotel.location : ''
+                                        }
+                                        price={hotel.price ? hotel.price : 0}
                                         priceDescription={'per night'}
-                                        rating={hotel.rating}
-                                        reviewsCount={hotel.reviewsCount}
-                                        // onCardClick={title => hotel.alias}
+                                        rating={hotel.rating ? hotel.rating : 0}
+                                        reviewsCount={
+                                            hotel.reviewsCount
+                                                ? hotel.reviewsCount
+                                                : 0
+                                        }
+                                        onCardClick={() =>
+                                            history.push(
+                                                `/hotel/${hotel.alias}`,
+                                            )
+                                        }
                                     />
                                 )
                             })}
@@ -321,17 +332,42 @@ const HomePage = () => {
                             {store.adventures.map(adventure => {
                                 return (
                                     <AdventureCard
-                                        image={adventure.image}
+                                        image={
+                                            adventure.image
+                                                ? adventure.image
+                                                : ''
+                                        }
                                         title={adventure.title}
-                                        location={adventure.location}
-                                        price={adventure.price}
+                                        location={
+                                            adventure.location
+                                                ? adventure.location
+                                                : ''
+                                        }
+                                        price={
+                                            adventure.price
+                                                ? adventure.price
+                                                : 0
+                                        }
                                         priceDescription={
                                             adventure.priceDescription
                                                 ? adventure.priceDescription
                                                 : ''
                                         }
-                                        rating={adventure.rating}
-                                        reviewsCount={adventure.reviewsCount}
+                                        rating={
+                                            adventure.rating
+                                                ? adventure.rating
+                                                : 0
+                                        }
+                                        reviewsCount={
+                                            adventure.reviewsCount
+                                                ? adventure.reviewsCount
+                                                : 0
+                                        }
+                                        onCardClick={() => {
+                                            history.push(
+                                                `/adventure/${adventure.alias}`,
+                                            )
+                                        }}
                                     />
                                 )
                             })}

@@ -52,11 +52,11 @@ export type CityWithCountry = { name: string; country: string }
 
 export type AdventuresType = {
     title: string
-    location: string
-    price: number
-    image: string
+    location?: string
+    price?: number
+    image?: string
     priceDescription?: string
-    rating: number
-    reviewsCount: number
+    rating?: number
+    reviewsCount?: number
     alias: string
 }
