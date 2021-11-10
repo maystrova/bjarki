@@ -306,6 +306,7 @@ const HomePage = () => {
                                         priceDescription={'per night'}
                                         rating={hotel.rating}
                                         reviewsCount={hotel.reviewsCount}
+                                        // onCardClick={title => hotel.alias}
                                     />
                                 )
                             })}

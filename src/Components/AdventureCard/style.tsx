@@ -5,6 +5,7 @@ const StyledAdventureCard = styled.div`
     border-bottom: 1px solid rgba(228, 228, 228, 1);
     line-height: 2;
     padding-bottom: 20px;
+    cursor: pointer;
 
     & img {
         width: 255px;

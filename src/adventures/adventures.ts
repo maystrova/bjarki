@@ -14,9 +14,16 @@ export enum ADVENTURE_ALIAS {
     CAMEL_RIDE = 'camel-ride-around-pyramids',
 }
 
+export enum ADVENTURE_TITLE {
+    YOGA_RETREAT = 'Yoga & Meditation Retreat',
+    EXPLORE_THE_NORTH = 'Explore The North',
+    SCUBA_DIVING = 'Scuba Diving Day Trips',
+    CAMEL_RIDE = 'Camel Ride Around Pyramids',
+}
+
 const ADVENTURES: AdventuresType[] = [
     {
-        title: 'Yoga & Meditation Retreat',
+        title: ADVENTURE_TITLE.YOGA_RETREAT,
         location: `${CITIES.BRIDGETOWN}, ${COUNTRIES.BARBADOS}`,
         price: 170,
         priceDescription: priceDescription,
@@ -26,7 +33,7 @@ const ADVENTURES: AdventuresType[] = [
         alias: ADVENTURE_ALIAS.YOGA_RETREAT,
     },
     {
-        title: 'Explore The North',
+        title: ADVENTURE_TITLE.EXPLORE_THE_NORTH,
         location: `${CITIES.GODAFOSS}, ${COUNTRIES.ICELAND}`,
         price: 80,
         priceDescription: priceDescription,
@@ -36,7 +43,7 @@ const ADVENTURES: AdventuresType[] = [
         alias: ADVENTURE_ALIAS.EXPLORE_THE_NORTH,
     },
     {
-        title: 'Scuba Diving Day Trips',
+        title: ADVENTURE_TITLE.SCUBA_DIVING,
         location: `${CITIES.HOI_AN}, ${COUNTRIES.VIETNAM}`,
         price: 129,
         priceDescription: priceDescription,
@@ -46,7 +53,7 @@ const ADVENTURES: AdventuresType[] = [
         alias: ADVENTURE_ALIAS.SCUBA_DIVING,
     },
     {
-        title: 'Camel Ride Around Pyramids',
+        title: ADVENTURE_TITLE.CAMEL_RIDE,
         location: `${CITIES.GIZA}, ${COUNTRIES.EGYPT}`,
         price: 50,
         priceDescription: priceDescription,

@@ -10,12 +10,15 @@ const StyledAdventurePage = styled.div`
     background-color: gray;
     color: #fff;
     height: 100vh;
-    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     ${(props: StyledAdventurePageProps) =>
         props.alias === ADVENTURE_ALIAS.YOGA_RETREAT &&
         css`
             background: no-repeat url(${yogaRetreat});
+            background-size: cover;
         `}
 `
 
