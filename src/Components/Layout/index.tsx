@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom'
 
+import firebase from 'firebase'
+
 import { ROUTES } from 'services/route'
 import { User } from 'services/user'
 
 import { SignIn } from 'Components/SignIn'
 import { Header } from 'Components/Header'
-
 import { HomePage } from 'Pages/HomePage'
 import { DiscoverPage } from 'Pages/DiscoverPage'
 import { FlightPage } from 'Pages/FlightPage'
@@ -14,12 +15,11 @@ import { NewsPage } from 'Pages/NewsPage'
 import { HotelListPage } from 'Pages/HotelListPage'
 import { AdventuresListPage } from 'Pages/AdventuresListPage'
 import { AdventurePage } from 'Pages/AdventurePage'
+import { HotelPage } from 'Pages/HotelPage'
 
 import { GlobalStyle, StyledLayout } from './style'
 
-import firebase from 'firebase/compat'
 import anonAvatar from 'services/anon-avatar.png'
-import { HotelPage } from '../../Pages/HotelPage'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
@@ -32,7 +32,6 @@ const Layout = () => {
             .auth()
             .signInWithPopup(authProvider)
             .then(result => {
-                /** @type {firebase.auth.OAuthCredential} */
                 let user = result.user
                 const preparedUser: User = {
                     name: user?.displayName ? user.displayName : 'User',
