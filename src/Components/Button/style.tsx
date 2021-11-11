@@ -6,7 +6,7 @@ export interface StyledButtonProps {
 }
 
 const StyledButton = styled.button`
-    padding-right: 0;
+    padding: 0;
     border: none;
 
     ${(props: StyledButtonProps) =>
