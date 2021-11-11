@@ -1,4 +1,8 @@
 import React from 'react'
+
+import { Icon, ICON_SIZE } from 'Components/Icon'
+import { Button, BUTTON_TYPE } from 'Components/Button'
+
 import {
     StyledSearch,
     StyledSearchAction,
@@ -8,18 +12,23 @@ import {
     StyledSearchItemTitle,
 } from './style'
 
-import calendarIcon from 'Components/Search/pics/calendar-icon.svg'
 import locationIcon from 'Components/Search/pics/location-icon.svg'
-import chooseNumberIcon from 'Components/Search/pics/search-choose-number.svg'
-import { Icon, ICON_SIZE } from 'Components/Icon'
-import { Button, BUTTON_TYPE, BUTTON_WIDTH } from 'Components/Button'
 
 interface SearchProps {
     onDestinationSearchTape: (event: any) => void
     value: string
+    list: string
+    datalist: React.ReactChild
+    onSearchButtonClicked: () => void
 }
 
-const Search = ({ onDestinationSearchTape, value }: SearchProps) => {
+const Search = ({
+    onDestinationSearchTape,
+    value,
+    list,
+    datalist,
+    onSearchButtonClicked,
+}: SearchProps) => {
     return (
         <StyledSearch>
             <StyledSearchAction>
@@ -32,7 +41,10 @@ const Search = ({ onDestinationSearchTape, value }: SearchProps) => {
                             placeholder={'Where are you going?'}
                             onChange={onDestinationSearchTape}
                             value={value}
+                            autoComplete={'on'}
+                            list={list}
                         />
+                        <datalist id={'destinations'}>{datalist}</datalist>
                     </StyledSearchInput>
                 </StyledSearchItem>
             </StyledSearchAction>
@@ -61,7 +73,7 @@ const Search = ({ onDestinationSearchTape, value }: SearchProps) => {
             </StyledSearchAction>
             <Button
                 title={'Search'}
-                onClick={() => {}}
+                onClick={onSearchButtonClicked}
                 type={BUTTON_TYPE.PRIMARY}
             />
         </StyledSearch>

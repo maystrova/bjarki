@@ -1,27 +1,22 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { MenuType } from 'services/type'
+import { ROUTES } from 'services/route'
 
 import { StyledMenu, StyledMenuItem } from './style'
 
-interface HeaderMenuProps {
-    onDealClick: () => void
-    onFlightClick: () => void
-    onDiscoversClick: () => void
-    onNewsClick: () => void
-}
+const HeaderMenu = () => {
+    const history = useHistory()
 
-const HeaderMenu = ({
-    onDealClick,
-    onNewsClick,
-    onFlightClick,
-    onDiscoversClick,
-}: HeaderMenuProps) => {
     const HEADER_MENU: MenuType[] = [
-        { title: 'Deal', onClick: onDealClick },
-        { title: 'Flight', onClick: onFlightClick },
-        { title: 'Discovers', onClick: onDiscoversClick },
-        { title: 'News', onClick: onNewsClick },
+        { title: 'Deal', onClick: () => {} },
+        { title: 'Flight', onClick: () => history.push(ROUTES.FLIGHT_PAGE) },
+        {
+            title: 'Discovers',
+            onClick: () => history.push(ROUTES.DISCOVER_PAGE),
+        },
+        { title: 'News', onClick: () => history.push(ROUTES.NEWS_PAGE) },
     ]
 
     return (
@@ -29,7 +24,7 @@ const HeaderMenu = ({
             {HEADER_MENU.map(item => {
                 return (
                     <StyledMenuItem key={item.title}>
-                        <button>{item.title}</button>
+                        <button onClick={item.onClick}>{item.title}</button>
                     </StyledMenuItem>
                 )
             })}

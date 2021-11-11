@@ -1,4 +1,5 @@
 import { CONFIG } from 'config'
+import { CityType } from './type'
 
 interface WeatherState {
     description: string

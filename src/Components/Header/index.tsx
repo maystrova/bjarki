@@ -10,31 +10,18 @@ interface HeaderProps {
     onSwitchLangClicked: () => void
     onLogInClicked: () => void
     onSignUpClicked: () => void
-    onDealClicked: () => void
-    onFlightClicked: () => void
-    onDiscoversClicked: () => void
-    onNewsClicked: () => void
 }
 
 const Header = ({
     onLogInClicked,
     onSwitchLangClicked,
     onSignUpClicked,
-    onDealClicked,
-    onNewsClicked,
-    onDiscoversClicked,
-    onFlightClicked,
 }: HeaderProps) => {
     return (
         <StyledHeader>
             <StyledLogo>
-                <Logo />
-                <HeaderMenu
-                    onDealClick={onDealClicked}
-                    onDiscoversClick={onDiscoversClicked}
-                    onFlightClick={onFlightClicked}
-                    onNewsClick={onNewsClicked}
-                />
+                <Logo type={'HeaderLogo'} title={'Bjarki'} />
+                <HeaderMenu />
             </StyledLogo>
             <UserActionMenu
                 logIn={onLogInClicked}

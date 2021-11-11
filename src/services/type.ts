@@ -1,12 +1,17 @@
 export enum COUNTRIES {
+    GREECE = 'Greece',
+    TANZANIA = 'Tanzania',
+    VIETNAM = 'Vietnam',
+    JAPAN = 'Japan',
     SWITZERLAND = 'Switzerland',
     CHINA = 'China',
     LAOS = 'Laos',
     ICELAND = 'Iceland',
     UNITED_STATES = 'United States',
     ITALY = 'Italy',
-    JAPAN = 'Japan',
     CURACAO = 'Curacao',
+    BARBADOS = 'Barbados',
+    EGYPT = 'Egypt',
 }
 
 export enum CITIES {
@@ -19,6 +24,12 @@ export enum CITIES {
     TOKYO = 'Tokyo',
     NEW_YORK = 'New York',
     SAN_FRANCISCO = 'San Francisco',
+    MALDIVES = 'Maldives',
+    RIO_DE_JANEIRO = 'Rio de Janeiro',
+    BRIDGETOWN = 'Bridgetown',
+    GODAFOSS = 'Godafoss',
+    HOI_AN = 'Hoi An',
+    GIZA = 'Giza',
 }
 
 export type MenuType = {
@@ -27,8 +38,25 @@ export type MenuType = {
     onClick: () => void
 }
 
+export type CityType = {
+    name: CITIES
+    alias: string
+}
+
 export type DestinationType = {
-    city: CITIES
+    city: CityType[]
     country: COUNTRIES
+}
+
+export type CityWithCountry = { name: string; country: string }
+
+export type AdventuresType = {
+    title: string
+    location?: string
+    price?: number
+    image?: string
+    priceDescription?: string
+    rating?: number
+    reviewsCount?: number
     alias: string
 }

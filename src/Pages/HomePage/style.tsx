@@ -13,7 +13,7 @@ import yosemite from 'destinations/pics/yosemite.jpg'
 import luangPrabang from 'destinations/pics/luang-prabang.jpg'
 
 interface StyledHomePageProps {
-    city: CITIES
+    city: string
 }
 
 const StyledHomePage = styled.div`
@@ -21,7 +21,8 @@ const StyledHomePage = styled.div`
     color: #fff;
     height: 100vh;
     display: grid;
-    grid-template-rows: 80% 1fr;
+    grid-template-rows: 85% 15%;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
 
     ${(props: StyledHomePageProps) =>
         props.city === CITIES.MONTE_ROSA &&
@@ -88,10 +89,9 @@ const StyledHomePage = styled.div`
 `
 
 const StyledHomePageFooter = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 85px;
-    right: 0;
+    display: grid;
+    align-items: flex-end;
+    padding-left: 85px;
 `
 
 const StyledScroll = styled.div`
@@ -103,11 +103,8 @@ const StyledScrollButton = styled.button`
     border: 1.5px solid rgba(255, 255, 255, 0.3);
     background: transparent;
     border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 30px;
+    height: 30px;
 `
 
 const StyledSearchActions = styled.div`
@@ -117,23 +114,54 @@ const StyledSearchActions = styled.div`
 
 const StyledScrollArea = styled.div`
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
 `
 
 const StyledChooseOption = styled.div`
     display: flex;
     margin-bottom: 14px;
     align-items: center;
-    margin-left: 10%;
 `
 
 const StyledChosenOption = styled.div`
     margin-right: 30px;
+    cursor: pointer;
 
     & input {
         margin-right: 5px;
     }
+`
+
+const StyledAdditionalInformation = styled.div`
+    padding: 0 85px;
+    display: grid;
+    grid-row-gap: 100px;
+`
+
+const StyledDiscoverToday = styled.div`
+    height: 423px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const StyledPlacesToDiscover = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+`
+
+const StyledExploreCards = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 30px;
+`
+
+const StyledPlacesToStay = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 `
 
 export {
@@ -145,4 +173,9 @@ export {
     StyledScrollArea,
     StyledChooseOption,
     StyledChosenOption,
+    StyledDiscoverToday,
+    StyledPlacesToDiscover,
+    StyledAdditionalInformation,
+    StyledPlacesToStay,
+    StyledExploreCards,
 }

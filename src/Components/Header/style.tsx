@@ -11,6 +11,7 @@ const StyledHeader = styled.header`
     left: 0;
     right: 0;
     background: transparent;
+    white-space: nowrap;
 `
 
 const StyledLogo = styled.div`

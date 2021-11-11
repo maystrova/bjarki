@@ -1,16 +1,25 @@
 import React, { createContext, useReducer, ReactChild, Dispatch } from 'react'
-import { DestinationType } from '../services/type'
-import { DESTINATIONS } from '../destinations/destinations'
+import { AdventuresType, DestinationType } from 'services/type'
+import { DESTINATIONS } from 'destinations/destinations'
 import { ACTION } from './actions'
 import { reducer } from './reducer'
 import { ThemeProvider } from 'styled-components'
+import { DEFAULT_USER, User } from 'services/user'
+import { HOTELS } from 'hotels/hotels'
+import { ADVENTURES } from 'adventures/adventures'
 
 export interface StoreType {
     destinations: DestinationType[]
+    user: User
+    hotels: AdventuresType[]
+    adventures: AdventuresType[]
 }
 
 const INITIAL_STORE: StoreType = {
     destinations: DESTINATIONS,
+    hotels: HOTELS,
+    user: DEFAULT_USER,
+    adventures: ADVENTURES,
 }
 
 export const BjarkiContext = createContext<{

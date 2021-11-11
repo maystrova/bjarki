@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
+import { Weather } from 'Components/Weather'
 
 import { StyledDestination } from './style'
 import {
@@ -15,9 +16,9 @@ import {
     StyledExplore,
     StyledExploreButton,
 } from './style'
+
 import further from 'Pages/HomePage/pics/arrow-right.svg'
 import explore from 'Pages/HomePage/pics/explore.png'
-import { Weather } from 'Components/Weather'
 
 interface DestinationProps {
     city: string
@@ -30,6 +31,8 @@ interface DestinationProps {
 const today: any = new Date()
 const date: string = today.getDate().toString()
 const month: string = (today.getMonth() + 1).toString()
+const updatedDate = date.length < 2 ? 0 + date : date
+const updatedMonth = month.length < 2 ? 0 + month : month
 
 const Destination = ({
     country,
@@ -42,10 +45,8 @@ const Destination = ({
         <StyledDestination>
             <StyledDestinationInfo>
                 <StyledDate>
-                    <StyledDay>{`${date.length === 1 && 0}${date}`}</StyledDay>
-                    <StyledMonth>{` / ${
-                        month.length === 1 && 0
-                    }${month}`}</StyledMonth>
+                    <StyledDay>{`${updatedDate}`}</StyledDay>
+                    <StyledMonth>{` / ${updatedMonth}`}</StyledMonth>
                 </StyledDate>
                 <div>
                     <Weather

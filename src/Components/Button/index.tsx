@@ -13,15 +13,19 @@ export enum BUTTON_TYPE {
     PRIMARY = 'Primary',
     ONLY_TEXT = 'Only_text',
     UNDERLINED = 'Underlined',
+    ROUND = 'Round',
+    MENU_ITEM = 'Menu_Item',
+    SOCIAL_MEDIA = 'Social_Media',
 }
 
 interface ButtonProps {
     width?: BUTTON_WIDTH
     height?: BUTTON_HEIGHT
     borderRadius?: string
-    title: string
+    title?: string
     onClick: () => void
     type: BUTTON_TYPE
+    children?: React.ReactChild
 }
 
 const Button = ({
@@ -31,6 +35,7 @@ const Button = ({
     type,
     height,
     borderRadius,
+    children,
 }: ButtonProps) => {
     return (
         <StyledButton
@@ -38,6 +43,7 @@ const Button = ({
             selfType={type}
             style={{ width, height, borderRadius }}
         >
+            {children}
             {title}
         </StyledButton>
     )

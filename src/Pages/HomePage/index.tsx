@@ -1,29 +1,59 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
+import { animateScroll as scroll } from 'react-scroll'
+
 import { BjarkiContext } from 'context/storeContext'
-import { useParams } from 'react-router-dom'
 
-import { CITIES, DestinationType } from 'services/type'
+import { ROUTES } from 'services/route'
+import {
+    CITIES,
+    CityType,
+    CityWithCountry,
+    COUNTRIES,
+    DestinationType,
+} from 'services/type'
+import { HomePageInterface } from './type'
+
 import { ClientWeather, getWeather } from 'services/weather'
-
 import { Icon, ICON_SIZE } from 'Components/Icon'
-import { Search } from 'Components/Search'
+import { DiscoverCard } from 'Components/DiscoverCard'
 import { Destination } from 'Components/Destination'
+import { AdditionalDiscoverInfo } from 'Components/AdditionalDiscoverInfo'
+import { ExploreCard } from 'Components/ExploreCard'
+import { Search } from 'Components/Search'
+import { AdventureCard } from 'Components/AdventureCard'
+import { Footer } from 'Components/Footer'
+import { ExploreList } from 'Components/ExploreList'
 
 import {
+    StyledAdditionalInformation,
+    StyledChooseOption,
+    StyledChosenOption,
+    StyledDiscoverToday,
+    StyledExploreCards,
     StyledHomePage,
     StyledHomePageFooter,
+    StyledPlacesToDiscover,
+    StyledPlacesToStay,
     StyledScroll,
     StyledScrollArea,
     StyledScrollButton,
     StyledSearchActions,
-    StyledChooseOption,
-    StyledChosenOption,
 } from './style'
+import { StyledExploreList } from 'Components/ExploreList/style'
 
 import down from 'Pages/HomePage/pics/arrow-down.svg'
-import clouds from 'Pages/HomePage/pics/cloudy-icon.svg'
-import rain from 'Pages/HomePage/pics/light-rain.svg'
-import defaultWeather from 'Pages/HomePage/pics/cloudy-and-sun.svg'
+import clouds from './pics/cloudy-icon.svg'
+import rain from './pics/light-rain.svg'
+import defaultWeather from './pics/cloudy-and-sun.svg'
+import homesPic from 'Pages/HomePage/pics/homes.png'
+import villasPic from 'Pages/HomePage/pics/villas.png'
+import { ADVENTURE_ALIAS } from '../../adventures/adventures'
+
+interface exploreCardsType {
+    title: string
+    image: string
+}
 
 const HomePage = () => {
     const { store } = useContext(BjarkiContext)
@@ -32,16 +62,69 @@ const HomePage = () => {
         feels_like: '',
     })
     const [destinationSearch, setDestinationSearch] = useState<string>('')
+    const [currentCity, setCurrentCity] = useState<HomePageInterface>({
+        city: CITIES.MONTE_ROSA,
+        country: COUNTRIES.SWITZERLAND,
+    })
+    const [placesToStayIsChecked, setPlacesToStayIsChecked] =
+        useState<boolean>(true)
+    const [adventuresIsChecked, setAdventuresIsChecked] =
+        useState<boolean>(false)
+
+    const [destinationsList, setDestinationsList] = useState<CityWithCountry[]>(
+        [],
+    )
 
     let params = useParams<{ alias: string }>()
 
-    const destination: DestinationType | undefined = store.destinations.find(
-        destination => destination.alias === params.alias,
-    )
+    const getCityFromStore = (): void => {
+        store.destinations.forEach(destination => {
+            const foundCity: CityType | undefined = destination.city.find(
+                city => city.alias === params.alias,
+            )
 
-    const handleGetWeather = async (city: string) => {
+            if (foundCity) {
+                const newCurrentCity: HomePageInterface = {
+                    city: foundCity.name,
+                    country: destination.country,
+                }
+                setCurrentCity(newCurrentCity)
+            }
+        })
+        return undefined
+    }
+
+    const getCountryByCity = (
+        city: string,
+        destination: DestinationType,
+    ): string => {
+        const preparedCities: string[] = destination.city.map(city => city.name)
+
+        if (preparedCities.includes(city)) {
+            return destination.country
+        }
+
+        return 'City undefined'
+    }
+
+    const getDestinationsFromStore = (): void => {
+        let newDestinations: CityWithCountry[] = []
+
+        for (const value of store.destinations) {
+            value.city.forEach(city => {
+                newDestinations.push({
+                    name: city.name,
+                    country: getCountryByCity(city.name, value),
+                })
+            })
+        }
+
+        setDestinationsList(newDestinations)
+    }
+
+    const handleGetWeather = async (city: HomePageInterface) => {
         try {
-            const cityWeather = await getWeather(city)
+            const cityWeather = await getWeather(city.city)
 
             if (cityWeather) {
                 setWeather({
@@ -54,20 +137,35 @@ const HomePage = () => {
         }
     }
 
+    const history = useHistory()
+
     useEffect(() => {
-        if (destination) {
-            handleGetWeather(destination.city)
-        }
-    }, [destination])
+        getCityFromStore()
+    }, [])
+
+    useEffect(() => getDestinationsFromStore(), [])
+
+    useEffect(() => {
+        handleGetWeather(currentCity)
+    }, [currentCity])
+
+    const EXPLORE_CARDS: exploreCardsType[] = [
+        { title: '15,000 + Homes', image: homesPic },
+        { title: '34,000 + Villas', image: villasPic },
+    ]
+
+    const searchAdventures = (destination: string) => {
+        history.push(ROUTES.ADVENTURES_LIST_PAGE)
+    }
 
     return (
-        <StyledHomePage
-            city={destination ? destination.city : CITIES.MONTE_ROSA}
-        >
-            {destination && (
+        <div>
+            <StyledHomePage
+                city={currentCity ? currentCity.city : CITIES.MONTE_ROSA}
+            >
                 <Destination
-                    city={destination.city}
-                    country={destination.country}
+                    city={currentCity.city}
+                    country={currentCity.country}
                     weatherDescription={weather.feels_like}
                     weatherIcon={
                         weather.feels_like === 'Clouds'
@@ -78,39 +176,210 @@ const HomePage = () => {
                     }
                     temperature={`${Math.round(weather.temp).toString()}ºC`}
                 />
-            )}
-            <StyledHomePageFooter>
-                <StyledChooseOption>
-                    <StyledChosenOption>
-                        <input type='radio' />
-                        <span>Places to stay</span>
-                    </StyledChosenOption>
-                    <StyledChosenOption>
-                        <input type='radio' />
-                        <span>Adventures</span>
-                    </StyledChosenOption>
-                </StyledChooseOption>
-                <StyledSearchActions>
-                    <StyledScrollArea>
+                <StyledHomePageFooter>
+                    <StyledSearchActions>
+                        <StyledScrollArea>
+                            <div>
+                                <StyledScroll>Scroll</StyledScroll>
+                                <StyledScrollButton
+                                    onClick={() => scroll.scrollTo(700)}
+                                >
+                                    <Icon
+                                        size={ICON_SIZE.XX_SMALL}
+                                        src={down}
+                                    />
+                                </StyledScrollButton>
+                            </div>
+                        </StyledScrollArea>
                         <div>
-                            {' '}
-                            <StyledScroll>Scroll</StyledScroll>
-                            <StyledScrollButton onClick={() => {}}>
-                                <Icon size={ICON_SIZE.XX_SMALL} src={down} />
-                            </StyledScrollButton>
+                            <StyledChooseOption>
+                                <StyledChosenOption
+                                    onClick={() => {
+                                        setPlacesToStayIsChecked(true)
+                                        setAdventuresIsChecked(false)
+                                    }}
+                                >
+                                    <input
+                                        type='radio'
+                                        checked={placesToStayIsChecked}
+                                    />
+                                    <span>Places to stay</span>
+                                </StyledChosenOption>
+                                <StyledChosenOption
+                                    onClick={() => {
+                                        setAdventuresIsChecked(true)
+                                        setPlacesToStayIsChecked(false)
+                                    }}
+                                >
+                                    <input
+                                        type='radio'
+                                        checked={adventuresIsChecked}
+                                    />
+                                    <span>Adventures</span>
+                                </StyledChosenOption>
+                            </StyledChooseOption>
+                            <Search
+                                list={'destinations'}
+                                onDestinationSearchTape={event => {
+                                    setDestinationSearch(event.target.value)
+                                }}
+                                value={destinationSearch}
+                                datalist={
+                                    <div>
+                                        {destinationsList.map(destination => {
+                                            return (
+                                                <option
+                                                    value={`${destination.name}, ${destination.country}`}
+                                                />
+                                            )
+                                        })}
+                                    </div>
+                                }
+                                onSearchButtonClicked={() =>
+                                    history.push(
+                                        placesToStayIsChecked
+                                            ? ROUTES.HOTEL_LIST_PAGE
+                                            : ROUTES.ADVENTURES_LIST_PAGE,
+                                    )
+                                }
+                            />
                         </div>
-                    </StyledScrollArea>
-                    <div>
-                        <Search
-                            onDestinationSearchTape={event => {
-                                setDestinationSearch(event.target.value)
-                            }}
-                            value={destinationSearch}
+                    </StyledSearchActions>
+                </StyledHomePageFooter>
+            </StyledHomePage>
+            <StyledAdditionalInformation>
+                <StyledDiscoverToday>
+                    <AdditionalDiscoverInfo
+                        title={'Discover Today'}
+                        description={
+                            'Come and explore the best of the world, from modern cities to natural landscapes'
+                        }
+                    />
+                    <StyledPlacesToDiscover>
+                        <DiscoverCard
+                            country={COUNTRIES.UNITED_STATES}
+                            city={CITIES.YOSEMITE}
                         />
-                    </div>
-                </StyledSearchActions>
-            </StyledHomePageFooter>
-        </StyledHomePage>
+                        <DiscoverCard
+                            country={COUNTRIES.ICELAND}
+                            city={CITIES.REYNISFJARA}
+                        />
+                        <DiscoverCard
+                            country={COUNTRIES.ITALY}
+                            city={CITIES.VENICE}
+                        />
+                        <DiscoverCard
+                            country={COUNTRIES.JAPAN}
+                            city={CITIES.TOKYO}
+                        />
+                    </StyledPlacesToDiscover>
+                </StyledDiscoverToday>
+                <StyledPlacesToStay>
+                    <StyledExploreCards>
+                        {EXPLORE_CARDS.map(card => {
+                            return (
+                                <ExploreCard
+                                    title={card.title}
+                                    image={card.image}
+                                    onCardClick={() => {}}
+                                />
+                            )
+                        })}
+                    </StyledExploreCards>
+                    <AdditionalDiscoverInfo
+                        title={'Nice Places to Stay'}
+                        description={
+                            'Lots of attractive options for apartments and villas '
+                        }
+                    />
+                </StyledPlacesToStay>
+                <ExploreList
+                    title={'Featured Hotels'}
+                    list={
+                        <StyledExploreList>
+                            {store.hotels.map(hotel => {
+                                return (
+                                    <AdventureCard
+                                        image={hotel.image ? hotel.image : ''}
+                                        title={hotel.title}
+                                        location={
+                                            hotel.location ? hotel.location : ''
+                                        }
+                                        price={hotel.price ? hotel.price : 0}
+                                        priceDescription={'per night'}
+                                        rating={hotel.rating ? hotel.rating : 0}
+                                        reviewsCount={
+                                            hotel.reviewsCount
+                                                ? hotel.reviewsCount
+                                                : 0
+                                        }
+                                        onCardClick={() =>
+                                            history.push(
+                                                `/hotel/${hotel.alias}`,
+                                            )
+                                        }
+                                    />
+                                )
+                            })}
+                        </StyledExploreList>
+                    }
+                    onViewAllClick={() => history.push(ROUTES.HOTEL_LIST_PAGE)}
+                />
+                <ExploreList
+                    title={'Experience Top Adventures'}
+                    list={
+                        <StyledExploreList>
+                            {store.adventures.map(adventure => {
+                                return (
+                                    <AdventureCard
+                                        image={
+                                            adventure.image
+                                                ? adventure.image
+                                                : ''
+                                        }
+                                        title={adventure.title}
+                                        location={
+                                            adventure.location
+                                                ? adventure.location
+                                                : ''
+                                        }
+                                        price={
+                                            adventure.price
+                                                ? adventure.price
+                                                : 0
+                                        }
+                                        priceDescription={
+                                            adventure.priceDescription
+                                                ? adventure.priceDescription
+                                                : ''
+                                        }
+                                        rating={
+                                            adventure.rating
+                                                ? adventure.rating
+                                                : 0
+                                        }
+                                        reviewsCount={
+                                            adventure.reviewsCount
+                                                ? adventure.reviewsCount
+                                                : 0
+                                        }
+                                        onCardClick={() => {
+                                            history.push(
+                                                `/adventure/${adventure.alias}`,
+                                            )
+                                        }}
+                                    />
+                                )
+                            })}
+                        </StyledExploreList>
+                    }
+                    onViewAllClick={() =>
+                        history.push(ROUTES.ADVENTURES_LIST_PAGE)
+                    }
+                />
+            </StyledAdditionalInformation>
+            <Footer />
+        </div>
     )
 }
 
