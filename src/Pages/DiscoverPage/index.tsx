@@ -12,7 +12,7 @@ import { CardSlider } from '../../Components/Slider'
 interface DiscoverPageProps {}
 
 const DiscoverPage = ({}: DiscoverPageProps) => {
-    let countries = Object.entries(COUNTRIES).map(([key, value]) => ({
+    const countries = Object.entries(COUNTRIES).map(([key, value]) => ({
         title: key,
         name: value,
     }))

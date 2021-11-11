@@ -31,6 +31,8 @@ interface DestinationProps {
 const today: any = new Date()
 const date: string = today.getDate().toString()
 const month: string = (today.getMonth() + 1).toString()
+const updatedDate = date.length < 2 ? 0 + date : date
+const updatedMonth = month.length < 2 ? 0 + month : month
 
 const Destination = ({
     country,
@@ -43,12 +45,8 @@ const Destination = ({
         <StyledDestination>
             <StyledDestinationInfo>
                 <StyledDate>
-                    <StyledDay>{`${
-                        date.length < 2 ? 0 + date : date
-                    }`}</StyledDay>
-                    <StyledMonth>{` / ${
-                        month.length < 2 ? 0 + month : month
-                    }`}</StyledMonth>
+                    <StyledDay>{`${updatedDate}`}</StyledDay>
+                    <StyledMonth>{` / ${updatedMonth}`}</StyledMonth>
                 </StyledDate>
                 <div>
                     <Weather
