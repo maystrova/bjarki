@@ -24,7 +24,7 @@ interface FooterMenuType {
 
 interface SocialMediaType {
     icon: string
-    onClick: () => void
+    href: string
 }
 
 const Footer = ({}: FooterProps) => {
@@ -45,10 +45,10 @@ const Footer = ({}: FooterProps) => {
     ]
 
     const SOCIAL_MEDIA: SocialMediaType[] = [
-        { icon: fbIcon, onClick: () => {} },
-        { icon: twitterIcon, onClick: () => {} },
-        { icon: googleIcon, onClick: () => {} },
-        { icon: instaIcon, onClick: () => {} },
+        { icon: fbIcon, href: 'https://www.facebook.com/maystrovakate/' },
+        { icon: twitterIcon, href: 'https://twitter.com' },
+        { icon: googleIcon, href: 'https://www.google.com' },
+        { icon: instaIcon, href: 'https://www.instagram.com/maystrova_kate/' },
     ]
     return (
         <StyledFooter>
@@ -73,13 +73,9 @@ const Footer = ({}: FooterProps) => {
             <StyledSocialMedia>
                 {SOCIAL_MEDIA.map(item => {
                     return (
-                        <Button
-                            onClick={item.onClick}
-                            type={BUTTON_TYPE.SOCIAL_MEDIA}
-                            children={
-                                <Icon size={ICON_SIZE.SMALL} src={item.icon} />
-                            }
-                        />
+                        <a href={item.href} target='_blank'>
+                            <Icon size={ICON_SIZE.SMALL} src={item.icon} />
+                        </a>
                     )
                 })}
             </StyledSocialMedia>
