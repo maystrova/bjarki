@@ -8,6 +8,7 @@ import { Button, BUTTON_TYPE } from 'Components/Button'
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import further from 'Pages/DiscoverPage/pics/arrow-right.svg'
 import { CardSlider } from '../../Components/Slider'
+import { StyledContainer } from '../../Components/Layout/style'
 
 interface DiscoverPageProps {}
 
@@ -19,7 +20,7 @@ const DiscoverPage = ({}: DiscoverPageProps) => {
 
     return (
         <StyledDiscoverPage>
-            <div>
+            <StyledContainer>
                 <StyledDiscoverPageCountryList>
                     {/*<CardSlider title={'Destination'}>*/}
                     {/*    <div>*/}
@@ -49,7 +50,7 @@ const DiscoverPage = ({}: DiscoverPageProps) => {
                         <Icon size={ICON_SIZE.SMALL} src={further} />
                     </Button>
                 </StyledDiscoverPageCountryList>
-            </div>
+            </StyledContainer>
         </StyledDiscoverPage>
     )
 }

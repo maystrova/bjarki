@@ -6,6 +6,12 @@ const StyledAdventuresListPage = styled.div`
     grid-row-gap: 32px;
 `
 
+const StyledAdventuresListContainer = styled.div`
+    max-width: 1200px;
+    display: grid;
+    grid-row-gap: 50px;
+`
+
 const StyledAvailableInfo = styled.div`
     font-size: 20px;
     display: grid;
@@ -37,4 +43,5 @@ export {
     StyledAvailableInfo,
     StyledAdventureOption,
     StyledAdventureFilter,
+    StyledAdventuresListContainer,
 }

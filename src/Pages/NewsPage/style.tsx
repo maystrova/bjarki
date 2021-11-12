@@ -5,4 +5,8 @@ const StyledNewsPage = styled.div`
     background-color: gray;
 `
 
-export { StyledNewsPage }
+const StyledNewsPageContainer = styled.div`
+    max-width: 1200px;
+`
+
+export { StyledNewsPage, StyledNewsPageContainer }

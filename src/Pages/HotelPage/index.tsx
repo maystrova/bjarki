@@ -6,6 +6,7 @@ import { HOTEL_TITLE, HOTELS_ALIAS } from 'hotels/hotels'
 import { AdventuresType } from 'services/type'
 
 import { StyledHotelPage } from './style'
+import { StyledContainer } from '../../Components/Layout/style'
 
 interface HotelPageProps {}
 
@@ -34,7 +35,9 @@ const HotelPage = ({}: HotelPageProps) => {
 
     return (
         <StyledHotelPage>
-            <h1>{hotel.title}</h1>
+            <StyledContainer>
+                <h1>{hotel.title}</h1>
+            </StyledContainer>
         </StyledHotelPage>
     )
 }

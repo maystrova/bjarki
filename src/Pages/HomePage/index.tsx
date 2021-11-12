@@ -26,6 +26,7 @@ import { Footer } from 'Components/Footer'
 import { ExploreList } from 'Components/ExploreList'
 
 import {
+    StyledAdditionalInfoContainer,
     StyledAdditionalInformation,
     StyledChooseOption,
     StyledChosenOption,
@@ -49,6 +50,7 @@ import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
 import { ADVENTURE_ALIAS } from '../../adventures/adventures'
+import { StyledContainer } from '../../Components/Layout/style'
 
 interface exploreCardsType {
     title: string
@@ -248,135 +250,146 @@ const HomePage = () => {
                 </StyledHomePageFooter>
             </StyledHomePage>
             <StyledAdditionalInformation>
-                <StyledDiscoverToday>
-                    <AdditionalDiscoverInfo
-                        title={'Discover Today'}
-                        description={
-                            'Come and explore the best of the world, from modern cities to natural landscapes'
-                        }
-                    />
-                    <StyledPlacesToDiscover>
-                        <DiscoverCard
-                            country={COUNTRIES.UNITED_STATES}
-                            city={CITIES.YOSEMITE}
+                <StyledAdditionalInfoContainer>
+                    <StyledDiscoverToday>
+                        <AdditionalDiscoverInfo
+                            title={'Discover Today'}
+                            description={
+                                'Come and explore the best of the world, from modern cities to natural landscapes'
+                            }
                         />
-                        <DiscoverCard
-                            country={COUNTRIES.ICELAND}
-                            city={CITIES.REYNISFJARA}
-                        />
-                        <DiscoverCard
-                            country={COUNTRIES.ITALY}
-                            city={CITIES.VENICE}
-                        />
-                        <DiscoverCard
-                            country={COUNTRIES.JAPAN}
-                            city={CITIES.TOKYO}
-                        />
-                    </StyledPlacesToDiscover>
-                </StyledDiscoverToday>
-                <StyledPlacesToStay>
-                    <StyledExploreCards>
-                        {EXPLORE_CARDS.map(card => {
-                            return (
-                                <ExploreCard
-                                    title={card.title}
-                                    image={card.image}
-                                    onCardClick={() => {}}
-                                />
-                            )
-                        })}
-                    </StyledExploreCards>
-                    <AdditionalDiscoverInfo
-                        title={'Nice Places to Stay'}
-                        description={
-                            'Lots of attractive options for apartments and villas '
-                        }
-                    />
-                </StyledPlacesToStay>
-                <ExploreList
-                    title={'Featured Hotels'}
-                    list={
-                        <StyledExploreList>
-                            {store.hotels.map(hotel => {
+                        <StyledPlacesToDiscover>
+                            <DiscoverCard
+                                country={COUNTRIES.UNITED_STATES}
+                                city={CITIES.YOSEMITE}
+                            />
+                            <DiscoverCard
+                                country={COUNTRIES.ICELAND}
+                                city={CITIES.REYNISFJARA}
+                            />
+                            <DiscoverCard
+                                country={COUNTRIES.ITALY}
+                                city={CITIES.VENICE}
+                            />
+                            <DiscoverCard
+                                country={COUNTRIES.JAPAN}
+                                city={CITIES.TOKYO}
+                            />
+                        </StyledPlacesToDiscover>
+                    </StyledDiscoverToday>
+                    <StyledPlacesToStay>
+                        <StyledExploreCards>
+                            {EXPLORE_CARDS.map(card => {
                                 return (
-                                    <AdventureCard
-                                        image={hotel.image ? hotel.image : ''}
-                                        title={hotel.title}
-                                        location={
-                                            hotel.location ? hotel.location : ''
-                                        }
-                                        price={hotel.price ? hotel.price : 0}
-                                        priceDescription={'per night'}
-                                        rating={hotel.rating ? hotel.rating : 0}
-                                        reviewsCount={
-                                            hotel.reviewsCount
-                                                ? hotel.reviewsCount
-                                                : 0
-                                        }
-                                        onCardClick={() =>
-                                            history.push(
-                                                `/hotel/${hotel.alias}`,
-                                            )
-                                        }
+                                    <ExploreCard
+                                        title={card.title}
+                                        image={card.image}
                                     />
                                 )
                             })}
-                        </StyledExploreList>
-                    }
-                    onViewAllClick={() => history.push(ROUTES.HOTEL_LIST_PAGE)}
-                />
-                <ExploreList
-                    title={'Experience Top Adventures'}
-                    list={
-                        <StyledExploreList>
-                            {store.adventures.map(adventure => {
-                                return (
-                                    <AdventureCard
-                                        image={
-                                            adventure.image
-                                                ? adventure.image
-                                                : ''
-                                        }
-                                        title={adventure.title}
-                                        location={
-                                            adventure.location
-                                                ? adventure.location
-                                                : ''
-                                        }
-                                        price={
-                                            adventure.price
-                                                ? adventure.price
-                                                : 0
-                                        }
-                                        priceDescription={
-                                            adventure.priceDescription
-                                                ? adventure.priceDescription
-                                                : ''
-                                        }
-                                        rating={
-                                            adventure.rating
-                                                ? adventure.rating
-                                                : 0
-                                        }
-                                        reviewsCount={
-                                            adventure.reviewsCount
-                                                ? adventure.reviewsCount
-                                                : 0
-                                        }
-                                        onCardClick={() => {
-                                            history.push(
-                                                `/adventure/${adventure.alias}`,
-                                            )
-                                        }}
-                                    />
-                                )
-                            })}
-                        </StyledExploreList>
-                    }
-                    onViewAllClick={() =>
-                        history.push(ROUTES.ADVENTURES_LIST_PAGE)
-                    }
-                />
+                        </StyledExploreCards>
+                        <AdditionalDiscoverInfo
+                            title={'Nice Places to Stay'}
+                            description={
+                                'Lots of attractive options for apartments and villas '
+                            }
+                        />
+                    </StyledPlacesToStay>
+                    <ExploreList
+                        title={'Featured Hotels'}
+                        list={
+                            <StyledExploreList>
+                                {store.hotels.map(hotel => {
+                                    return (
+                                        <AdventureCard
+                                            image={
+                                                hotel.image ? hotel.image : ''
+                                            }
+                                            title={hotel.title}
+                                            location={
+                                                hotel.location
+                                                    ? hotel.location
+                                                    : ''
+                                            }
+                                            price={
+                                                hotel.price ? hotel.price : 0
+                                            }
+                                            priceDescription={'per night'}
+                                            rating={
+                                                hotel.rating ? hotel.rating : 0
+                                            }
+                                            reviewsCount={
+                                                hotel.reviewsCount
+                                                    ? hotel.reviewsCount
+                                                    : 0
+                                            }
+                                            onCardClick={() =>
+                                                history.push(
+                                                    `/hotel/${hotel.alias}`,
+                                                )
+                                            }
+                                        />
+                                    )
+                                })}
+                            </StyledExploreList>
+                        }
+                        onViewAllClick={() =>
+                            history.push(ROUTES.HOTEL_LIST_PAGE)
+                        }
+                    />
+                    <ExploreList
+                        title={'Experience Top Adventures'}
+                        list={
+                            <StyledExploreList>
+                                {store.adventures.map(adventure => {
+                                    return (
+                                        <AdventureCard
+                                            image={
+                                                adventure.image
+                                                    ? adventure.image
+                                                    : ''
+                                            }
+                                            title={adventure.title}
+                                            location={
+                                                adventure.location
+                                                    ? adventure.location
+                                                    : ''
+                                            }
+                                            price={
+                                                adventure.price
+                                                    ? adventure.price
+                                                    : 0
+                                            }
+                                            priceDescription={
+                                                adventure.priceDescription
+                                                    ? adventure.priceDescription
+                                                    : ''
+                                            }
+                                            rating={
+                                                adventure.rating
+                                                    ? adventure.rating
+                                                    : 0
+                                            }
+                                            reviewsCount={
+                                                adventure.reviewsCount
+                                                    ? adventure.reviewsCount
+                                                    : 0
+                                            }
+                                            onCardClick={() => {
+                                                history.push(
+                                                    `/adventure/${adventure.alias}`,
+                                                )
+                                            }}
+                                        />
+                                    )
+                                })}
+                            </StyledExploreList>
+                        }
+                        onViewAllClick={() =>
+                            history.push(ROUTES.ADVENTURES_LIST_PAGE)
+                        }
+                    />{' '}
+                </StyledAdditionalInfoContainer>
             </StyledAdditionalInformation>
             <Footer />
         </div>

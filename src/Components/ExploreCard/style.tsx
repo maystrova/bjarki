@@ -27,9 +27,15 @@ const StyledExploreCardFurther = styled.div`
     font-size: 13px;
 `
 
+const StyledExploreLink = styled.a`
+    color: inherit;
+    text-decoration: none;
+`
+
 export {
     StyledExploreCard,
     StyledExploreCardImage,
     StyledExploreCardFurther,
     StyledExploreCardInfo,
+    StyledExploreLink,
 }
