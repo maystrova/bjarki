@@ -13,12 +13,9 @@ import {
     StyledDestinationTitle,
     StyledDiscover,
     StyledMonth,
-    StyledExplore,
-    StyledExploreButton,
 } from './style'
 
 import further from 'Pages/HomePage/pics/arrow-right.svg'
-import explore from 'Pages/HomePage/pics/explore.png'
 
 interface DestinationProps {
     city: string
@@ -70,11 +67,6 @@ const Destination = ({
                     </StyledDiscover>
                 </div>
             </StyledDestinationInfo>
-            <StyledExplore>
-                <StyledExploreButton>
-                    <Icon size={ICON_SIZE.LARGE} src={explore} />
-                </StyledExploreButton>
-            </StyledExplore>
         </StyledDestination>
     )
 }

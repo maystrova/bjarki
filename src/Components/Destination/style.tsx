@@ -54,17 +54,6 @@ const StyledMonth = styled.span`
     opacity: 0.8;
 `
 
-const StyledExplore = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-`
-
-const StyledExploreButton = styled.button`
-    background: transparent;
-    border: none;
-`
-
 export {
     StyledDestination,
     StyledDestinationInfo,
@@ -74,7 +63,5 @@ export {
     StyledDate,
     StyledDay,
     StyledMonth,
-    StyledExplore,
     StyledDestinationTitle,
-    StyledExploreButton,
 }
