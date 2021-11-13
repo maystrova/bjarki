@@ -13,17 +13,7 @@ const StyledDestinationInfo = styled.div`
     line-height: 1.5;
 `
 const StyledDiscover = styled.div`
-    width: 96px;
-
-    & a {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        border-bottom: 1.5px solid #fff;
-    }
+    display: flex;
 `
 
 const StyledDestinationTitle = styled.div`

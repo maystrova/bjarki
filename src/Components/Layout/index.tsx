@@ -20,6 +20,7 @@ import { HotelPage } from 'Pages/HotelPage'
 import { GlobalStyle, StyledLayout } from './style'
 
 import anonAvatar from 'services/anon-avatar.png'
+import { DestinationPage } from '../../Pages/DestinationPage'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
@@ -99,6 +100,11 @@ const Layout = () => {
                 <Switch>
                     <Route path={ROUTES.HOTEL_PAGE} exact>
                         <HotelPage />
+                    </Route>
+                </Switch>
+                <Switch>
+                    <Route path={ROUTES.DESTINATION_PAGE}>
+                        <DestinationPage />
                     </Route>
                 </Switch>
 

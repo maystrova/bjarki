@@ -177,6 +177,9 @@ const HomePage = () => {
                             : defaultWeather
                     }
                     temperature={`${Math.round(weather.temp).toString()}ºC`}
+                    onDiscoverClick={() =>
+                        history.push(ROUTES.DESTINATION_PAGE)
+                    }
                 />
                 <StyledHomePageFooter>
                     <StyledSearchActions>

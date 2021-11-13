@@ -3,12 +3,12 @@ import React from 'react'
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import { Weather } from 'Components/Weather'
 
-import { StyledDestination } from './style'
 import {
     StyledCity,
     StyledCountry,
     StyledDate,
     StyledDay,
+    StyledDestination,
     StyledDestinationInfo,
     StyledDestinationTitle,
     StyledDiscover,
@@ -16,6 +16,7 @@ import {
 } from './style'
 
 import further from 'Pages/HomePage/pics/arrow-right.svg'
+import { Button, BUTTON_TYPE } from '../Button'
 
 interface DestinationProps {
     city: string
@@ -23,6 +24,7 @@ interface DestinationProps {
     weatherIcon: string
     temperature: string
     weatherDescription: string
+    onDiscoverClick: () => void
 }
 
 const today: any = new Date()
@@ -37,6 +39,7 @@ const Destination = ({
     temperature,
     weatherDescription,
     weatherIcon,
+    onDiscoverClick,
 }: DestinationProps) => {
     return (
         <StyledDestination>
@@ -59,12 +62,21 @@ const Destination = ({
                         </StyledCountry>
                     </StyledDestinationTitle>
 
-                    <StyledDiscover>
-                        <a href='#'>
-                            <span>Discover</span>
-                            <Icon size={ICON_SIZE.X_SMALL} src={further} />
-                        </a>
-                    </StyledDiscover>
+                    <div>
+                        <Button
+                            onClick={onDiscoverClick}
+                            type={BUTTON_TYPE.DISCOVER}
+                            children={
+                                <StyledDiscover>
+                                    <div>Discover</div>
+                                    <Icon
+                                        size={ICON_SIZE.X_SMALL}
+                                        src={further}
+                                    />
+                                </StyledDiscover>
+                            }
+                        />
+                    </div>
                 </div>
             </StyledDestinationInfo>
         </StyledDestination>

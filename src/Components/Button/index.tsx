@@ -15,7 +15,8 @@ export enum BUTTON_TYPE {
     UNDERLINED = 'Underlined',
     ROUND = 'Round',
     MENU_ITEM = 'Menu_Item',
-    SOCIAL_MEDIA = 'Social_Media',
+    DISCOVER = 'Discover',
+    ICON = 'Icon',
 }
 
 interface ButtonProps {

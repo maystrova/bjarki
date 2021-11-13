@@ -66,13 +66,13 @@ const AdventuresListPage = ({}: AdventuresListPageProps) => {
                         <StyledAdventureOption>
                             <Button
                                 onClick={() => {}}
-                                type={BUTTON_TYPE.SOCIAL_MEDIA}
+                                type={BUTTON_TYPE.ICON}
                                 children={
                                     <StyledAdventureFilter>
                                         <Icon
                                             size={ICON_SIZE.MEDIUM}
                                             src={filterIcon}
-                                        />{' '}
+                                        />
                                         <div>More Filter</div>
                                     </StyledAdventureFilter>
                                 }
