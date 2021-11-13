@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 
-import { CITIES } from 'services/type'
+import { CITIES, COUNTRIES, DestinationType } from 'services/type'
 
 import { StyledDestinationPage, StyledDestinationPageContainer } from './style'
+import { useParams } from 'react-router-dom'
+import { BjarkiContext } from '../../context/storeContext'
 
 interface DestinationPageProps {}
 
 const DestinationPage = ({}: DestinationPageProps) => {
+    const { store } = useContext(BjarkiContext)
+
+    // const [destination, setDestination] = useState<DestinationType>({
+    //     city: ,
+    //     country: COUNTRIES.SWITZERLAND,
+    // })
+
+    let params = useParams<{ alias: string }>()
+
     return (
         <StyledDestinationPage destination={CITIES.MONTE_ROSA}>
             <StyledDestinationPageContainer>

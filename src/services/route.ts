@@ -7,7 +7,7 @@ const ROUTES = {
     HOTEL_PAGE: '/hotel/:alias',
     ADVENTURES_LIST_PAGE: '/adventures-list',
     ADVENTURE_PAGE: '/adventure/:alias',
-    DESTINATION_PAGE: 'destination-page/:alias',
+    DESTINATION_PAGE: '/destination/:alias',
 }
 
 export { ROUTES }

@@ -32,6 +32,24 @@ export enum CITIES {
     GIZA = 'Giza',
 }
 
+export enum DESTINATION_ALIAS {
+    MONTE_ROSA = 'monte-rosa',
+    CHONGQING = 'chongqing',
+    LUANG_PRABANG = 'luang-prabang',
+    YOSEMITE = 'yosemite',
+    VENICE = 'venice',
+    REYNISFJARA = 'reynisfjara',
+    TOKYO = 'tokyo',
+    NEW_YORK = 'new-york',
+    SAN_FRANCISCO = 'san-francisco',
+    MALDIVES = 'maldives',
+    RIO_DE_JANEIRO = 'rio-de-janeiro',
+    BRIDGETOWN = 'bridgetown',
+    GODAFOSS = 'godafoss',
+    HOI_AN = 'hoi-an',
+    GIZA = 'giza',
+}
+
 export type MenuType = {
     title: string
     icon?: string

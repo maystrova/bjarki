@@ -10,6 +10,7 @@ import {
     CityType,
     CityWithCountry,
     COUNTRIES,
+    DESTINATION_ALIAS,
     DestinationType,
 } from 'services/type'
 import { HomePageInterface } from './type'
@@ -49,8 +50,6 @@ import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
-import { ADVENTURE_ALIAS } from '../../adventures/adventures'
-import { StyledContainer } from '../../Components/Layout/style'
 
 interface exploreCardsType {
     title: string
@@ -67,6 +66,7 @@ const HomePage = () => {
     const [currentCity, setCurrentCity] = useState<HomePageInterface>({
         city: CITIES.MONTE_ROSA,
         country: COUNTRIES.SWITZERLAND,
+        alias: DESTINATION_ALIAS.MONTE_ROSA,
     })
     const [placesToStayIsChecked, setPlacesToStayIsChecked] =
         useState<boolean>(true)
@@ -89,6 +89,7 @@ const HomePage = () => {
                 const newCurrentCity: HomePageInterface = {
                     city: foundCity.name,
                     country: destination.country,
+                    alias: foundCity.alias,
                 }
                 setCurrentCity(newCurrentCity)
             }
@@ -178,7 +179,7 @@ const HomePage = () => {
                     }
                     temperature={`${Math.round(weather.temp).toString()}ºC`}
                     onDiscoverClick={() =>
-                        history.push(ROUTES.DESTINATION_PAGE)
+                        history.push(`/destination/${currentCity.alias}`)
                     }
                 />
                 <StyledHomePageFooter>
