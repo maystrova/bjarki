@@ -1,27 +1,52 @@
-import React, { useContext, useState } from 'react'
-
-import { CITIES, COUNTRIES, DestinationType } from 'services/type'
-
-import { StyledDestinationPage, StyledDestinationPageContainer } from './style'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { BjarkiContext } from '../../context/storeContext'
+
+import {
+    CITIES,
+    CityType,
+    COUNTRIES,
+    DESTINATION_ALIAS,
+    DestinationType,
+} from 'services/type'
+import { StyledDestinationPage, StyledDestinationPageContainer } from './style'
+import { BjarkiContext } from 'context/storeContext'
+import { HomePageInterface } from 'Pages/HomePage/type'
 
 interface DestinationPageProps {}
 
 const DestinationPage = ({}: DestinationPageProps) => {
     const { store } = useContext(BjarkiContext)
 
-    // const [destination, setDestination] = useState<DestinationType>({
-    //     city: ,
-    //     country: COUNTRIES.SWITZERLAND,
-    // })
+    const [destination, setDestination] = useState<HomePageInterface>({
+        city: CITIES.MONTE_ROSA,
+        country: COUNTRIES.SWITZERLAND,
+        alias: DESTINATION_ALIAS.MONTE_ROSA,
+    })
 
     let params = useParams<{ alias: string }>()
 
+    const getDestinationFromStore = (): void => {
+        store.destinations.forEach(destination => {
+            const foundDestination: CityType | undefined =
+                destination.city.find(city => city.alias === params.alias)
+            if (foundDestination) {
+                const newDestination: HomePageInterface = {
+                    city: foundDestination.name,
+                    alias: foundDestination.alias,
+                    country: destination.country,
+                }
+                setDestination(newDestination)
+            }
+        })
+        return undefined
+    }
+
+    useEffect(() => getDestinationFromStore(), [])
+
     return (
-        <StyledDestinationPage destination={CITIES.MONTE_ROSA}>
+        <StyledDestinationPage destination={destination.city}>
             <StyledDestinationPageContainer>
-                <h1>{CITIES.MONTE_ROSA}</h1>
+                <h1>{destination.city}</h1>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Accusamus aliquam aliquid aperiam, dicta dolore dolorem
