@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import {
-    CITIES,
-    CityType,
-    COUNTRIES,
-    DESTINATION_ALIAS,
-    DestinationType,
-} from 'services/type'
-import { StyledDestinationPage, StyledDestinationPageContainer } from './style'
 import { BjarkiContext } from 'context/storeContext'
+
+import { CITIES, CityType, COUNTRIES, DESTINATION_ALIAS } from 'services/type'
 import { HomePageInterface } from 'Pages/HomePage/type'
+
+import {
+    StyledDestinationPage,
+    StyledDestinationPageContainer,
+    StyledDestinationPageTitle,
+} from './style'
 
 interface DestinationPageProps {}
 
@@ -46,7 +46,9 @@ const DestinationPage = ({}: DestinationPageProps) => {
     return (
         <StyledDestinationPage destination={destination.city}>
             <StyledDestinationPageContainer>
-                <h1>{destination.city}</h1>
+                <StyledDestinationPageTitle>
+                    <h1>{destination.city}</h1>
+                </StyledDestinationPageTitle>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Accusamus aliquam aliquid aperiam, dicta dolore dolorem

@@ -88,6 +88,21 @@ const StyledDestinationPage = styled.div`
 
 const StyledDestinationPageContainer = styled.div`
     max-width: 1200px;
+    display: grid;
+    grid-row-gap: 50px;
+    color: #fff;
+    justify-content: center;
 `
 
-export { StyledDestinationPage, StyledDestinationPageContainer }
+const StyledDestinationPageTitle = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+`
+
+export {
+    StyledDestinationPage,
+    StyledDestinationPageContainer,
+    StyledDestinationPageTitle,
+}
