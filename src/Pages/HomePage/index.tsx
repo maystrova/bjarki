@@ -24,6 +24,7 @@ import { ExploreCard } from 'Components/ExploreCard'
 import { Search } from 'Components/Search'
 import { AdventureCard } from 'Components/AdventureCard'
 import { Footer } from 'Components/Footer'
+import { Header, HEADER_TYPE } from 'Components/Header'
 import { ExploreList } from 'Components/ExploreList'
 
 import {
@@ -56,7 +57,11 @@ interface exploreCardsType {
     image: string
 }
 
-const HomePage = () => {
+interface HomePageProps {
+    onSignInClicked: () => void
+}
+
+const HomePage = ({ onSignInClicked }: HomePageProps) => {
     const { store } = useContext(BjarkiContext)
     const [weather, setWeather] = useState<ClientWeather>({
         temp: 0,
@@ -166,6 +171,12 @@ const HomePage = () => {
             <StyledHomePage
                 city={currentCity ? currentCity.city : CITIES.MONTE_ROSA}
             >
+                <Header
+                    onLogInClicked={onSignInClicked}
+                    onSignUpClicked={() => {}}
+                    onSwitchLangClicked={() => {}}
+                    type={HEADER_TYPE.WHITE}
+                />
                 <Destination
                     city={currentCity.city}
                     country={currentCity.country}

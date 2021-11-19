@@ -3,25 +3,27 @@ import React from 'react'
 import { Logo, LOGO_TYPE } from 'Components/Logo'
 import { HeaderMenu, MENU_COLOR } from 'Components/HeaderMenu'
 import { UserActionMenu } from 'Components/UserActionMenu'
-
-import { StyledHeader, StyledLogo } from './style'
 import { LOGO_COLOR } from 'Components/Logo/style'
 
-import arrow from 'Components/HeaderMenu/pics/arrow.svg'
-import blackArrow from 'Components/HeaderMenu/pics/black-arrow.svg'
+import { StyledHeader, StyledLogo } from './style'
+
+export enum HEADER_TYPE {
+    WHITE = 'WHITE',
+    BLACK = 'BLACK',
+}
 
 interface HeaderProps {
     onSwitchLangClicked: () => void
     onLogInClicked: () => void
     onSignUpClicked: () => void
-    logoColor: LOGO_COLOR
+    type: HEADER_TYPE
 }
 
 const Header = ({
     onLogInClicked,
     onSwitchLangClicked,
     onSignUpClicked,
-    logoColor,
+    type,
 }: HeaderProps) => {
     const logoTitle: string = 'Bjarki'
 
@@ -31,7 +33,7 @@ const Header = ({
                 <Logo
                     type={LOGO_TYPE.HEADER}
                     title={logoTitle}
-                    color={logoColor}
+                    color={LOGO_COLOR.WHITE}
                 />
                 <HeaderMenu
                     color={

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import firebase from 'firebase'
 
@@ -52,21 +52,17 @@ const Layout = () => {
             .catch(() => {})
     }
 
-    const history = useHistory()
-
     return (
         <BrowserRouter>
             <StyledLayout>
                 <GlobalStyle />
-                <Header
-                    onLogInClicked={() => setIsShowAuthorizationWindow(true)}
-                    onSignUpClicked={() => {}}
-                    onSwitchLangClicked={() => {}}
-                    logoColor={LOGO_COLOR.BLACK}
-                />
                 <Switch>
                     <Route path={[ROUTES.HOME_PAGE, '/']} exact>
-                        <HomePage />
+                        <HomePage
+                            onSignInClicked={() =>
+                                setIsShowAuthorizationWindow(true)
+                            }
+                        />
                     </Route>
                 </Switch>
                 <Switch>
