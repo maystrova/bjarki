@@ -1,5 +1,14 @@
 import styled from 'styled-components'
 
+export enum MENU_COLOR {
+    BLACK = 'black',
+    WHITE = 'white',
+}
+
+interface StyledMenuColorProps {
+    color: MENU_COLOR
+}
+
 const StyledMenu = styled.div`
     display: flex;
     justify-content: space-between;
@@ -17,7 +26,6 @@ const StyledMenuItem = styled.div`
         margin-right: 0;
     }
     & button {
-        color: #fff;
         display: flex;
         align-items: center;
         background: transparent;

@@ -21,6 +21,7 @@ import { GlobalStyle, StyledLayout } from './style'
 
 import anonAvatar from 'services/anon-avatar.png'
 import { DestinationPage } from '../../Pages/DestinationPage'
+import { LOGO_COLOR } from '../Logo/style'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
@@ -61,6 +62,7 @@ const Layout = () => {
                     onLogInClicked={() => setIsShowAuthorizationWindow(true)}
                     onSignUpClicked={() => {}}
                     onSwitchLangClicked={() => {}}
+                    logoColor={LOGO_COLOR.BLACK}
                 />
                 <Switch>
                     <Route path={[ROUTES.HOME_PAGE, '/']} exact>

@@ -6,7 +6,16 @@ import { ROUTES } from 'services/route'
 
 import { StyledMenu, StyledMenuItem } from './style'
 
-const HeaderMenu = () => {
+export enum MENU_COLOR {
+    WHITE = '#fff',
+    BLACK = '#000',
+}
+
+interface HeaderMenuProps {
+    color: MENU_COLOR
+}
+
+const HeaderMenu = ({ color }: HeaderMenuProps) => {
     const history = useHistory()
 
     const HEADER_MENU: MenuType[] = [
@@ -20,7 +29,7 @@ const HeaderMenu = () => {
     ]
 
     return (
-        <StyledMenu>
+        <StyledMenu style={{ color: color }}>
             {HEADER_MENU.map(item => {
                 return (
                     <StyledMenuItem key={item.title}>

@@ -4,36 +4,47 @@ import { animateScroll as scroll } from 'react-scroll'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
 
-import { StyledLogo } from './style'
+import { LOGO_COLOR, StyledLogo } from './style'
 import { StyledOrangeLine } from 'Components/AdditionalDiscoverInfo/style'
 
-import logo from 'Components/Logo/wolf.svg'
+import whiteLogo from './wolf.svg'
+import blackLogo from './bjarki-icon.svg'
+
+export enum LOGO_TYPE {
+    HEADER = 'HeaderLogo',
+    FOOTER = 'FooterLogo',
+}
 
 interface LogoProps {
     title: string
-    type: 'HeaderLogo' | 'FooterLogo'
+    type: LOGO_TYPE
+    color: LOGO_COLOR
 }
 
-const Logo = ({ title, type }: LogoProps) => {
+const Logo = ({ title, type, color }: LogoProps) => {
     const history = useHistory()
 
     return (
         <div>
-            {type === 'FooterLogo' && (
+            {type === LOGO_TYPE.FOOTER && (
                 <StyledOrangeLine style={{ marginBottom: '25px' }}>
                     ––
                 </StyledOrangeLine>
             )}
             <StyledLogo
+                color={color}
                 onClick={() => {
                     history.push('/city/monte-rosa')
-                    type === 'FooterLogo' && scroll.scrollToTop()
+                    type === LOGO_TYPE.FOOTER && scroll.scrollToTop()
                 }}
             >
-                <Icon size={ICON_SIZE.MEDIUM} src={logo} />
+                <Icon
+                    size={ICON_SIZE.MEDIUM}
+                    src={color === LOGO_COLOR.WHITE ? whiteLogo : blackLogo}
+                />
                 <div
                     style={{
-                        fontSize: type === 'HeaderLogo' ? '23px' : '12px',
+                        fontSize: type === LOGO_TYPE.HEADER ? '23px' : '12px',
                     }}
                 >
                     {title}

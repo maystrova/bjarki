@@ -1,3 +1,5 @@
+import React from 'react'
+
 export enum COUNTRIES {
     GREECE = 'Greece',
     TANZANIA = 'Tanzania',
@@ -52,7 +54,7 @@ export enum DESTINATION_ALIAS {
 
 export type MenuType = {
     title: string
-    icon?: string
+    icon?: boolean
     onClick: () => void
 }
 

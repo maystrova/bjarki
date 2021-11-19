@@ -2,11 +2,9 @@ import React from 'react'
 
 import { MenuType } from 'services/type'
 
-import { Icon, ICON_SIZE } from 'Components/Icon'
+import { ReactComponent as Arrow } from 'Components/HeaderMenu/pics/arrow.svg'
 
 import { StyledMenu, StyledMenuItem } from 'Components/HeaderMenu/style'
-
-import arrow from 'Components/HeaderMenu/pics/arrow.svg'
 
 interface UserActionMenuProps {
     switchLang: () => void
@@ -16,7 +14,11 @@ interface UserActionMenuProps {
 
 const UserActionMenu = ({ switchLang, signUp, logIn }: UserActionMenuProps) => {
     const USER_ACTION_MENU: MenuType[] = [
-        { title: 'Eng', icon: arrow, onClick: switchLang },
+        {
+            title: 'Eng',
+            icon: true,
+            onClick: switchLang,
+        },
         { title: 'Sign Up', onClick: signUp },
         { title: 'Log In', onClick: logIn },
     ]
@@ -28,10 +30,7 @@ const UserActionMenu = ({ switchLang, signUp, logIn }: UserActionMenuProps) => {
                         <button onClick={item.onClick}>
                             {item.title}
                             {item.icon && (
-                                <Icon
-                                    size={ICON_SIZE.XXX_SMALL}
-                                    src={item.icon}
-                                />
+                                <Arrow fill={'black'} path={'#000'} />
                             )}
                         </button>
                     </StyledMenuItem>
