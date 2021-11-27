@@ -16,12 +16,13 @@ import {
 import { StyledExploreList } from 'Components/ExploreList/style'
 
 import filterIcon from 'Pages/AdventuresListPage/pics/filter-icon.svg'
+import { Header, HEADER_TYPE } from '../../Components/Header'
 
 interface AdventuresListPageProps {
-    // destination: string
+    onLogInClicked: () => void
 }
 
-const AdventuresListPage = ({}: AdventuresListPageProps) => {
+const AdventuresListPage = ({ onLogInClicked }: AdventuresListPageProps) => {
     const { store } = useContext(BjarkiContext)
 
     const ADVENTURE_TYPES: string[] = [
@@ -33,6 +34,10 @@ const AdventuresListPage = ({}: AdventuresListPageProps) => {
 
     return (
         <StyledAdventuresListPage>
+            <Header
+                onLogInClicked={onLogInClicked}
+                headerType={HEADER_TYPE.BLACK}
+            />
             <StyledAdventuresListContainer>
                 <StyledAvailableInfo>
                     <div>

@@ -7,7 +7,7 @@ import { ROUTES } from 'services/route'
 import { User } from 'services/user'
 
 import { SignIn } from 'Components/SignIn'
-import { Header } from 'Components/Header'
+
 import { HomePage } from 'Pages/HomePage'
 import { DiscoverPage } from 'Pages/DiscoverPage'
 import { FlightPage } from 'Pages/FlightPage'
@@ -16,12 +16,11 @@ import { HotelListPage } from 'Pages/HotelListPage'
 import { AdventuresListPage } from 'Pages/AdventuresListPage'
 import { AdventurePage } from 'Pages/AdventurePage'
 import { HotelPage } from 'Pages/HotelPage'
+import { DestinationPage } from 'Pages/DestinationPage'
 
 import { GlobalStyle, StyledLayout } from './style'
 
 import anonAvatar from 'services/anon-avatar.png'
-import { DestinationPage } from '../../Pages/DestinationPage'
-import { LOGO_COLOR } from '../Logo/style'
 
 const Layout = () => {
     const [isShowAuthorizationWindow, setIsShowAuthorizationWindow] =
@@ -94,12 +93,20 @@ const Layout = () => {
                 </Switch>
                 <Switch>
                     <Route path={ROUTES.HOTEL_LIST_PAGE} exact>
-                        <HotelListPage />
+                        <HotelListPage
+                            onLogInClicked={() =>
+                                setIsShowAuthorizationWindow(true)
+                            }
+                        />
                     </Route>
                 </Switch>
                 <Switch>
                     <Route path={ROUTES.ADVENTURES_LIST_PAGE} exact>
-                        <AdventuresListPage />
+                        <AdventuresListPage
+                            onLogInClicked={() =>
+                                setIsShowAuthorizationWindow(true)
+                            }
+                        />
                     </Route>
                 </Switch>
                 <Switch>

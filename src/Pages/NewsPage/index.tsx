@@ -4,7 +4,8 @@ import { Header, HEADER_TYPE } from 'Components/Header'
 
 import { StyledNewsPage, StyledNewsPageContainer } from './style'
 
-import arrow from 'Components/Header/pics/black-arrow.svg'
+import marocco from './pics/morocco.png'
+import palms from './pics/palms.png'
 
 interface NewsPageProps {
     onLogInClicked: () => void
@@ -18,75 +19,86 @@ const NewsPage = ({ onLogInClicked }: NewsPageProps) => {
                 headerType={HEADER_TYPE.BLACK}
             />
             <StyledNewsPageContainer>
+                <div>
+                    <span>News</span>
+                    <span>•</span>
+                    <span>July 9, 2019</span>
+                </div>
+                <h1>My Travel Experiences in Southern Morocco</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Architecto culpa, enim esse, expedita explicabo illo iusto
-                    maxime nihil obcaecati perspiciatis veniam vitae voluptatem
-                    voluptatum. Culpa repellat repudiandae ut voluptas
-                    voluptates? Alias aliquam at, deleniti deserunt esse,
-                    explicabo facere fugit ipsam itaque labore libero mollitia
-                    neque non odio possimus praesentium quas sit tempora unde
-                    voluptatem? Accusamus aperiam atque commodi consequatur
-                    corporis deleniti doloremque ducimus fuga fugiat modi
-                    molestias officia officiis praesentium quae quibusdam
-                    sapiente sit soluta tempora temporibus tenetur, totam
-                    voluptatem, voluptates. Accusantium asperiores distinctio
-                    fugiat placeat quis quos repellat voluptas? Aliquam dolores
-                    in ipsam vel voluptatum? Autem corporis dolores eius
-                    laboriosam quaerat quisquam quos ratione saepe! Autem harum
-                    ipsa nobis quas quidem saepe ut, vero voluptatibus! Commodi
-                    deserunt distinctio doloribus eos esse explicabo id, in
-                    inventore laboriosam officia quas ratione rem tenetur
-                    voluptatem voluptatum. Atque dicta eligendi, et ipsam iure
-                    labore nemo odit provident quia recusandae reprehenderit
-                    temporibus, voluptatem. Aspernatur aut eaque ex labore
-                    laudantium nisi! Adipisci corporis ducimus magnam nulla quo
-                    veritatis. Aliquid asperiores assumenda corporis dolorem
-                    facere ipsam laboriosam laudantium maiores! A aut
-                    consequuntur cum distinctio dolorum earum enim error est
-                    facere fuga illum iste laborum laudantium libero magnam,
-                    maiores maxime modi nostrum perferendis perspiciatis
-                    provident quis reiciendis repellendus similique sunt.
-                    Aliquid consequatur, doloribus error nihil officiis quas
-                    quia quidem ullam veniam? Atque eaque earum eius error
-                    eveniet expedita facilis fugiat fugit id maiores, molestiae
-                    nostrum officia omnis praesentium sint, totam ullam!
-                    Accusantium aliquid cupiditate doloremque eius ipsam magnam
-                    magni, odit quae quaerat repellat reprehenderit sint
-                    tenetur, velit! Atque ducimus, ea explicabo facilis fugiat
-                    inventore, iure labore laboriosam laborum libero nobis
-                    possimus provident quibusdam rerum suscipit tempora velit
-                    voluptatum. Accusamus aliquid assumenda autem beatae
-                    cupiditate doloremque earum, est hic impedit ipsum minus
-                    molestias natus obcaecati quaerat reiciendis sapiente totam
-                    veniam. Ad aliquid harum impedit in officiis quo repudiandae
-                    totam. Error excepturi exercitationem laborum neque
-                    voluptates? Animi assumenda aut dolores eaque earum error ex
-                    fuga itaque magni minus, modi molestias nesciunt nisi
-                    possimus praesentium quae ratione tempore voluptate
-                    voluptates voluptatibus. Accusantium debitis et labore nemo
-                    praesentium, quam saepe sed? Culpa cupiditate, ex fuga
-                    laboriosam libero neque quae vel! Adipisci aut cumque,
-                    doloremque dolorum eum eveniet exercitationem ipsum nihil
-                    perspiciatis, quisquam velit vero. Accusantium ad alias
-                    aliquid animi commodi consectetur, consequuntur cumque
-                    distinctio dolorem ducimus eligendi ex excepturi fuga harum
-                    ipsa laboriosam magni molestias nihil, nostrum nulla
-                    pariatur perspiciatis placeat possimus provident quas quia,
-                    quidem quis quos repellat sed similique sit tempore velit
-                    voluptatem voluptates voluptatibus voluptatum! Ab assumenda
-                    aut consequuntur, debitis delectus deserunt dicta enim
-                    facilis fugit labore, mollitia nam nemo nulla obcaecati
-                    omnis praesentium quae recusandae reiciendis rem saepe
-                    soluta temporibus ut! Aliquid asperiores assumenda corporis,
-                    culpa deleniti doloremque eligendi et illo impedit in ipsam
-                    itaque laboriosam minima minus necessitatibus nemo nobis
-                    odit, perspiciatis recusandae reiciendis repellat sunt
-                    tempora temporibus unde velit. A, ab accusantium ad
-                    aspernatur culpa delectus deleniti ducimus fugit hic ipsum
-                    iste modi nihil non nulla omnis pariatur perferendis
-                    praesentium quasi quis quos recusandae rerum, sequi tempore
-                    vero voluptatem! Consectetur ex modi quas unde veniam!
+                    In case you're searching for the world's best excursion
+                    goal, Morocco is a top contender. Rough gullies, and
+                    medieval medinas are just piece of what makes this 10-day
+                    Morocco agenda a memorable outing.
+                </p>
+                <p>
+                    Go through the initial two days becoming mixed up in the
+                    labyrinth of rear entryways of the Marrakech medina. Slender
+                    lanes are fixed with unlimited columns of stallholders
+                    selling shoes, lights and material. Markets are stacked high
+                    with natural product, nuts and flavors. Furthermore, mystery
+                    laneways lead to laborers beating cowhide, smiths producing
+                    metal and dyers recoloring fabric, follow days 1 and 2 of
+                    our 3-day Marrakech agenda.
+                </p>
+                <img src={marocco} alt='img' />
+                <div>Toubkal Mountain, High Atlas, Morocco</div>
+                <p>
+                    Mosques, tombs and royal residences show Moroccan building
+                    flare with mosaic tiles, plaster plasterwork and decorated
+                    cedar roofs. In two days you can investigate the best of the
+                    souks and fondouks, the magnificent Moorish design and the
+                    sheer vitality of life in the city.
+                </p>
+                <h2>The Start</h2>
+                <p>
+                    Eleven years ago our founders, Brian and Joe, dropping down
+                    the opposite side you could take the quick course to Aït Ben
+                    Haddou. Be that as it may, that would be frenzy. The
+                    Moroccans have as of late cleared the undeniably
+                    progressively beautiful and intriguing P1506. So transform
+                    left and head into the valley that was before the principle
+                    train course from Marrakech to Timbuktu. Just outside the
+                    Kasbah, Lion D'Or does a shockingly decent lunch.
+                </p>
+                <div>
+                    <p>
+                        Passing through the Atlas Mountains is a delight in
+                        itself and the view today on the drive to Aït Ben Haddou
+                        is momentous. Leave Ouirgane and head back to Tazhnaout,
+                        take a right hand turn onto the P2010 and – when you get
+                        to Aït Ourir – turn right again onto the N9. Passing
+                        through the Atlas Mountains is a delight in itself and
+                        the view today on the drive to Aït Ben Haddou is
+                        momentous. Leave Ouirgane and head back to Tazhnaout,
+                        take a right hand turn onto the P2010.
+                    </p>
+                </div>
+                <div>- Anderson Stuart, Chief Director of Community</div>
+                <img src={palms} alt='img' />
+                <p>
+                    Proceed towards Aït Ben Haddou. On this piece of the drive,
+                    the Ounila stream meets the street and cuts glorious ravines
+                    in the red stone. The base of which are punctuated with
+                    delightful green desert spring. There are a lot of
+                    incredible spots to stop by the roadside, investigate and
+                    take photographs. At last, expect to get to Aït Ben Haddou
+                    for nightfall. Based on a slope, this braced town (ksar)
+                    sits grandly over the banks of the Ounila River. It's
+                    castellated red mud dividers and emotional area summon
+                    pictures of scriptural towns, tragically deceased towns, and
+                    doing combating armed forces. Hollywood has likewise paid
+                    heed. For a considerable length of time the film studios
+                    have made the journey here to film such works of art as
+                    Lawrence of Arabia, Gladiator and Jesus of Nazareth. Next,
+                    take the N10 past Skoura and through level desolate badlands
+                    to the Dades Valley. The R704 exciting bends in the road up
+                    the valley offering great perspectives on red stone gully
+                    and green desert garden. Be that as it may, the feature is
+                    the amazing component of Monkey Fingers. Here little surges
+                    of water have cut rivulets and opening gullies in the stone.
+                    Stop at Isabel bistro, snatch a mint tea and respect the
+                    unusual bulbous stone developments.
                 </p>
             </StyledNewsPageContainer>
         </StyledNewsPage>
