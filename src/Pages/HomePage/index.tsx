@@ -51,6 +51,7 @@ import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
+import arrow from 'Components/Header/pics/arrow.svg'
 
 interface exploreCardsType {
     title: string
@@ -173,9 +174,8 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
             >
                 <Header
                     onLogInClicked={onSignInClicked}
-                    onSignUpClicked={() => {}}
-                    onSwitchLangClicked={() => {}}
-                    type={HEADER_TYPE.WHITE}
+                    headerType={HEADER_TYPE.WHITE}
+                    icon={arrow}
                 />
                 <Destination
                     city={currentCity.city}

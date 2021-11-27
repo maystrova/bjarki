@@ -1,11 +1,14 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
+
+import { MenuType } from 'services/type'
+import { ROUTES } from 'services/route'
 
 import { Logo, LOGO_TYPE } from 'Components/Logo'
-import { HeaderMenu, MENU_COLOR } from 'Components/HeaderMenu'
-import { UserActionMenu } from 'Components/UserActionMenu'
 import { LOGO_COLOR } from 'Components/Logo/style'
 
-import { StyledHeader, StyledLogo } from './style'
+import { StyledHeader, StyledLogo, StyledMenu, StyledMenuItem } from './style'
+import { Icon, ICON_SIZE } from '../Icon'
 
 export enum HEADER_TYPE {
     WHITE = 'WHITE',
@@ -13,19 +16,34 @@ export enum HEADER_TYPE {
 }
 
 interface HeaderProps {
-    onSwitchLangClicked: () => void
     onLogInClicked: () => void
-    onSignUpClicked: () => void
-    type: HEADER_TYPE
+    headerType: HEADER_TYPE
+    icon: string
 }
 
-const Header = ({
-    onLogInClicked,
-    onSwitchLangClicked,
-    onSignUpClicked,
-    type,
-}: HeaderProps) => {
+const Header = ({ onLogInClicked, headerType, icon }: HeaderProps) => {
     const logoTitle: string = 'Bjarki'
+    const history = useHistory()
+
+    const HEADER_MENU: MenuType[] = [
+        { title: 'Deal', onClick: () => {} },
+        { title: 'Flight', onClick: () => history.push(ROUTES.FLIGHT_PAGE) },
+        {
+            title: 'Discovers',
+            onClick: () => history.push(ROUTES.DISCOVER_PAGE),
+        },
+        { title: 'News', onClick: () => history.push(ROUTES.NEWS_PAGE) },
+    ]
+
+    const USER_ACTION_MENU: MenuType[] = [
+        {
+            title: 'Eng',
+            icon: icon,
+            onClick: () => {},
+        },
+        { title: 'Sign Up', onClick: () => {} },
+        { title: 'Log In', onClick: onLogInClicked },
+    ]
 
     return (
         <StyledHeader>
@@ -35,17 +53,41 @@ const Header = ({
                     title={logoTitle}
                     color={LOGO_COLOR.WHITE}
                 />
-                <HeaderMenu
-                    color={
-                        LOGO_COLOR.WHITE ? MENU_COLOR.WHITE : MENU_COLOR.BLACK
-                    }
-                />
+                <StyledMenu>
+                    {HEADER_MENU.map(item => {
+                        return (
+                            <StyledMenuItem
+                                headerType={headerType}
+                                key={item.title}
+                            >
+                                <button onClick={item.onClick}>
+                                    {item.title}
+                                </button>
+                            </StyledMenuItem>
+                        )
+                    })}
+                </StyledMenu>
             </StyledLogo>
-            <UserActionMenu
-                logIn={onLogInClicked}
-                signUp={onSignUpClicked}
-                switchLang={onSwitchLangClicked}
-            />
+            <StyledMenu>
+                {USER_ACTION_MENU.map(item => {
+                    return (
+                        <StyledMenuItem
+                            headerType={headerType}
+                            key={item.title}
+                        >
+                            <button onClick={item.onClick}>
+                                {item.title}
+                                {item.icon && (
+                                    <Icon
+                                        size={ICON_SIZE.XXXX_SMALL}
+                                        src={icon}
+                                    />
+                                )}
+                            </button>
+                        </StyledMenuItem>
+                    )
+                })}
+            </StyledMenu>
         </StyledHeader>
     )
 }

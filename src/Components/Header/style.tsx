@@ -1,4 +1,9 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { HEADER_TYPE } from './index'
+
+interface StyledMenuProps {
+    headerType: HEADER_TYPE
+}
 
 const StyledHeader = styled.header`
     display: flex;
@@ -19,4 +24,45 @@ const StyledLogo = styled.div`
     grid-template-columns: 1fr 1fr;
 `
 
-export { StyledHeader, StyledLogo }
+const StyledMenu = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const StyledMenuItem = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 30px;
+
+    :last-child {
+        margin-right: 0;
+    }
+    & button {
+        display: flex;
+        align-items: center;
+        background: transparent;
+        outline: none;
+        border: none;
+
+        ${(props: StyledMenuProps) =>
+            props.headerType === HEADER_TYPE.WHITE &&
+            css`
+                color: #fff;
+            `}
+
+        ${(props: StyledMenuProps) =>
+            props.headerType === HEADER_TYPE.BLACK &&
+            css`
+                color: #000;
+            `}
+
+        & img {
+            margin-left: 3px;
+        }
+    }
+`
+
+export { StyledHeader, StyledLogo, StyledMenu, StyledMenuItem }

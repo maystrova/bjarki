@@ -54,7 +54,7 @@ export enum DESTINATION_ALIAS {
 
 export type MenuType = {
     title: string
-    icon?: boolean
+    icon?: string
     onClick: () => void
 }
 
