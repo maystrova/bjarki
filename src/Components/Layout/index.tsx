@@ -67,17 +67,29 @@ const Layout = () => {
                 </Switch>
                 <Switch>
                     <Route path={ROUTES.DISCOVER_PAGE} exact>
-                        <DiscoverPage />
+                        <DiscoverPage
+                            onLogInClicked={() =>
+                                setIsShowAuthorizationWindow(true)
+                            }
+                        />
                     </Route>
                 </Switch>
                 <Switch>
                     <Route path={ROUTES.FLIGHT_PAGE} exact>
-                        <FlightPage />
+                        <FlightPage
+                            onLogInClicked={() =>
+                                setIsShowAuthorizationWindow(true)
+                            }
+                        />
                     </Route>
                 </Switch>
                 <Switch>
                     <Route path={ROUTES.NEWS_PAGE} exact>
-                        <NewsPage />
+                        <NewsPage
+                            onLogInClicked={() =>
+                                setIsShowAuthorizationWindow(true)
+                            }
+                        />
                     </Route>
                 </Switch>
                 <Switch>
@@ -102,7 +114,11 @@ const Layout = () => {
                 </Switch>
                 <Switch>
                     <Route path={ROUTES.DESTINATION_PAGE}>
-                        <DestinationPage />
+                        <DestinationPage
+                            onLogInClicked={() =>
+                                setIsShowAuthorizationWindow(true)
+                            }
+                        />
                     </Route>
                 </Switch>
 

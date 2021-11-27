@@ -1,12 +1,22 @@
 import React from 'react'
 
+import { Header, HEADER_TYPE } from 'Components/Header'
+
 import { StyledNewsPage, StyledNewsPageContainer } from './style'
 
-interface NewsPageProps {}
+import arrow from 'Components/Header/pics/black-arrow.svg'
 
-const NewsPage = ({}: NewsPageProps) => {
+interface NewsPageProps {
+    onLogInClicked: () => void
+}
+
+const NewsPage = ({ onLogInClicked }: NewsPageProps) => {
     return (
         <StyledNewsPage>
+            <Header
+                onLogInClicked={onLogInClicked}
+                headerType={HEADER_TYPE.BLACK}
+            />
             <StyledNewsPageContainer>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.

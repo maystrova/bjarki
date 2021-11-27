@@ -5,6 +5,7 @@ import { BjarkiContext } from 'context/storeContext'
 
 import { CITIES, CityType, COUNTRIES, DESTINATION_ALIAS } from 'services/type'
 import { HomePageInterface } from 'Pages/HomePage/type'
+import { Header, HEADER_TYPE } from 'Components/Header'
 
 import {
     StyledDestinationPage,
@@ -12,9 +13,13 @@ import {
     StyledDestinationPageTitle,
 } from './style'
 
-interface DestinationPageProps {}
+import arrow from 'Components/Header/pics/arrow.svg'
 
-const DestinationPage = ({}: DestinationPageProps) => {
+interface DestinationPageProps {
+    onLogInClicked: () => void
+}
+
+const DestinationPage = ({ onLogInClicked }: DestinationPageProps) => {
     const { store } = useContext(BjarkiContext)
 
     const [destination, setDestination] = useState<HomePageInterface>({
@@ -45,6 +50,10 @@ const DestinationPage = ({}: DestinationPageProps) => {
 
     return (
         <StyledDestinationPage destination={destination.city}>
+            <Header
+                onLogInClicked={onLogInClicked}
+                headerType={HEADER_TYPE.WHITE}
+            />
             <StyledDestinationPageContainer>
                 <StyledDestinationPageTitle>
                     <h1>{destination.city}</h1>

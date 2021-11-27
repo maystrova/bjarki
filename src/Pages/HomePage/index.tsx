@@ -175,7 +175,6 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                 <Header
                     onLogInClicked={onSignInClicked}
                     headerType={HEADER_TYPE.WHITE}
-                    icon={arrow}
                 />
                 <Destination
                     city={currentCity.city}

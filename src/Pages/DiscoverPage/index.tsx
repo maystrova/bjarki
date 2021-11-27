@@ -1,18 +1,20 @@
 import React from 'react'
 
-import { CountryCard } from 'Components/CountryCard'
-
 import { COUNTRIES } from 'services/type'
 import { StyledDiscoverPage, StyledDiscoverPageCountryList } from './style'
 import { Button, BUTTON_TYPE } from 'Components/Button'
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import further from 'Pages/DiscoverPage/pics/arrow-right.svg'
-import { CardSlider } from '../../Components/Slider'
-import { StyledContainer } from '../../Components/Layout/style'
+import { StyledContainer } from 'Components/Layout/style'
+import { Header, HEADER_TYPE } from 'Components/Header'
 
-interface DiscoverPageProps {}
+import arrow from 'Components/Header/pics/arrow.svg'
 
-const DiscoverPage = ({}: DiscoverPageProps) => {
+interface DiscoverPageProps {
+    onLogInClicked: () => void
+}
+
+const DiscoverPage = ({ onLogInClicked }: DiscoverPageProps) => {
     const countries = Object.entries(COUNTRIES).map(([key, value]) => ({
         title: key,
         name: value,
@@ -20,6 +22,10 @@ const DiscoverPage = ({}: DiscoverPageProps) => {
 
     return (
         <StyledDiscoverPage>
+            <Header
+                onLogInClicked={onLogInClicked}
+                headerType={HEADER_TYPE.WHITE}
+            />
             <StyledContainer>
                 <StyledDiscoverPageCountryList>
                     {/*<CardSlider title={'Destination'}>*/}

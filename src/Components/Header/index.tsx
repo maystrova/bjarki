@@ -8,7 +8,10 @@ import { Logo, LOGO_TYPE } from 'Components/Logo'
 import { LOGO_COLOR } from 'Components/Logo/style'
 
 import { StyledHeader, StyledLogo, StyledMenu, StyledMenuItem } from './style'
-import { Icon, ICON_SIZE } from '../Icon'
+import { Icon, ICON_SIZE } from 'Components/Icon'
+
+import whiteArrow from './pics/arrow.svg'
+import blackArrow from './pics/black-arrow.svg'
 
 export enum HEADER_TYPE {
     WHITE = 'WHITE',
@@ -18,10 +21,9 @@ export enum HEADER_TYPE {
 interface HeaderProps {
     onLogInClicked: () => void
     headerType: HEADER_TYPE
-    icon: string
 }
 
-const Header = ({ onLogInClicked, headerType, icon }: HeaderProps) => {
+const Header = ({ onLogInClicked, headerType }: HeaderProps) => {
     const logoTitle: string = 'Bjarki'
     const history = useHistory()
 
@@ -38,7 +40,7 @@ const Header = ({ onLogInClicked, headerType, icon }: HeaderProps) => {
     const USER_ACTION_MENU: MenuType[] = [
         {
             title: 'Eng',
-            icon: icon,
+            icon: headerType === HEADER_TYPE.WHITE ? whiteArrow : blackArrow,
             onClick: () => {},
         },
         { title: 'Sign Up', onClick: () => {} },
@@ -51,7 +53,11 @@ const Header = ({ onLogInClicked, headerType, icon }: HeaderProps) => {
                 <Logo
                     type={LOGO_TYPE.HEADER}
                     title={logoTitle}
-                    color={LOGO_COLOR.WHITE}
+                    color={
+                        headerType === HEADER_TYPE.WHITE
+                            ? LOGO_COLOR.WHITE
+                            : LOGO_COLOR.BLACK
+                    }
                 />
                 <StyledMenu>
                     {HEADER_MENU.map(item => {
@@ -80,7 +86,7 @@ const Header = ({ onLogInClicked, headerType, icon }: HeaderProps) => {
                                 {item.icon && (
                                     <Icon
                                         size={ICON_SIZE.XXXX_SMALL}
-                                        src={icon}
+                                        src={item.icon}
                                     />
                                 )}
                             </button>
