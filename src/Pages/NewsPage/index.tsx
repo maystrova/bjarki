@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Header, HEADER_TYPE } from 'Components/Header'
 import { Footer } from 'Components/Footer'
-import { Icon, ICON_SIZE } from 'Components/Icon'
+import { Share } from 'Components/Share'
 
 import {
     NEWS_TYPE,
@@ -16,32 +16,16 @@ import {
     StyledNewsPageTitle,
     StyledNewsPageWrapper,
     StyledNewsSection,
-    StyledShareButton,
-    StyledShareTitle,
-    StyledShareTitleWrapper,
 } from './style'
+
 import marocco from './pics/morocco.png'
 import palms from './pics/palms.png'
-import fb from './pics/fb.svg'
-import tw from './pics/tw.svg'
-import google from './pics/google.svg'
 
 interface NewsPageProps {
     onLogInClicked: () => void
 }
 
-interface ShareType {
-    icon: string
-    onClick: () => void
-}
-
 const NewsPage = ({ onLogInClicked }: NewsPageProps) => {
-    const SHARE_BUTTONS: ShareType[] = [
-        { icon: fb, onClick: () => {} },
-        { icon: tw, onClick: () => {} },
-        { icon: google, onClick: () => {} },
-    ]
-
     return (
         <StyledNewsPage>
             <div>
@@ -177,21 +161,7 @@ const NewsPage = ({ onLogInClicked }: NewsPageProps) => {
                         </StyledNews>
                     </StyledNewsSection>
                 </StyledNewsPageContainer>
-                <div>
-                    {SHARE_BUTTONS.map(button => {
-                        return (
-                            <StyledShareButton onClick={button.onClick}>
-                                <Icon
-                                    size={ICON_SIZE.X_SMALL}
-                                    src={button.icon}
-                                />
-                            </StyledShareButton>
-                        )
-                    })}
-                    <StyledShareTitleWrapper>
-                        <StyledShareTitle>Share</StyledShareTitle>
-                    </StyledShareTitleWrapper>
-                </div>
+                <Share />
             </StyledNewsPageWrapper>
             <Footer />
         </StyledNewsPage>
