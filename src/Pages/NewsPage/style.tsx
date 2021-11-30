@@ -19,6 +19,7 @@ const StyledNewsPageWrapper = styled.div`
     padding: 100px 85px;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 `
 
 const StyledNewsPageContainer = styled.div`

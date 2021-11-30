@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import firebase from 'firebase'
 
 import { ROUTES } from 'services/route'
-import { User } from 'services/user'
+import { UserType } from 'services/user'
 
 import { SignIn } from 'Components/SignIn'
 
@@ -34,7 +34,7 @@ const Layout = () => {
             .signInWithPopup(authProvider)
             .then(result => {
                 let user = result.user
-                const preparedUser: User = {
+                const preparedUser: UserType = {
                     name: user?.displayName ? user.displayName : 'User',
                     avatar: user?.photoURL ? user.photoURL : anonAvatar,
                     id: user?.uid ? user?.uid : 'empty_id',

@@ -1,15 +1,16 @@
 import anonAvatar from './anon-avatar.png'
+import avatar from 'Components/Share/hello.png'
 
-export type User = {
+export type UserType = {
     name: string
     avatar: string
     email: string
     id: string
 }
 
-export let DEFAULT_USER: User = {
-    name: 'Anon',
-    avatar: anonAvatar,
-    email: '',
-    id: Math.random().toString(),
+export let DEFAULT_USER: UserType = {
+    name: 'Kate Maystrova',
+    avatar: avatar,
+    email: 'maystrovakate@gmail.com',
+    id: '1',
 }

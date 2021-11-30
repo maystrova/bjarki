@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { BjarkiContext } from 'context/storeContext'
 
 import { Header, HEADER_TYPE } from 'Components/Header'
 import { Footer } from 'Components/Footer'
+import { User } from 'Components/User'
 import { Share } from 'Components/Share'
 
 import {
@@ -26,6 +29,8 @@ interface NewsPageProps {
 }
 
 const NewsPage = ({ onLogInClicked }: NewsPageProps) => {
+    const { store } = useContext(BjarkiContext)
+
     return (
         <StyledNewsPage>
             <div>
@@ -35,7 +40,11 @@ const NewsPage = ({ onLogInClicked }: NewsPageProps) => {
                 />
             </div>
             <StyledNewsPageWrapper>
-                <div>User</div>
+                <User
+                    avatar={store.user.avatar}
+                    name={store.user.name}
+                    email={store.user.email}
+                />
                 <StyledNewsPageContainer>
                     <StyledNewsSection>
                         <StyledNews>
