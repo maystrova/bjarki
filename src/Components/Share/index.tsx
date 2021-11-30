@@ -3,6 +3,7 @@ import React from 'react'
 import { Icon, ICON_SIZE } from 'Components/Icon'
 
 import {
+    StyledShare,
     StyledShareButton,
     StyledShareTitle,
     StyledShareTitleWrapper,
@@ -123,9 +124,11 @@ const Share = ({}: ShareProps) => {
         <div>
             {SHARE_BUTTONS.map(button => {
                 return (
-                    <StyledShareButton onClick={button.onClick}>
-                        <Icon size={ICON_SIZE.X_SMALL} src={button.icon} />
-                    </StyledShareButton>
+                    <StyledShare>
+                        <StyledShareButton onClick={button.onClick}>
+                            <Icon size={ICON_SIZE.X_SMALL} src={button.icon} />
+                        </StyledShareButton>
+                    </StyledShare>
                 )
             })}
             <StyledShareTitleWrapper>

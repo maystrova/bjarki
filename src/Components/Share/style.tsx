@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+const StyledShare = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 const StyledShareTitle = styled.div`
     transform: rotate(90deg);
     font-size: 14px;
@@ -8,6 +14,9 @@ const StyledShareTitle = styled.div`
 
 const StyledShareTitleWrapper = styled.div`
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const StyledShareButton = styled.button`
@@ -23,4 +32,9 @@ const StyledShareButton = styled.button`
     margin-bottom: 12px;
 `
 
-export { StyledShareTitleWrapper, StyledShareButton, StyledShareTitle }
+export {
+    StyledShareTitleWrapper,
+    StyledShareButton,
+    StyledShareTitle,
+    StyledShare,
+}
