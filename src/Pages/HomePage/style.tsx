@@ -135,6 +135,10 @@ const StyledChosenOption = styled.div`
 
 const StyledAdditionalInformation = styled.div`
     padding: 0 85px;
+`
+
+const StyledAdditionalInfoContainer = styled.div`
+    max-width: 1200px;
     display: grid;
     grid-row-gap: 100px;
 `
@@ -178,4 +182,5 @@ export {
     StyledAdditionalInformation,
     StyledPlacesToStay,
     StyledExploreCards,
+    StyledAdditionalInfoContainer,
 }

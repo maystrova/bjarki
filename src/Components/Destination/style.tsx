@@ -13,17 +13,7 @@ const StyledDestinationInfo = styled.div`
     line-height: 1.5;
 `
 const StyledDiscover = styled.div`
-    width: 96px;
-
-    & a {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        border-bottom: 1.5px solid #fff;
-    }
+    display: flex;
 `
 
 const StyledDestinationTitle = styled.div`
@@ -54,17 +44,6 @@ const StyledMonth = styled.span`
     opacity: 0.8;
 `
 
-const StyledExplore = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-`
-
-const StyledExploreButton = styled.button`
-    background: transparent;
-    border: none;
-`
-
 export {
     StyledDestination,
     StyledDestinationInfo,
@@ -74,7 +53,5 @@ export {
     StyledDate,
     StyledDay,
     StyledMonth,
-    StyledExplore,
     StyledDestinationTitle,
-    StyledExploreButton,
 }

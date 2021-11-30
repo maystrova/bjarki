@@ -7,6 +7,7 @@ import {
     StyledExploreCardFurther,
     StyledExploreCardImage,
     StyledExploreCardInfo,
+    StyledExploreLink,
 } from './style'
 
 import exploreIcon from 'Components/ExploreCard/pics/red-arrow.svg'
@@ -14,19 +15,20 @@ import exploreIcon from 'Components/ExploreCard/pics/red-arrow.svg'
 interface ExploreCardProps {
     title: string
     image: string
-    onCardClick: () => void
 }
 
-const ExploreCard = ({ title, onCardClick, image }: ExploreCardProps) => {
+const ExploreCard = ({ title, image }: ExploreCardProps) => {
     return (
-        <StyledExploreCard onClick={onCardClick}>
+        <StyledExploreCard>
             <div>
                 <StyledExploreCardImage src={image} alt='img' />
             </div>
             <StyledExploreCardInfo>
                 <div>{title}</div>
                 <StyledExploreCardFurther>
-                    <span>Explore</span>
+                    <StyledExploreLink href='https://booking.com'>
+                        <span>Explore</span>
+                    </StyledExploreLink>
                     <Icon size={ICON_SIZE.XX_SMALL} src={exploreIcon} />
                 </StyledExploreCardFurther>
             </StyledExploreCardInfo>

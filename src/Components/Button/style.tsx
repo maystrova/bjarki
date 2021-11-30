@@ -75,16 +75,18 @@ const StyledButton = styled.button`
         `}
 
     ${(props: StyledButtonProps) =>
-        props.selfType === BUTTON_TYPE.SOCIAL_MEDIA &&
+        props.selfType === BUTTON_TYPE.ICON && css``}
+  
+  ${(props: StyledButtonProps) =>
+        props.selfType === BUTTON_TYPE.DISCOVER &&
         css`
+            display: flex;
             background: transparent;
-
-            & img {
-                height: 14px;
-            }
-
-            & :hover {
-            }
+            align-items: center;
+            font-size: 16px;
+            color: #fff;
+            padding: 5px;
+            border-bottom: 1.5px solid #fff;
         `}
 `
 

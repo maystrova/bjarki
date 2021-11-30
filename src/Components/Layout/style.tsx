@@ -24,4 +24,8 @@ const StyledLayout = styled.div`
     }
 `
 
-export { StyledLayout, GlobalStyle }
+const StyledContainer = styled.div`
+    max-width: 1200px;
+`
+
+export { StyledLayout, GlobalStyle, StyledContainer }

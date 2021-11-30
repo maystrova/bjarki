@@ -6,6 +6,7 @@ import { ADVENTURE_ALIAS, ADVENTURE_TITLE } from 'adventures/adventures'
 import { StyledAdventurePage } from './style'
 import { BjarkiContext } from 'context/storeContext'
 import { AdventuresType } from 'services/type'
+import { StyledContainer } from 'Components/Layout/style'
 
 interface AdventurePageProps {}
 
@@ -34,7 +35,9 @@ const AdventurePage = ({}: AdventurePageProps) => {
 
     return (
         <StyledAdventurePage alias={adventure.alias}>
-            <h1>{adventure.title}</h1>
+            <StyledContainer>
+                <h1>{adventure.title}</h1>
+            </StyledContainer>
         </StyledAdventurePage>
     )
 }
