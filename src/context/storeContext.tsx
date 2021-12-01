@@ -4,13 +4,13 @@ import { DESTINATIONS } from 'destinations/destinations'
 import { ACTION } from './actions'
 import { reducer } from './reducer'
 import { ThemeProvider } from 'styled-components'
-import { DEFAULT_USER, User } from 'services/user'
+import { DEFAULT_USER, UserType } from 'services/user'
 import { HOTELS } from 'hotels/hotels'
 import { ADVENTURES } from 'adventures/adventures'
 
 export interface StoreType {
     destinations: DestinationType[]
-    user: User
+    user: UserType
     hotels: AdventuresType[]
     adventures: AdventuresType[]
 }
