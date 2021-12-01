@@ -33,18 +33,26 @@ const Layout = () => {
             .auth()
             .signInWithPopup(authProvider)
             .then(result => {
-                let user = result.user
+                /** @type {firebase.auth.OAuthCredential} */
+                var user = result.user
                 const preparedUser: UserType = {
                     name: user?.displayName ? user.displayName : 'User',
                     avatar: user?.photoURL ? user.photoURL : anonAvatar,
                     id: user?.uid ? user?.uid : 'empty_id',
-                    email: user?.email ? user.email : '',
+                    email: user?.email ? user.email : 'anon@email.com',
                 }
 
                 window.localStorage.setItem(
                     'user',
                     JSON.stringify(preparedUser),
                 )
+                // dispatch({
+                //     action: ACTION.USER_UPDATE,
+                //     data: preparedUser,
+                // })
+                // if (user) {
+                //     history.push(ROUTES.PROFILE)
+                // }
 
                 // ...
             })
