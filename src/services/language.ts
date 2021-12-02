@@ -9,11 +9,38 @@ type Translate = {
     key: string
 }
 
-const TRANSLATE_RU: Translate[] = [{ key: 'flight', translate: 'Улететь' }]
+const TRANSLATE_RU: Translate[] = [
+    { key: 'flight', translate: 'Авиабилеты' },
+    { key: 'deal', translate: 'Условия' },
+    { key: 'discovers', translate: 'Направления' },
+    { key: 'news', translate: 'Новости' },
+    { key: 'sign-up', translate: 'Зарегистрироваться' },
+    { key: 'log-in', translate: 'Войти' },
+    { key: 'discover', translate: 'Смотреть' },
+    { key: 'destination', translate: 'Направление' },
+]
 
-const TRANSLATE_EN: Translate[] = [{ key: 'flight', translate: 'Flight' }]
+const TRANSLATE_EN: Translate[] = [
+    { key: 'flight', translate: 'Flight' },
+    { key: 'deal', translate: 'Сделка' },
+    { key: 'discovers', translate: 'Discovers' },
+    { key: 'news', translate: 'News' },
+    { key: 'sign-up', translate: 'Sign Up' },
+    { key: 'log-in', translate: 'Log In' },
+    { key: 'discover', translate: 'Discover' },
+    { key: 'destination', translate: 'Destination' },
+]
 
-const TRANSLATE_ES: Translate[] = [{ key: 'flight', translate: 'Vuelo' }]
+const TRANSLATE_ES: Translate[] = [
+    { key: 'flight', translate: 'Vuelo' },
+    { key: 'deal', translate: 'Trato' },
+    { key: 'discovers', translate: 'Descubre' },
+    { key: 'news', translate: 'Noticias' },
+    { key: 'sign-up', translate: 'Inscribirse' },
+    { key: 'log-in', translate: 'Iniciar' },
+    { key: 'discover', translate: 'Descubrir' },
+    { key: 'destination', translate: 'Destino' },
+]
 
 const tr = (key: string, currentLanguage: LANGUAGE): string => {
     const hash = {
@@ -26,7 +53,7 @@ const tr = (key: string, currentLanguage: LANGUAGE): string => {
 
     const translate: Translate | undefined = currentTranslate.find(
         translate => {
-            return translate.translate
+            return translate.key === key
         },
     )
 

@@ -39,16 +39,19 @@ const Header = ({ onLogInClicked, headerType }: HeaderProps) => {
     const { store, dispatch } = useContext(BjarkiContext)
 
     const HEADER_MENU: MenuType[] = [
-        { title: 'Deal', onClick: () => {} },
+        { title: tr('deal', store.currentLanguage), onClick: () => {} },
         {
             title: tr('flight', store.currentLanguage),
             onClick: () => history.push(ROUTES.FLIGHT_PAGE),
         },
         {
-            title: 'Discovers',
+            title: tr('discovers', store.currentLanguage),
             onClick: () => history.push(ROUTES.DISCOVER_PAGE),
         },
-        { title: 'News', onClick: () => history.push(ROUTES.NEWS_PAGE) },
+        {
+            title: tr('news', store.currentLanguage),
+            onClick: () => history.push(ROUTES.NEWS_PAGE),
+        },
     ]
 
     const USER_ACTION_MENU: MenuType[] = [

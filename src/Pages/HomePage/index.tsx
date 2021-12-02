@@ -245,6 +245,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                                         {destinationsList.map(destination => {
                                             return (
                                                 <option
+                                                    key={destination.name}
                                                     value={`${destination.name}, ${destination.country}`}
                                                 />
                                             )
@@ -296,6 +297,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                             {EXPLORE_CARDS.map(card => {
                                 return (
                                     <ExploreCard
+                                        key={card.title}
                                         title={card.title}
                                         image={card.image}
                                     />
@@ -316,6 +318,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                                 {store.hotels.map(hotel => {
                                     return (
                                         <AdventureCard
+                                            key={hotel.title}
                                             image={
                                                 hotel.image ? hotel.image : ''
                                             }
@@ -358,6 +361,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                                 {store.adventures.map(adventure => {
                                     return (
                                         <AdventureCard
+                                            key={adventure.title}
                                             image={
                                                 adventure.image
                                                     ? adventure.image

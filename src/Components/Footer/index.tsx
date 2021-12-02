@@ -14,7 +14,7 @@ import instaIcon from 'Components/Footer/pics/insta.svg'
 import fbIcon from 'Components/Footer/pics/fb.svg'
 import twitterIcon from 'Components/Footer/pics/twitter.svg'
 import googleIcon from 'Components/Footer/pics/google-icon.svg'
-import { LOGO_COLOR } from '../Logo/style'
+import { LOGO_COLOR } from 'Components/Logo/style'
 
 interface FooterProps {}
 
@@ -65,7 +65,7 @@ const Footer = ({}: FooterProps) => {
                     <ul>
                         {FOOTER_MENU.map(item => {
                             return (
-                                <li>
+                                <li key={item.title}>
                                     <Button
                                         onClick={item.onClick}
                                         type={BUTTON_TYPE.MENU_ITEM}
@@ -80,7 +80,7 @@ const Footer = ({}: FooterProps) => {
             <StyledSocialMedia>
                 {SOCIAL_MEDIA.map(item => {
                     return (
-                        <a href={item.href} target='_blank'>
+                        <a href={item.href} target='_blank' key={item.href}>
                             <Icon size={ICON_SIZE.SMALL} src={item.icon} />
                         </a>
                     )
