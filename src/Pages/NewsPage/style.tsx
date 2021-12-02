@@ -17,8 +17,9 @@ const StyledNewsPage = styled.div`
 
 const StyledNewsPageWrapper = styled.div`
     padding: 100px 85px;
-    display: grid;
-    grid-template-columns: 1fr 80% 1fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 `
 
 const StyledNewsPageContainer = styled.div`

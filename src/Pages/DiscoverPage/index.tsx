@@ -52,9 +52,9 @@ const DiscoverPage = ({ onLogInClicked }: DiscoverPageProps) => {
                     {/*    </div>*/}
                     {/*</CardSlider>*/}
 
-                    <Button onClick={() => {}} type={BUTTON_TYPE.ROUND}>
-                        <Icon size={ICON_SIZE.SMALL} src={further} />
-                    </Button>
+                    {/*<Button onClick={() => {}} type={BUTTON_TYPE.ROUND}>*/}
+                    {/*    <Icon size={ICON_SIZE.SMALL} src={further} />*/}
+                    {/*</Button>*/}
                 </StyledDiscoverPageCountryList>
             </StyledContainer>
         </StyledDiscoverPage>
