@@ -36,8 +36,9 @@ const StyledMenuItem = styled.div`
     align-items: center;
     font-size: 14px;
     margin-right: 30px;
+    position: relative;
 
-    :last-child {
+    &:last-child {
         margin-right: 0;
     }
     & button {
@@ -65,4 +66,24 @@ const StyledMenuItem = styled.div`
     }
 `
 
-export { StyledHeader, StyledLogo, StyledMenu, StyledMenuItem }
+const StyledMenuSubMenu = styled.div`
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    button {
+        padding: 8px 5px;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+`
+
+export {
+    StyledHeader,
+    StyledLogo,
+    StyledMenu,
+    StyledMenuItem,
+    StyledMenuSubMenu,
+}

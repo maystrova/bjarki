@@ -56,6 +56,7 @@ export type MenuType = {
     title: string
     icon?: string
     onClick: () => void
+    subMenu?: MenuType[]
 }
 
 export type CityType = {

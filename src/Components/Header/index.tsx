@@ -1,17 +1,26 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-
-import { MenuType } from 'services/type'
-import { ROUTES } from 'services/route'
+import { Icon, ICON_SIZE } from 'Components/Icon'
 
 import { Logo, LOGO_TYPE } from 'Components/Logo'
 import { LOGO_COLOR } from 'Components/Logo/style'
+import { ACTION } from 'context/actions'
+import { BjarkiContext } from 'context/storeContext'
+import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { LANGUAGE, tr } from 'services/language'
+import { ROUTES } from 'services/route'
 
-import { StyledHeader, StyledLogo, StyledMenu, StyledMenuItem } from './style'
-import { Icon, ICON_SIZE } from 'Components/Icon'
+import { MenuType } from 'services/type'
 
 import whiteArrow from './pics/arrow.svg'
 import blackArrow from './pics/black-arrow.svg'
+
+import {
+    StyledHeader,
+    StyledLogo,
+    StyledMenu,
+    StyledMenuItem,
+    StyledMenuSubMenu,
+} from './style'
 
 export enum HEADER_TYPE {
     WHITE = 'WHITE',
@@ -26,10 +35,15 @@ interface HeaderProps {
 const Header = ({ onLogInClicked, headerType }: HeaderProps) => {
     const logoTitle: string = 'Bjarki'
     const history = useHistory()
+    const [isShowSubMenu, setIsShowSubMenu] = useState<boolean>(false)
+    const { store, dispatch } = useContext(BjarkiContext)
 
     const HEADER_MENU: MenuType[] = [
         { title: 'Deal', onClick: () => {} },
-        { title: 'Flight', onClick: () => history.push(ROUTES.FLIGHT_PAGE) },
+        {
+            title: tr('flight', store.currentLanguage),
+            onClick: () => history.push(ROUTES.FLIGHT_PAGE),
+        },
         {
             title: 'Discovers',
             onClick: () => history.push(ROUTES.DISCOVER_PAGE),
@@ -39,9 +53,43 @@ const Header = ({ onLogInClicked, headerType }: HeaderProps) => {
 
     const USER_ACTION_MENU: MenuType[] = [
         {
-            title: 'Eng',
+            title: store.currentLanguage.toLocaleUpperCase(),
             icon: headerType === HEADER_TYPE.WHITE ? whiteArrow : blackArrow,
-            onClick: () => {},
+            onClick: () => {
+                setIsShowSubMenu(!isShowSubMenu)
+            },
+            subMenu: [
+                {
+                    title: 'Ru',
+                    onClick: () => {
+                        dispatch({
+                            action: ACTION.SET_LANGUAGE,
+                            data: LANGUAGE.RU,
+                        })
+                        setIsShowSubMenu(false)
+                    },
+                },
+                {
+                    title: 'Es',
+                    onClick: () => {
+                        dispatch({
+                            action: ACTION.SET_LANGUAGE,
+                            data: LANGUAGE.ES,
+                        })
+                        setIsShowSubMenu(false)
+                    },
+                },
+                {
+                    title: 'En',
+                    onClick: () => {
+                        dispatch({
+                            action: ACTION.SET_LANGUAGE,
+                            data: LANGUAGE.EN,
+                        })
+                        setIsShowSubMenu(false)
+                    },
+                },
+            ],
         },
         { title: 'Sign Up', onClick: () => {} },
         { title: 'Log In', onClick: onLogInClicked },
@@ -90,6 +138,17 @@ const Header = ({ onLogInClicked, headerType }: HeaderProps) => {
                                     />
                                 )}
                             </button>
+                            {item?.subMenu && isShowSubMenu && (
+                                <StyledMenuSubMenu>
+                                    {item?.subMenu.map(subItem => (
+                                        <div key={subItem.title}>
+                                            <button onClick={subItem.onClick}>
+                                                {subItem.title}
+                                            </button>
+                                        </div>
+                                    ))}
+                                </StyledMenuSubMenu>
+                            )}
                         </StyledMenuItem>
                     )
                 })}
