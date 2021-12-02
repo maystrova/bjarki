@@ -22,7 +22,7 @@ const TRANSLATE_RU: Translate[] = [
 
 const TRANSLATE_EN: Translate[] = [
     { key: 'flight', translate: 'Flight' },
-    { key: 'deal', translate: 'Сделка' },
+    { key: 'deal', translate: 'Deal' },
     { key: 'discovers', translate: 'Discovers' },
     { key: 'news', translate: 'News' },
     { key: 'sign-up', translate: 'Sign Up' },

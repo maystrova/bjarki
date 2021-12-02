@@ -100,31 +100,27 @@ const Header = ({ onLogInClicked, headerType }: HeaderProps) => {
 
     return (
         <StyledHeader>
-            <StyledLogo>
-                <Logo
-                    type={LOGO_TYPE.HEADER}
-                    title={logoTitle}
-                    color={
-                        headerType === HEADER_TYPE.WHITE
-                            ? LOGO_COLOR.WHITE
-                            : LOGO_COLOR.BLACK
-                    }
-                />
-                <StyledMenu>
-                    {HEADER_MENU.map(item => {
-                        return (
-                            <StyledMenuItem
-                                headerType={headerType}
-                                key={item.title}
-                            >
-                                <button onClick={item.onClick}>
-                                    {item.title}
-                                </button>
-                            </StyledMenuItem>
-                        )
-                    })}
-                </StyledMenu>
-            </StyledLogo>
+            <Logo
+                type={LOGO_TYPE.HEADER}
+                title={logoTitle}
+                color={
+                    headerType === HEADER_TYPE.WHITE
+                        ? LOGO_COLOR.WHITE
+                        : LOGO_COLOR.BLACK
+                }
+            />
+            <StyledMenu>
+                {HEADER_MENU.map(item => {
+                    return (
+                        <StyledMenuItem
+                            headerType={headerType}
+                            key={item.title}
+                        >
+                            <button onClick={item.onClick}>{item.title}</button>
+                        </StyledMenuItem>
+                    )
+                })}
+            </StyledMenu>
             <StyledMenu>
                 {USER_ACTION_MENU.map(item => {
                     return (

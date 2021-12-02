@@ -11,10 +11,6 @@ const StyledHeader = styled.header`
     align-items: center;
     height: 88px;
     padding: 0 85px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     background: transparent;
     white-space: nowrap;
 `
