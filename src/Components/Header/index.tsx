@@ -16,7 +16,6 @@ import blackArrow from './pics/black-arrow.svg'
 
 import {
     StyledHeader,
-    StyledLogo,
     StyledMenu,
     StyledMenuItem,
     StyledMenuSubMenu,
@@ -94,8 +93,11 @@ const Header = ({ onLogInClicked, headerType }: HeaderProps) => {
                 },
             ],
         },
-        { title: 'Sign Up', onClick: () => {} },
-        { title: 'Log In', onClick: onLogInClicked },
+        { title: tr('sign-up', store.currentLanguage), onClick: () => {} },
+        {
+            title: tr('log-in', store.currentLanguage),
+            onClick: onLogInClicked,
+        },
     ]
 
     return (

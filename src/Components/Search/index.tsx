@@ -1,4 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { BjarkiContext } from 'context/storeContext'
+
+import { tr } from 'services/language'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import { Button, BUTTON_TYPE } from 'Components/Button'
@@ -29,11 +33,20 @@ const Search = ({
     datalist,
     onSearchButtonClicked,
 }: SearchProps) => {
+    const { store } = useContext(BjarkiContext)
+
+    const searchDestinationTitle = tr('destination', store.currentLanguage)
+    const searchDateTitle = tr('check-in-check-out', store.currentLanguage)
+    const searchTravellersTitle = tr('travellers', store.currentLanguage)
+    const searchTitle = tr('search', store.currentLanguage)
+
     return (
         <StyledSearch>
             <StyledSearchAction>
                 <StyledSearchItem>
-                    <StyledSearchItemTitle>Destination</StyledSearchItemTitle>
+                    <StyledSearchItemTitle>
+                        {searchDestinationTitle}
+                    </StyledSearchItemTitle>
                     <StyledSearchInput>
                         <Icon size={ICON_SIZE.X_SMALL} src={locationIcon} />
                         <input
@@ -51,7 +64,7 @@ const Search = ({
             <StyledSearchAction>
                 <StyledSearchItem>
                     <StyledSearchItemTitle>
-                        Check in - Check out
+                        {searchDateTitle}
                     </StyledSearchItemTitle>
                     <StyledSearchInput>
                         <StyledSearchDate type='date' />
@@ -61,7 +74,9 @@ const Search = ({
             </StyledSearchAction>
             <StyledSearchAction>
                 <StyledSearchItem>
-                    <StyledSearchItemTitle>Travellers</StyledSearchItemTitle>
+                    <StyledSearchItemTitle>
+                        {searchTravellersTitle}
+                    </StyledSearchItemTitle>
                     <StyledSearchInput>
                         <input
                             type='number'
@@ -72,7 +87,7 @@ const Search = ({
                 </StyledSearchItem>
             </StyledSearchAction>
             <Button
-                title={'Search'}
+                title={searchTitle}
                 onClick={onSearchButtonClicked}
                 type={BUTTON_TYPE.PRIMARY}
             />

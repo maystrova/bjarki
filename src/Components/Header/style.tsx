@@ -15,11 +15,6 @@ const StyledHeader = styled.header`
     white-space: nowrap;
 `
 
-const StyledLogo = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-`
-
 const StyledMenu = styled.div`
     display: flex;
     justify-content: space-between;
@@ -76,10 +71,4 @@ const StyledMenuSubMenu = styled.div`
     }
 `
 
-export {
-    StyledHeader,
-    StyledLogo,
-    StyledMenu,
-    StyledMenuItem,
-    StyledMenuSubMenu,
-}
+export { StyledHeader, StyledMenu, StyledMenuItem, StyledMenuSubMenu }

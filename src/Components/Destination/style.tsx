@@ -14,6 +14,11 @@ const StyledDestinationInfo = styled.div`
 `
 const StyledDiscover = styled.div`
     display: flex;
+    align-items: center;
+`
+
+const StyledDiscoverTitle = styled.div`
+    margin-right: 5px;
 `
 
 const StyledDestinationTitle = styled.div`
@@ -54,4 +59,5 @@ export {
     StyledDay,
     StyledMonth,
     StyledDestinationTitle,
+    StyledDiscoverTitle,
 }

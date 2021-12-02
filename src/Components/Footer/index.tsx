@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { ROUTES } from 'services/route'
@@ -15,6 +15,8 @@ import fbIcon from 'Components/Footer/pics/fb.svg'
 import twitterIcon from 'Components/Footer/pics/twitter.svg'
 import googleIcon from 'Components/Footer/pics/google-icon.svg'
 import { LOGO_COLOR } from 'Components/Logo/style'
+import { tr } from '../../services/language'
+import { BjarkiContext } from '../../context/storeContext'
 
 interface FooterProps {}
 
@@ -29,20 +31,28 @@ interface SocialMediaType {
 }
 
 const Footer = ({}: FooterProps) => {
+    const { store } = useContext(BjarkiContext)
+
     const history = useHistory()
 
     const FOOTER_MENU: FooterMenuType[] = [
-        { title: 'About', onClick: () => {} },
-        { title: 'Blog', onClick: () => {} },
-        { title: 'Help', onClick: () => {} },
-        { title: 'Contact', onClick: () => {} },
-        { title: 'Deal', onClick: () => {} },
-        { title: 'Flight', onClick: () => history.push(ROUTES.FLIGHT_PAGE) },
-        { title: 'Tour', onClick: () => {} },
-        { title: 'Hotel', onClick: () => {} },
-        { title: 'Terms & Conditions', onClick: () => {} },
-        { title: 'FAQs', onClick: () => {} },
-        { title: 'Sitemap', onClick: () => {} },
+        { title: tr('about', store.currentLanguage), onClick: () => {} },
+        { title: tr('blog', store.currentLanguage), onClick: () => {} },
+        { title: tr('help', store.currentLanguage), onClick: () => {} },
+        { title: tr('contact', store.currentLanguage), onClick: () => {} },
+        { title: tr('deal', store.currentLanguage), onClick: () => {} },
+        {
+            title: tr('flight', store.currentLanguage),
+            onClick: () => history.push(ROUTES.FLIGHT_PAGE),
+        },
+        { title: tr('tour', store.currentLanguage), onClick: () => {} },
+        { title: tr('hotel', store.currentLanguage), onClick: () => {} },
+        {
+            title: tr('terms-and-conditions', store.currentLanguage),
+            onClick: () => {},
+        },
+        { title: tr('faqs', store.currentLanguage), onClick: () => {} },
+        { title: tr('sitemap', store.currentLanguage), onClick: () => {} },
     ]
 
     const SOCIAL_MEDIA: SocialMediaType[] = [

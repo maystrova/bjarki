@@ -51,7 +51,7 @@ import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
-import arrow from 'Components/Header/pics/arrow.svg'
+import { tr } from '../../services/language'
 
 interface exploreCardsType {
     title: string
@@ -159,13 +159,21 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
     }, [currentCity])
 
     const EXPLORE_CARDS: exploreCardsType[] = [
-        { title: '15,000 + Homes', image: homesPic },
-        { title: '34,000 + Villas', image: villasPic },
+        {
+            title: `15,000 + ${tr('homes', store.currentLanguage)}`,
+            image: homesPic,
+        },
+        {
+            title: `34,000 + ${tr('villas', store.currentLanguage)}`,
+            image: villasPic,
+        },
     ]
 
     const searchAdventures = (destination: string) => {
         history.push(ROUTES.ADVENTURES_LIST_PAGE)
     }
+
+    const priceDescr = tr('per-night', store.currentLanguage)
 
     return (
         <div>
@@ -331,7 +339,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                                             price={
                                                 hotel.price ? hotel.price : 0
                                             }
-                                            priceDescription={'per night'}
+                                            priceDescription={priceDescr}
                                             rating={
                                                 hotel.rating ? hotel.rating : 0
                                             }

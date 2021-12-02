@@ -21,7 +21,6 @@ const StyledHomePage = styled.div`
     color: #fff;
     height: 100vh;
     display: grid;
-    grid-template-rows: 85% 15%;
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
 
     ${(props: StyledHomePageProps) =>

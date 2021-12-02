@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { BjarkiContext } from 'context/storeContext'
+
+import { tr } from 'services/language'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
-
 import {
     StyledExploreCard,
     StyledExploreCardFurther,
@@ -18,6 +21,10 @@ interface ExploreCardProps {
 }
 
 const ExploreCard = ({ title, image }: ExploreCardProps) => {
+    const { store } = useContext(BjarkiContext)
+
+    const exploreTitle = tr('explore', store.currentLanguage)
+
     return (
         <StyledExploreCard>
             <div>
@@ -27,7 +34,7 @@ const ExploreCard = ({ title, image }: ExploreCardProps) => {
                 <div>{title}</div>
                 <StyledExploreCardFurther>
                     <StyledExploreLink href='https://booking.com'>
-                        <span>Explore</span>
+                        <span>{exploreTitle}</span>
                     </StyledExploreLink>
                     <Icon size={ICON_SIZE.XX_SMALL} src={exploreIcon} />
                 </StyledExploreCardFurther>
