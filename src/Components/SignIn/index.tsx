@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import {
@@ -28,6 +28,8 @@ import facebook from 'Components/SignIn/pics/fb-icon.svg'
 import close from 'Components/SignIn/pics/close-icon.svg'
 import hidePassword from 'Components/SignIn/pics/hide-password.svg'
 import showPassword from 'Components/SignIn/pics/password-icon.svg'
+import { BjarkiContext } from '../../context/storeContext'
+import { tr } from '../../services/language'
 
 interface SignInProps {
     isOpen: boolean
@@ -47,14 +49,14 @@ interface SignInButtonType {
     icon: string
 }
 
-const buttonTitleSample: string = 'Sign in with'
-
 const SignIn = ({
     isOpen,
     onCancel,
     onGoogleAuth,
     onFacebookAuth,
 }: SignInProps) => {
+    const { store } = useContext(BjarkiContext)
+
     const [isShowPassword, setIsShowPassword] = useState<boolean>(false)
 
     const SIGN_IN: SignInType[] = [
@@ -65,6 +67,8 @@ const SignIn = ({
             inputType: isShowPassword ? 'text' : 'password',
         },
     ]
+
+    const buttonTitleSample: string = tr('sign-in-with', store.currentLanguage)
 
     const SIGN_IN_BUTTONS: SignInButtonType[] = [
         { title: `${buttonTitleSample} Google`, icon: google },

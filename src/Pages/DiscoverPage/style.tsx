@@ -7,6 +7,7 @@ const StyledDiscoverPage = styled.div`
     background: no-repeat url(${defaultBackground});
     background-size: cover;
     height: 100vh;
+    padding: 0 85px;
 `
 
 const StyledDiscoverPageCountryList = styled.div`
