@@ -36,6 +36,9 @@ export enum TRANSLATE_KEYS {
     REMEMBER_ME = 'remember-me',
     FORGOT_PASSWORD = 'forgot-password',
     DO_NOT_HAVE_AN_ACCOUNT = 'do-not-have-an-account',
+    PASSWORD = 'password',
+    SIGN_IN = 'sign-in',
+    OR = 'or',
 }
 
 type Translate = {
@@ -84,6 +87,9 @@ const TRANSLATE_RU: Translate[] = [
     { key: TRANSLATE_KEYS.REMEMBER_ME, translate: 'Запомнить меня' },
     { key: TRANSLATE_KEYS.FORGOT_PASSWORD, translate: 'Забыли пароль?' },
     { key: TRANSLATE_KEYS.DO_NOT_HAVE_AN_ACCOUNT, translate: `Нет аккаунта?` },
+    { key: TRANSLATE_KEYS.PASSWORD, translate: 'Пароль' },
+    { key: TRANSLATE_KEYS.SIGN_IN, translate: 'Войти' },
+    { key: TRANSLATE_KEYS.OR, translate: 'или' },
 ]
 
 const TRANSLATE_EN: Translate[] = [
@@ -130,6 +136,9 @@ const TRANSLATE_EN: Translate[] = [
         key: TRANSLATE_KEYS.DO_NOT_HAVE_AN_ACCOUNT,
         translate: `Don't have an account?`,
     },
+    { key: TRANSLATE_KEYS.PASSWORD, translate: 'Password' },
+    { key: TRANSLATE_KEYS.SIGN_IN, translate: 'Sign In' },
+    { key: TRANSLATE_KEYS.OR, translate: 'or' },
 ]
 
 const TRANSLATE_ES: Translate[] = [
@@ -176,6 +185,9 @@ const TRANSLATE_ES: Translate[] = [
         key: TRANSLATE_KEYS.DO_NOT_HAVE_AN_ACCOUNT,
         translate: `No tienes una cuenta?`,
     },
+    { key: TRANSLATE_KEYS.PASSWORD, translate: 'Contraseña' },
+    { key: TRANSLATE_KEYS.SIGN_IN, translate: 'Registrarse' },
+    { key: TRANSLATE_KEYS.OR, translate: 'o' },
 ]
 
 const tr = (key: string, currentLanguage: LANGUAGE): string => {

@@ -29,7 +29,7 @@ import close from 'Components/SignIn/pics/close-icon.svg'
 import hidePassword from 'Components/SignIn/pics/hide-password.svg'
 import showPassword from 'Components/SignIn/pics/password-icon.svg'
 import { BjarkiContext } from '../../context/storeContext'
-import { tr } from '../../services/language'
+import { tr, TRANSLATE_KEYS } from '../../services/language'
 
 interface SignInProps {
     isOpen: boolean
@@ -60,15 +60,41 @@ const SignIn = ({
     const [isShowPassword, setIsShowPassword] = useState<boolean>(false)
 
     const SIGN_IN: SignInType[] = [
-        { title: 'Username', inputType: 'text' },
         {
-            title: 'Password',
+            title: tr(TRANSLATE_KEYS.USERNAME, store.currentLanguage),
+            inputType: 'text',
+        },
+        {
+            title: tr(TRANSLATE_KEYS.PASSWORD, store.currentLanguage),
             icon: isShowPassword ? hidePassword : showPassword,
             inputType: isShowPassword ? 'text' : 'password',
         },
     ]
 
-    const buttonTitleSample: string = tr('sign-in-with', store.currentLanguage)
+    const buttonTitleSample: string = tr(
+        TRANSLATE_KEYS.SIGN_IN_WITH,
+        store.currentLanguage,
+    )
+
+    const rememberMeTitle = tr(
+        TRANSLATE_KEYS.REMEMBER_ME,
+        store.currentLanguage,
+    )
+    const forgotPasswordTitle = tr(
+        TRANSLATE_KEYS.FORGOT_PASSWORD,
+        store.currentLanguage,
+    )
+
+    const dontHaveAnAccountTitle = tr(
+        TRANSLATE_KEYS.DO_NOT_HAVE_AN_ACCOUNT,
+        store.currentLanguage,
+    )
+
+    const signInTitle = tr(TRANSLATE_KEYS.SIGN_IN, store.currentLanguage)
+
+    const signUpTitle = tr(TRANSLATE_KEYS.SIGN_UP, store.currentLanguage)
+
+    const orTitle = tr(TRANSLATE_KEYS.OR, store.currentLanguage)
 
     const SIGN_IN_BUTTONS: SignInButtonType[] = [
         { title: `${buttonTitleSample} Google`, icon: google },
@@ -86,7 +112,7 @@ const SignIn = ({
                         <Icon size={ICON_SIZE.X_SMALL} src={close} />
                     </button>
                 </StyledSignInHeader>
-                <h1>Sign In</h1>
+                <h1>{signInTitle}</h1>
                 <StyledSignInActions>
                     {SIGN_IN.map(field => {
                         return (
@@ -117,22 +143,18 @@ const SignIn = ({
                     })}
                     <StyledSignInSubtitles>
                         <StyledRememberMe>
-                            <input
-                                type='checkbox'
-                                placeholder={'Remember me'}
-                                value={'Remember me'}
-                            />
-                            <span>Remember me</span>
+                            <input type='checkbox' />
+                            <span>{rememberMeTitle}</span>
                         </StyledRememberMe>
                         <Button
-                            title={'Forgot Password?'}
+                            title={forgotPasswordTitle}
                             onClick={() => {}}
                             type={BUTTON_TYPE.ONLY_TEXT}
                         />
                     </StyledSignInSubtitles>
                 </StyledSignInActions>
                 <Button
-                    title={'Sign In'}
+                    title={signInTitle}
                     onClick={() => {}}
                     type={BUTTON_TYPE.PRIMARY}
                     width={BUTTON_WIDTH.BIG}
@@ -140,7 +162,7 @@ const SignIn = ({
                     borderRadius={'4px'}
                 />
                 <StyledOr>
-                    <span>or</span>
+                    <span>{orTitle}</span>
                 </StyledOr>
                 <StyledSignInWithSocialMediaButtons>
                     {SIGN_IN_BUTTONS.map(button => {
@@ -173,10 +195,10 @@ const SignIn = ({
                 </StyledSignInWithSocialMediaButtons>
 
                 <StyledSignInFooter>
-                    <div>Don't have an account? </div>
+                    <div>{dontHaveAnAccountTitle} </div>
 
                     <Button
-                        title={'Sign Up'}
+                        title={signUpTitle}
                         onClick={() => {}}
                         type={BUTTON_TYPE.UNDERLINED}
                     />
