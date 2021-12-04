@@ -5,6 +5,7 @@ import himalayas from './pics/himalayas.jpg'
 const StyledFlightPage = styled.div`
     background: no-repeat url(${himalayas});
     background-size: cover;
+    padding: 0 85px;
     color: #fff;
     height: 100vh;
     display: grid;

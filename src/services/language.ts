@@ -35,6 +35,10 @@ const TRANSLATE_RU: Translate[] = [
     { key: 'terms-and-conditions', translate: 'Пользовательское соглашение' },
     { key: 'faqs', translate: 'Вопросы и ответы' },
     { key: 'sitemap', translate: 'Карта сайта' },
+    {
+        key: 'Search hundreds of flight tickets at once.',
+        translate: 'Сотни авиабилетов в один клик.',
+    },
 ]
 
 const TRANSLATE_EN: Translate[] = [
@@ -63,6 +67,10 @@ const TRANSLATE_EN: Translate[] = [
     { key: 'terms-and-conditions', translate: 'Terms & Conditions' },
     { key: 'faqs', translate: 'FAQs' },
     { key: 'sitemap', translate: 'Sitemap' },
+    {
+        key: 'Search hundreds of flight tickets at once.',
+        translate: 'Search hundreds of flight tickets at once.',
+    },
 ]
 
 const TRANSLATE_ES: Translate[] = [
@@ -91,6 +99,10 @@ const TRANSLATE_ES: Translate[] = [
     { key: 'terms-and-conditions', translate: 'Términos y condiciones' },
     { key: 'faqs', translate: 'FAQs' },
     { key: 'sitemap', translate: 'Mapa del sitio' },
+    {
+        key: 'Search hundreds of flight tickets at once.',
+        translate: 'Busque cientos de billetes de avión a la vez.',
+    },
 ]
 
 const tr = (key: string, currentLanguage: LANGUAGE): string => {

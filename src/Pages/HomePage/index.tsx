@@ -34,6 +34,7 @@ import {
     StyledChosenOption,
     StyledDiscoverToday,
     StyledExploreCards,
+    StyledHeaderWrapper,
     StyledHomePage,
     StyledHomePageFooter,
     StyledPlacesToDiscover,
@@ -180,10 +181,12 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
             <StyledHomePage
                 city={currentCity ? currentCity.city : CITIES.MONTE_ROSA}
             >
-                <Header
-                    onLogInClicked={onSignInClicked}
-                    headerType={HEADER_TYPE.WHITE}
-                />
+                <StyledHeaderWrapper>
+                    <Header
+                        onLogInClicked={onSignInClicked}
+                        headerType={HEADER_TYPE.WHITE}
+                    />
+                </StyledHeaderWrapper>
                 <Destination
                     city={currentCity.city}
                     country={currentCity.country}

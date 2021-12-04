@@ -93,6 +93,10 @@ const StyledHomePageFooter = styled.div`
     padding-left: 85px;
 `
 
+const StyledHeaderWrapper = styled.div`
+    padding: 0 85px;
+`
+
 const StyledScroll = styled.div`
     font-size: 12px;
     margin-bottom: 8px;
@@ -182,4 +186,5 @@ export {
     StyledPlacesToStay,
     StyledExploreCards,
     StyledAdditionalInfoContainer,
+    StyledHeaderWrapper,
 }
