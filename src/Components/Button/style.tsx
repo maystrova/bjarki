@@ -75,7 +75,10 @@ const StyledButton = styled.button`
         `}
 
     ${(props: StyledButtonProps) =>
-        props.selfType === BUTTON_TYPE.ICON && css``}
+        props.selfType === BUTTON_TYPE.ICON &&
+        css`
+            background: transparent;
+        `}
   
   ${(props: StyledButtonProps) =>
         props.selfType === BUTTON_TYPE.DISCOVER &&

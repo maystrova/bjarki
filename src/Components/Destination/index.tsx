@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import { Weather } from 'Components/Weather'
@@ -12,11 +12,14 @@ import {
     StyledDestinationInfo,
     StyledDestinationTitle,
     StyledDiscover,
+    StyledDiscoverTitle,
     StyledMonth,
 } from './style'
 
 import further from 'Pages/HomePage/pics/arrow-right.svg'
 import { Button, BUTTON_TYPE } from '../Button'
+import { tr } from '../../services/language'
+import { BjarkiContext } from '../../context/storeContext'
 
 interface DestinationProps {
     city: string
@@ -41,6 +44,10 @@ const Destination = ({
     weatherIcon,
     onDiscoverClick,
 }: DestinationProps) => {
+    const { store } = useContext(BjarkiContext)
+
+    const discoverTitle = tr('discover', store.currentLanguage)
+
     return (
         <StyledDestination>
             <StyledDestinationInfo>
@@ -68,7 +75,9 @@ const Destination = ({
                             type={BUTTON_TYPE.DISCOVER}
                             children={
                                 <StyledDiscover>
-                                    <div>Discover</div>
+                                    <StyledDiscoverTitle>
+                                        {discoverTitle}
+                                    </StyledDiscoverTitle>
                                     <Icon
                                         size={ICON_SIZE.X_SMALL}
                                         src={further}

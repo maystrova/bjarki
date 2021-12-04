@@ -10,18 +10,8 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     height: 88px;
-    padding: 0 85px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     background: transparent;
     white-space: nowrap;
-`
-
-const StyledLogo = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 `
 
 const StyledMenu = styled.div`
@@ -36,8 +26,9 @@ const StyledMenuItem = styled.div`
     align-items: center;
     font-size: 14px;
     margin-right: 30px;
+    position: relative;
 
-    :last-child {
+    &:last-child {
         margin-right: 0;
     }
     & button {
@@ -65,4 +56,18 @@ const StyledMenuItem = styled.div`
     }
 `
 
-export { StyledHeader, StyledLogo, StyledMenu, StyledMenuItem }
+const StyledMenuSubMenu = styled.div`
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    button {
+        padding: 8px 5px;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+`
+
+export { StyledHeader, StyledMenu, StyledMenuItem, StyledMenuSubMenu }

@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 
 const StyledAdventuresListPage = styled.div`
-    padding: 100px 85px;
     display: grid;
-    grid-row-gap: 32px;
+    grid-template-rows: 150px;
+    padding: 0 85px;
+`
+
+const StyledAdventuresListWrapper = styled.div`
+    padding: 0 85px;
 `
 
 const StyledAdventuresListContainer = styled.div`
@@ -25,7 +29,7 @@ const StyledAvailableInfo = styled.div`
 const StyledAdventureOption = styled.label`
     border: 1px solid rgba(228, 228, 228, 1);
     border-radius: 4px;
-    padding: 9px 6px;
+    padding: 9px 9px;
     margin-right: 10px;
 
     & input {
@@ -36,6 +40,7 @@ const StyledAdventureOption = styled.label`
 
 const StyledAdventureFilter = styled.div`
     display: flex;
+    align-items: center;
 `
 
 export {
@@ -44,4 +49,5 @@ export {
     StyledAdventureOption,
     StyledAdventureFilter,
     StyledAdventuresListContainer,
+    StyledAdventuresListWrapper,
 }

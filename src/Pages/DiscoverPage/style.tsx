@@ -7,9 +7,7 @@ const StyledDiscoverPage = styled.div`
     background: no-repeat url(${defaultBackground});
     background-size: cover;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0 85px;
 `
 
 const StyledDiscoverPageCountryList = styled.div`

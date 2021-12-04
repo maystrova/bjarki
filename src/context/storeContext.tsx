@@ -1,18 +1,19 @@
-import React, { createContext, useReducer, ReactChild, Dispatch } from 'react'
-import { AdventuresType, DestinationType } from 'services/type'
+import { ADVENTURES } from 'adventures/adventures'
 import { DESTINATIONS } from 'destinations/destinations'
+import { HOTELS } from 'hotels/hotels'
+import React, { createContext, Dispatch, ReactChild, useReducer } from 'react'
+import { LANGUAGE } from 'services/language'
+import { AdventuresType, DestinationType } from 'services/type'
+import { DEFAULT_USER, UserType } from 'services/user'
 import { ACTION } from './actions'
 import { reducer } from './reducer'
-import { ThemeProvider } from 'styled-components'
-import { DEFAULT_USER, UserType } from 'services/user'
-import { HOTELS } from 'hotels/hotels'
-import { ADVENTURES } from 'adventures/adventures'
 
 export interface StoreType {
     destinations: DestinationType[]
     user: UserType
     hotels: AdventuresType[]
     adventures: AdventuresType[]
+    currentLanguage: LANGUAGE
 }
 
 const INITIAL_STORE: StoreType = {
@@ -20,6 +21,7 @@ const INITIAL_STORE: StoreType = {
     hotels: HOTELS,
     user: DEFAULT_USER,
     adventures: ADVENTURES,
+    currentLanguage: LANGUAGE.EN,
 }
 
 export const BjarkiContext = createContext<{
@@ -38,14 +40,12 @@ interface BjarkiProviderProps {
         | ReactChild[]
 }
 
-export const OrganicProvider = ({ children }: BjarkiProviderProps) => {
+export const BjarkiProvider = ({ children }: BjarkiProviderProps) => {
     const [store, dispatch] = useReducer(reducer, INITIAL_STORE)
 
     return (
-        <ThemeProvider theme={''}>
-            <BjarkiContext.Provider value={{ store, dispatch }}>
-                {children}
-            </BjarkiContext.Provider>
-        </ThemeProvider>
+        <BjarkiContext.Provider value={{ store, dispatch }}>
+            {children}
+        </BjarkiContext.Provider>
     )
 }

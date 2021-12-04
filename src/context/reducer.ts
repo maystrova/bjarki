@@ -5,5 +5,14 @@ export const reducer = (
     currentState: StoreType,
     payload: { action: ACTION; data: any },
 ): StoreType => {
-    return currentState
+    console.log('payload', payload)
+    switch (payload.action) {
+        case ACTION.SET_LANGUAGE:
+            return {
+                ...currentState,
+                currentLanguage: payload.data,
+            }
+        default:
+            return currentState
+    }
 }
