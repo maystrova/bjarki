@@ -39,6 +39,7 @@ export enum TRANSLATE_KEYS {
     PASSWORD = 'password',
     SIGN_IN = 'sign-in',
     OR = 'or',
+    SHARE = 'share',
 }
 
 type Translate = {
@@ -48,6 +49,7 @@ type Translate = {
 
 const TRANSLATE_RU: Translate[] = [
     { key: TRANSLATE_KEYS.FLIGHT, translate: 'Авиабилеты' },
+    { key: TRANSLATE_KEYS.SHARE, translate: 'Поделиться' },
     { key: TRANSLATE_KEYS.DEAL, translate: 'Условия' },
     { key: TRANSLATE_KEYS.DISCOVERS, translate: 'Направления' },
     { key: TRANSLATE_KEYS.NEWS, translate: 'Новости' },
@@ -139,6 +141,7 @@ const TRANSLATE_EN: Translate[] = [
     { key: TRANSLATE_KEYS.PASSWORD, translate: 'Password' },
     { key: TRANSLATE_KEYS.SIGN_IN, translate: 'Sign In' },
     { key: TRANSLATE_KEYS.OR, translate: 'or' },
+    { key: TRANSLATE_KEYS.SHARE, translate: 'Share' },
 ]
 
 const TRANSLATE_ES: Translate[] = [
@@ -188,6 +191,7 @@ const TRANSLATE_ES: Translate[] = [
     { key: TRANSLATE_KEYS.PASSWORD, translate: 'Contraseña' },
     { key: TRANSLATE_KEYS.SIGN_IN, translate: 'Registrarse' },
     { key: TRANSLATE_KEYS.OR, translate: 'o' },
+    { key: TRANSLATE_KEYS.SHARE, translate: 'Cuota' },
 ]
 
 const tr = (key: string, currentLanguage: LANGUAGE): string => {

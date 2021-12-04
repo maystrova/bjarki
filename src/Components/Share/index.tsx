@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Icon, ICON_SIZE } from 'Components/Icon'
 
@@ -12,6 +12,8 @@ import {
 import fb from 'Pages/NewsPage/pics/fb.svg'
 import tw from 'Pages/NewsPage/pics/tw.svg'
 import google from 'Pages/NewsPage/pics/google.svg'
+import { BjarkiContext } from '../../context/storeContext'
+import { tr, TRANSLATE_KEYS } from '../../services/language'
 
 interface ShareProps {}
 
@@ -98,6 +100,8 @@ const popup = (url: string): void => {
 }
 
 const Share = ({}: ShareProps) => {
+    const { store } = useContext(BjarkiContext)
+
     const SHARE_BUTTONS: ShareType[] = [
         {
             icon: fb,
@@ -120,6 +124,9 @@ const Share = ({}: ShareProps) => {
                 }),
         },
     ]
+
+    const shareTitle = tr(TRANSLATE_KEYS.SHARE, store.currentLanguage)
+
     return (
         <div>
             {SHARE_BUTTONS.map(button => {
@@ -132,7 +139,7 @@ const Share = ({}: ShareProps) => {
                 )
             })}
             <StyledShareTitleWrapper>
-                <StyledShareTitle>Share</StyledShareTitle>
+                <StyledShareTitle>{shareTitle}</StyledShareTitle>
             </StyledShareTitleWrapper>
         </div>
     )

@@ -13,13 +13,14 @@ interface StyledNewsProps {
 const StyledNewsPage = styled.div`
     display: grid;
     grid-row-gap: 50px;
+    padding: 0 85px;
 `
 
 const StyledNewsPageWrapper = styled.div`
-    padding: 100px 85px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 50px;
 `
 
 const StyledNewsPageContainer = styled.div`

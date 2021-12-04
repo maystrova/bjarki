@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const StyledAdventuresListPage = styled.div`
     display: grid;
     grid-template-rows: 150px;
+    padding: 0 85px;
 `
 
 const StyledAdventuresListWrapper = styled.div`
