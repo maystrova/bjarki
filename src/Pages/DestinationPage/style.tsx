@@ -17,10 +17,10 @@ interface StyledDestinationPageProps {
 }
 
 const StyledDestinationPage = styled.div`
+    padding: 0 85px;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-row-gap: 50px;
 
     ${(props: StyledDestinationPageProps) =>
         props.destination === CITIES.MONTE_ROSA &&
@@ -88,10 +88,9 @@ const StyledDestinationPage = styled.div`
 
 const StyledDestinationPageContainer = styled.div`
     max-width: 1200px;
+    color: #fff;
     display: grid;
     grid-row-gap: 50px;
-    color: #fff;
-    justify-content: center;
 `
 
 const StyledDestinationPageTitle = styled.div`
@@ -101,8 +100,15 @@ const StyledDestinationPageTitle = styled.div`
     font-size: 20px;
 `
 
+const StyledDestinationPageContainerWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 export {
     StyledDestinationPage,
     StyledDestinationPageContainer,
     StyledDestinationPageTitle,
+    StyledDestinationPageContainerWrapper,
 }

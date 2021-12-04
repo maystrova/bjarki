@@ -10,7 +10,6 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     height: 88px;
-    padding: 0 85px;
     background: transparent;
     white-space: nowrap;
 `
