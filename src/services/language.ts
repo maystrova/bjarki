@@ -40,6 +40,10 @@ export enum TRANSLATE_KEYS {
     SIGN_IN = 'sign-in',
     OR = 'or',
     SHARE = 'share',
+    PER_15_DAYS_TOUR = 'per-15-days-tour',
+    ADVENTURES = 'adventures',
+    HOTELS = 'hotels',
+    AVAILABLE = 'available',
 }
 
 type Translate = {
@@ -61,7 +65,7 @@ const TRANSLATE_RU: Translate[] = [
         key: TRANSLATE_KEYS.CHECK_IN_CHECK_OUT,
         translate: 'Дата заезда - Дата отъезда',
     },
-    { key: TRANSLATE_KEYS.TRAVELLERS, translate: 'Кол-во путешественников' },
+    { key: TRANSLATE_KEYS.TRAVELLERS, translate: 'Кол-во туристов' },
     { key: TRANSLATE_KEYS.SEARCH, translate: 'Поиск' },
     { key: TRANSLATE_KEYS.HOMES, translate: 'Домов' },
     { key: TRANSLATE_KEYS.VILLAS, translate: 'Вилл' },
@@ -92,6 +96,10 @@ const TRANSLATE_RU: Translate[] = [
     { key: TRANSLATE_KEYS.PASSWORD, translate: 'Пароль' },
     { key: TRANSLATE_KEYS.SIGN_IN, translate: 'Войти' },
     { key: TRANSLATE_KEYS.OR, translate: 'или' },
+    { key: TRANSLATE_KEYS.PER_15_DAYS_TOUR, translate: 'за 15-дневный тур' },
+    { key: TRANSLATE_KEYS.ADVENTURES, translate: 'Путешествий' },
+    { key: TRANSLATE_KEYS.HOTELS, translate: 'Отелей' },
+    { key: TRANSLATE_KEYS.AVAILABLE, translate: 'доступно' },
 ]
 
 const TRANSLATE_EN: Translate[] = [
@@ -142,6 +150,10 @@ const TRANSLATE_EN: Translate[] = [
     { key: TRANSLATE_KEYS.SIGN_IN, translate: 'Sign In' },
     { key: TRANSLATE_KEYS.OR, translate: 'or' },
     { key: TRANSLATE_KEYS.SHARE, translate: 'Share' },
+    { key: TRANSLATE_KEYS.PER_15_DAYS_TOUR, translate: 'per 15 days tour' },
+    { key: TRANSLATE_KEYS.ADVENTURES, translate: 'Adventures' },
+    { key: TRANSLATE_KEYS.AVAILABLE, translate: 'available' },
+    { key: TRANSLATE_KEYS.HOTELS, translate: 'Hotels' },
 ]
 
 const TRANSLATE_ES: Translate[] = [
@@ -192,6 +204,10 @@ const TRANSLATE_ES: Translate[] = [
     { key: TRANSLATE_KEYS.SIGN_IN, translate: 'Registrarse' },
     { key: TRANSLATE_KEYS.OR, translate: 'o' },
     { key: TRANSLATE_KEYS.SHARE, translate: 'Cuota' },
+    { key: TRANSLATE_KEYS.PER_15_DAYS_TOUR, translate: 'por tour de 15 días' },
+    { key: TRANSLATE_KEYS.ADVENTURES, translate: 'Aventuras' },
+    { key: TRANSLATE_KEYS.AVAILABLE, translate: 'disponible' },
+    { key: TRANSLATE_KEYS.HOTELS, translate: 'Hoteles' },
 ]
 
 const tr = (key: string, currentLanguage: LANGUAGE): string => {

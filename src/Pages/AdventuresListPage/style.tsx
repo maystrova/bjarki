@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 const StyledAdventuresListPage = styled.div`
     display: grid;
-    grid-template-rows: 150px;
+    grid-row-gap: 50px;
     padding: 0 85px;
+    margin-bottom: 100px;
 `
 
 const StyledAdventuresListWrapper = styled.div`
