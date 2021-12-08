@@ -17,6 +17,12 @@ const StyledAdventuresListContainer = styled.div`
     grid-row-gap: 50px;
 `
 
+const StyledAdventuresList = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 50px;
+`
+
 const StyledAvailableInfo = styled.div`
     font-size: 20px;
     display: grid;
@@ -51,4 +57,5 @@ export {
     StyledAdventureFilter,
     StyledAdventuresListContainer,
     StyledAdventuresListWrapper,
+    StyledAdventuresList,
 }

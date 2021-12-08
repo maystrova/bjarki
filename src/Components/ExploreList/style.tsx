@@ -18,8 +18,8 @@ const StyledExploreListHeader = styled.header`
 `
 
 const StyledExploreList = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: space-between;
 `
 
 export { StyledExploreListHeader, StyledExploreList }

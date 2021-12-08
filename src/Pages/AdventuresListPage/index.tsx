@@ -11,6 +11,7 @@ import { Footer } from 'Components/Footer'
 import {
     StyledAdventureFilter,
     StyledAdventureOption,
+    StyledAdventuresList,
     StyledAdventuresListContainer,
     StyledAdventuresListPage,
     StyledAdventuresListWrapper,
@@ -111,7 +112,7 @@ const AdventuresListPage = ({ onLogInClicked }: AdventuresListPageProps) => {
                                 {/*</StyledAdventureOption>*/}
                             </div>
                         </StyledAvailableInfo>
-                        <StyledExploreList>
+                        <StyledAdventuresList>
                             {doubleAdventures.map(adventure => {
                                 return (
                                     <AdventureCard
@@ -146,7 +147,7 @@ const AdventuresListPage = ({ onLogInClicked }: AdventuresListPageProps) => {
                                     />
                                 )
                             })}
-                        </StyledExploreList>
+                        </StyledAdventuresList>
                     </StyledAdventuresListContainer>
                 </StyledAdventuresListWrapper>
             </StyledAdventuresListPage>
