@@ -55,6 +55,8 @@ const AdventuresListPage = ({ onLogInClicked }: AdventuresListPageProps) => {
         store.currentLanguage,
     )
 
+    const typeTitle: string = tr(TRANSLATE_KEYS.TYPE, store.currentLanguage)
+
     return (
         <div>
             <StyledAdventuresListPage>
@@ -84,7 +86,7 @@ const AdventuresListPage = ({ onLogInClicked }: AdventuresListPageProps) => {
                                 <StyledAdventureOption>
                                     <input
                                         type='text'
-                                        placeholder={'Type'}
+                                        placeholder={typeTitle}
                                         list={'type'}
                                     />
                                     <datalist id={'type'}>

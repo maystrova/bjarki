@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory, useParams, useLocation } from 'react-router-dom'
 import { animateScroll as scroll } from 'react-scroll'
 
 import { BjarkiContext } from 'context/storeContext'
@@ -83,14 +83,17 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
     const [destinationsList, setDestinationsList] = useState<CityWithCountry[]>(
         [],
     )
-
-    let params = useParams<{ alias: string }>()
+    const { search } = useLocation()
 
     const getCityFromStore = (): void => {
+        const cityFromUrl = search.replace('?city=', '')
+
         store.destinations.forEach(destination => {
             const foundCity: CityType | undefined = destination.city.find(
-                city => city.alias === params.alias,
+                city => city.alias === cityFromUrl,
             )
+
+            console.log('foundCity', foundCity)
 
             if (foundCity) {
                 const newCurrentCity: HomePageInterface = {

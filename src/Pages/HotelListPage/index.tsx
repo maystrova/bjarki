@@ -36,6 +36,8 @@ const HotelListPage = ({ onLogInClicked }: HotelListPageProps) => {
 
     const hotelsTitle: string = tr(TRANSLATE_KEYS.HOTELS, store.currentLanguage)
 
+    const typeTitle: string = tr(TRANSLATE_KEYS.TYPE, store.currentLanguage)
+
     const availableTitle: string = tr(
         TRANSLATE_KEYS.AVAILABLE,
         store.currentLanguage,
@@ -80,7 +82,7 @@ const HotelListPage = ({ onLogInClicked }: HotelListPageProps) => {
                                 <StyledAdventureOption>
                                     <input
                                         type='text'
-                                        placeholder={'Type'}
+                                        placeholder={typeTitle}
                                         list={'type'}
                                     />
                                     <datalist id={'type'}>

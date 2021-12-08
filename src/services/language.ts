@@ -44,6 +44,8 @@ export enum TRANSLATE_KEYS {
     ADVENTURES = 'adventures',
     HOTELS = 'hotels',
     AVAILABLE = 'available',
+    TYPE = 'type',
+    PLACES_TO_STAY = 'places-to-stay',
 }
 
 type Translate = {
@@ -100,6 +102,8 @@ const TRANSLATE_RU: Translate[] = [
     { key: TRANSLATE_KEYS.ADVENTURES, translate: 'Путешествий' },
     { key: TRANSLATE_KEYS.HOTELS, translate: 'Отелей' },
     { key: TRANSLATE_KEYS.AVAILABLE, translate: 'доступно' },
+    { key: TRANSLATE_KEYS.TYPE, translate: 'Тип' },
+    { key: TRANSLATE_KEYS.PLACES_TO_STAY, translate: 'Отели' },
 ]
 
 const TRANSLATE_EN: Translate[] = [
@@ -154,6 +158,8 @@ const TRANSLATE_EN: Translate[] = [
     { key: TRANSLATE_KEYS.ADVENTURES, translate: 'Adventures' },
     { key: TRANSLATE_KEYS.AVAILABLE, translate: 'available' },
     { key: TRANSLATE_KEYS.HOTELS, translate: 'Hotels' },
+    { key: TRANSLATE_KEYS.TYPE, translate: 'Type' },
+    { key: TRANSLATE_KEYS.PLACES_TO_STAY, translate: 'Places to stay' },
 ]
 
 const TRANSLATE_ES: Translate[] = [
@@ -208,6 +214,8 @@ const TRANSLATE_ES: Translate[] = [
     { key: TRANSLATE_KEYS.ADVENTURES, translate: 'Aventuras' },
     { key: TRANSLATE_KEYS.AVAILABLE, translate: 'disponible' },
     { key: TRANSLATE_KEYS.HOTELS, translate: 'Hoteles' },
+    { key: TRANSLATE_KEYS.TYPE, translate: 'Escribe' },
+    { key: TRANSLATE_KEYS.PLACES_TO_STAY, translate: 'Lugares para quedarse' },
 ]
 
 const tr = (key: string, currentLanguage: LANGUAGE): string => {
