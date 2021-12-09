@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useHistory, useParams, useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import { animateScroll as scroll } from 'react-scroll'
 
 import { BjarkiContext } from 'context/storeContext'
@@ -15,7 +15,9 @@ import {
 } from 'services/type'
 import { HomePageInterface } from './type'
 
+import { tr, TRANSLATE_KEYS } from 'services/language'
 import { ClientWeather, getWeather } from 'services/weather'
+
 import { Icon, ICON_SIZE } from 'Components/Icon'
 import { DiscoverCard } from 'Components/DiscoverCard'
 import { Destination } from 'Components/Destination'
@@ -25,8 +27,8 @@ import { Search } from 'Components/Search'
 import { AdventureCard } from 'Components/AdventureCard'
 import { Footer } from 'Components/Footer'
 import { Header, HEADER_TYPE } from 'Components/Header'
-import { ExploreList } from 'Components/ExploreList'
 
+import { ExploreList } from 'Components/ExploreList'
 import {
     StyledAdditionalInfoContainer,
     StyledAdditionalInformation,
@@ -44,15 +46,14 @@ import {
     StyledScrollButton,
     StyledSearchActions,
 } from './style'
-import { StyledExploreList } from 'Components/ExploreList/style'
 
+import { StyledExploreList } from 'Components/ExploreList/style'
 import down from 'Pages/HomePage/pics/arrow-down.svg'
 import clouds from './pics/cloudy-icon.svg'
 import rain from './pics/light-rain.svg'
 import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
-import { tr } from '../../services/language'
 
 interface exploreCardsType {
     title: string
@@ -69,6 +70,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
         temp: 0,
         feels_like: '',
     })
+    const [cities, setCities] = useState<CityType[]>([])
     const [destinationSearch, setDestinationSearch] = useState<string>('')
     const [currentCity, setCurrentCity] = useState<HomePageInterface>({
         city: CITIES.MONTE_ROSA,
@@ -106,6 +108,13 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
         })
         return undefined
     }
+
+    const weatherIcon =
+        weather.feels_like === 'Clouds'
+            ? clouds
+            : weather.feels_like === 'Rain'
+            ? rain
+            : defaultWeather
 
     const getCountryByCity = (
         city: string,
@@ -162,6 +171,8 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
         handleGetWeather(currentCity)
     }, [currentCity])
 
+    // useEffect(() => enumerateDestinations, [])
+
     const EXPLORE_CARDS: exploreCardsType[] = [
         {
             title: `15,000 + ${tr('homes', store.currentLanguage)}`,
@@ -177,7 +188,17 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
         history.push(ROUTES.ADVENTURES_LIST_PAGE)
     }
 
-    const priceDescr = tr('per-night', store.currentLanguage)
+    const priceDescr = tr(TRANSLATE_KEYS.PER_NIGHT, store.currentLanguage)
+
+    const placesToStayTitle = tr(
+        TRANSLATE_KEYS.PLACES_TO_STAY,
+        store.currentLanguage,
+    )
+
+    const adventuresTitle = tr(
+        TRANSLATE_KEYS.ADVENTURES_SEARCH,
+        store.currentLanguage,
+    )
 
     return (
         <div>
@@ -194,13 +215,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                     city={currentCity.city}
                     country={currentCity.country}
                     weatherDescription={weather.feels_like}
-                    weatherIcon={
-                        weather.feels_like === 'Clouds'
-                            ? clouds
-                            : weather.feels_like === 'Rain'
-                            ? rain
-                            : defaultWeather
-                    }
+                    weatherIcon={weatherIcon}
                     temperature={`${Math.round(weather.temp).toString()}ºC`}
                     onDiscoverClick={() =>
                         history.push(`/destination/${currentCity.alias}`)
@@ -233,7 +248,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                                         type='radio'
                                         checked={placesToStayIsChecked}
                                     />
-                                    <span>Places to stay</span>
+                                    <span>{placesToStayTitle}</span>
                                 </StyledChosenOption>
                                 <StyledChosenOption
                                     onClick={() => {
@@ -245,7 +260,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                                         type='radio'
                                         checked={adventuresIsChecked}
                                     />
-                                    <span>Adventures</span>
+                                    <span>{adventuresTitle}</span>
                                 </StyledChosenOption>
                             </StyledChooseOption>
                             <Search
