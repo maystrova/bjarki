@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { animateScroll as scroll } from 'react-scroll'
 
 import { BjarkiContext } from 'context/storeContext'
@@ -55,6 +55,8 @@ import defaultWeather from './pics/cloudy-and-sun.svg'
 import homesPic from 'Pages/HomePage/pics/homes.png'
 import villasPic from 'Pages/HomePage/pics/villas.png'
 
+const CITY_ALIASES: string[] = Object.values(DESTINATION_ALIAS)
+
 interface exploreCardsType {
     title: string
     image: string
@@ -70,7 +72,7 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
         temp: 0,
         feels_like: '',
     })
-    const [cities, setCities] = useState<CityType[]>([])
+    const [currentIndex, setCurrentIndex] = useState<number>(0)
     const [destinationSearch, setDestinationSearch] = useState<string>('')
     const [currentCity, setCurrentCity] = useState<HomePageInterface>({
         city: CITIES.MONTE_ROSA,
@@ -85,17 +87,12 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
     const [destinationsList, setDestinationsList] = useState<CityWithCountry[]>(
         [],
     )
-    const { search } = useLocation()
 
-    const getCityFromStore = (): void => {
-        const cityFromUrl = search.replace('?city=', '')
-
+    const getCityFromStore = (newCity: string): void => {
         store.destinations.forEach(destination => {
             const foundCity: CityType | undefined = destination.city.find(
-                city => city.alias === cityFromUrl,
+                city => city.alias === newCity,
             )
-
-            console.log('foundCity', foundCity)
 
             if (foundCity) {
                 const newCurrentCity: HomePageInterface = {
@@ -106,7 +103,6 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
                 setCurrentCity(newCurrentCity)
             }
         })
-        return undefined
     }
 
     const weatherIcon =
@@ -162,16 +158,20 @@ const HomePage = ({ onSignInClicked }: HomePageProps) => {
     const history = useHistory()
 
     useEffect(() => {
-        getCityFromStore()
-    }, [])
+        getCityFromStore(CITY_ALIASES[currentIndex])
+
+        setTimeout(() => {
+            setCurrentIndex(
+                currentIndex <= CITY_ALIASES.length ? currentIndex + 1 : 0,
+            )
+        }, 5000)
+    }, [currentIndex])
 
     useEffect(() => getDestinationsFromStore(), [])
 
     useEffect(() => {
         handleGetWeather(currentCity)
     }, [currentCity])
-
-    // useEffect(() => enumerateDestinations, [])
 
     const EXPLORE_CARDS: exploreCardsType[] = [
         {
