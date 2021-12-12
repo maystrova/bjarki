@@ -11,6 +11,10 @@ import reynisfjara from 'destinations/pics/reynisfjara.jpg'
 import tokyo from 'destinations/pics/tokyo.jpg'
 import yosemite from 'destinations/pics/yosemite.jpg'
 import luangPrabang from 'destinations/pics/luang-prabang.jpg'
+import godafoss from 'destinations/pics/godafoss-bg.jpg'
+import bridgetown from 'destinations/pics/bridgetown-bg.jpg'
+import giza from 'destinations/pics/giza-bg.jpg'
+import vietnam from 'destinations/pics/vietnam-bg.jpg'
 
 interface StyledDestinationPageProps {
     destination: string
@@ -82,6 +86,34 @@ const StyledDestinationPage = styled.div`
         props.destination === CITIES.LUANG_PRABANG &&
         css`
             background: no-repeat url(${luangPrabang});
+            background-size: cover;
+        `}
+
+    ${(props: StyledDestinationPageProps) =>
+        props.destination === CITIES.GODAFOSS &&
+        css`
+            background: no-repeat url(${godafoss});
+            background-size: cover;
+        `}
+
+    ${(props: StyledDestinationPageProps) =>
+        props.destination === CITIES.BRIDGETOWN &&
+        css`
+            background: no-repeat url(${bridgetown});
+            background-size: cover;
+        `}
+
+    ${(props: StyledDestinationPageProps) =>
+        props.destination === CITIES.HOI_AN &&
+        css`
+            background: no-repeat url(${vietnam});
+            background-size: cover;
+        `}
+
+    ${(props: StyledDestinationPageProps) =>
+        props.destination === CITIES.GIZA &&
+        css`
+            background: no-repeat url(${giza});
             background-size: cover;
         `}
 `
