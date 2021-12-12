@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 const StyledAdventuresListPage = styled.div`
     display: grid;
-    grid-template-rows: 150px;
+    grid-row-gap: 50px;
     padding: 0 85px;
+    margin-bottom: 100px;
 `
 
 const StyledAdventuresListWrapper = styled.div`
@@ -13,6 +14,12 @@ const StyledAdventuresListWrapper = styled.div`
 const StyledAdventuresListContainer = styled.div`
     max-width: 1200px;
     display: grid;
+    grid-row-gap: 50px;
+`
+
+const StyledAdventuresList = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     grid-row-gap: 50px;
 `
 
@@ -50,4 +57,5 @@ export {
     StyledAdventureFilter,
     StyledAdventuresListContainer,
     StyledAdventuresListWrapper,
+    StyledAdventuresList,
 }
